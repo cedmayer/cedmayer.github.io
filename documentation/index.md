@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Theme Setup
+title: Documentation
 modified: 2014-07-31T13:23:02.362000-04:00
-excerpt: "Instructions on how to install and customize the Jekyll theme Minimal Mistakes."
+excerpt: "This Documentation will guide and help you to understand OpenIndy."
 image:
   feature: banner_oi_proto.jpg
 ---
@@ -17,75 +17,26 @@ image:
 </div>
 </section><!-- /#table-of-contents -->
 
-## Installation
+## Welcome to the OpenIndy Documentation
 
-Minimal Mistakes now requires [Jekyll](http://jekyllrb.com/) 2.2+. Make sure to run `gem update jekyll` if you aren't on the latest version or `gem install jekyll` if this is your first time installing it.
 
-If you are creating a new Jekyll site using Minimal Mistakes follow these steps:
 
-1. Fork the [Minimal Mistakes repo](http://github.com/mmistakes/minimal-mistakes/fork).
-2. Clone the repo you just forked and rename it.
-3. [Install Bundler](http://bundler.io) `gem install bundler` and Run `bundle install` to install all dependencies (Jekyll, [Jekyll-Sitemap](https://github.com/jekyll/jekyll-sitemap), [Octopress](https://github.com/octopress/octopress), etc)
-4. Update `config.yml`, add navigation, and replace demo posts and pages with your own. Full details below.
+OpenIndy is a metrology software solution that can be extended by [plugins](/documentation/#plugins). The project started in 2013 as a student project in the Department of Geoinformatics and Surveying ([HS Mainz](https://www.hs-mainz.de/technology/geoinformatics-and-surveying/index.html){:target="blank"}). Our primary goal is to attract students and to jointly develop and learn.
 
-If you want to use Minimal Mistakes with an existing Jekyll site follow these steps:
-
-1. [Download Minimal Mistakes](https://github.com/mmistakes/minimal-mistakes/archive/master.zip) and unzip.
-2. Rename `minimal-mistakes-master` to something meaningful ie: `new-site`
-3. Run `bundle install` to install all dependencies (Jekyll, [Jekyll-Sitemap](https://github.com/jekyll/jekyll-sitemap), [Octopress](https://github.com/octopress/octopress), etc)
-4. Remove demo posts/pages and replace with your own posts, pages, and any other content you want to move over.
-5. Update posts' and pages' YAML to match variables used by Minimal Mistakes. Full details below.
-6. Update `_config.yml` and add navigation links. Full details below. 
-
-**Pro-tip:** Delete the `gh-pages` branch after cloning and start fresh by branching off `master`. There is a bunch of garbage in `gh-pages` used for the theme's demo site that I'm guessing you won't want.
-{: .notice}
+This Documentation will guide and help you to understand OpenIndy. The following pages explain the concept and special features of OpenIndy.
 
 ---
 
-## Scaffolding
+## concept
 
-How Minimal Mistakes is organized and what the various files are. All posts, layouts, includes, stylesheets, assets, and whatever else is grouped nicely under the root folder. The compiled Jekyll site outputs to `_site/`.
-
-{% highlight text %}
-minimal-mistakes/
-├── _includes/
-|    ├── _author-bio.html        # bio stuff layout. pulls optional owner data from _config.yml
-|    ├── _browser-upgrade.html   # prompt to install a modern browser for < IE9
-|    ├── _disqus_comments.html   # Disqus comments script
-|    ├── _footer.html            # site footer
-|    ├── _head.html              # site head
-|    ├── _navigation.html        # site top navigation
-|    ├── _open-graph.html        # Twitter Cards and Open Graph meta data
-|    └── _scripts.html           # site scripts
-├── _layouts/
-|    ├── home.html               # homepage layout
-|    ├── page.html               # page layout
-|    ├── post-index.html         # post index layout
-|    └── post.html               # single post layout
-├── _posts/                      # MarkDown formatted posts
-├── _sass/                       # Sass stylesheets
-├── _templates/                  # used by Octopress to define YAML variables for new posts/pages
-├── about/                       # sample about page
-├── assets/
-|    ├── css/                    # compiled stylesheets
-|    ├── fonts/                  # webfonts
-|    ├── js/
-|    |   ├── _main.js            # main JavaScript file, plugin settings, etc
-|    |   ├── plugins/            # scripts and jQuery plugins to combine with _main.js
-|    |   ├── scripts.min.js      # concatenated and minified _main.js + plugin scripts
-|    |   └── vendor/             # vendor scripts to leave alone and load as is
-|    └── less/
-├── images/                      # images for posts and pages
-├── 404.md                       # 404 page
-├── feed.xml                     # Atom feed template
-├── index.md                     # sample homepage. lists 5 latest posts 
-├── posts/                       # sample post index page. lists all posts in reverse chronology
-└── theme-setup/                 # theme setup page. safe to remove
-{% endhighlight %}
+aa2
 
 ---
 
-## Site Setup
+## plugins
+* test1
+   * test2
+      * test3
 
 A quick checklist of the files you'll want to edit to get up and running.
 

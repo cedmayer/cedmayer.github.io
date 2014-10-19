@@ -5,15 +5,15 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Theme Setup &#8211; OpenIndy</title>
-<meta name="description" content="Instructions on how to install and customize the Jekyll theme Minimal Mistakes.">
+<title>Documentation &#8211; OpenIndy</title>
+<meta name="description" content="This Documentation will guide and help you to understand OpenIndy.">
 <meta name="keywords" content="">
 
 
 
 <!-- Twitter Cards -->
-<meta name="twitter:title" content="Theme Setup">
-<meta name="twitter:description" content="Instructions on how to install and customize the Jekyll theme Minimal Mistakes.">
+<meta name="twitter:title" content="Documentation">
+<meta name="twitter:description" content="This Documentation will guide and help you to understand OpenIndy.">
 
 
 
@@ -23,16 +23,16 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Theme Setup">
-<meta property="og:description" content="Instructions on how to install and customize the Jekyll theme Minimal Mistakes.">
-<meta property="og:url" content="http://0.0.0.0:4000//theme-setup/">
+<meta property="og:title" content="Documentation">
+<meta property="og:description" content="This Documentation will guide and help you to understand OpenIndy.">
+<meta property="og:url" content="http://0.0.0.0:4000//documentation/">
 <meta property="og:site_name" content="OpenIndy">
 
 
 
 
 
-<link rel="canonical" href="http://0.0.0.0:4000//theme-setup/">
+<link rel="canonical" href="http://0.0.0.0:4000//documentation/">
 <link href="http://0.0.0.0:4000//feed.xml" type="application/atom+xml" rel="alternate" title="OpenIndy Feed">
 
 
@@ -103,7 +103,7 @@
 					    
 					        
 					    
-					    <li><a href="http://0.0.0.0:4000//theme-setup/" >Documentation</a></li>
+					    <li><a href="http://0.0.0.0:4000//documentation/" >Documentation</a></li>
 					  
 		    </ul>
 		</nav>
@@ -116,7 +116,7 @@
     
       "http://0.0.0.0:4000//images/banner_oi_proto.jpg"
     
-  alt="Theme Setup feature image">
+  alt="Documentation feature image">
 
   </div><!-- /.image-wrap -->
 
@@ -148,7 +148,7 @@
 
   </div>
   <article class="page">
-    <h1>Theme Setup</h1>
+    <h1>Documentation</h1>
     <div class="article-wrap">
       <section id="table-of-contents" class="toc">
   <header>
@@ -156,9 +156,9 @@
   </header>
 <div id="drawer">
 <ul id="markdown-toc">
-  <li><a href="#installation">Installation</a></li>
-  <li><a href="#scaffolding">Scaffolding</a></li>
-  <li><a href="#site-setup">Site Setup</a>    <ul>
+  <li><a href="#welcome-to-the-openindy-documentation">Welcome to the OpenIndy Documentation</a></li>
+  <li><a href="#concept">concept</a></li>
+  <li><a href="#plugins">plugins</a>    <ul>
       <li><a href="#site-wide-configuration">Site Wide Configuration</a>        <ul>
           <li><a href="#title">title</a></li>
           <li><a href="#url">url</a></li>
@@ -194,76 +194,32 @@
 </section>
 <!-- /#table-of-contents -->
 
-<h2 id="installation">Installation</h2>
+<h2 id="welcome-to-the-openindy-documentation">Welcome to the OpenIndy Documentation</h2>
 
-<p>Minimal Mistakes now requires <a href="http://jekyllrb.com/">Jekyll</a> 2.2+. Make sure to run <code>gem update jekyll</code> if you aren’t on the latest version or <code>gem install jekyll</code> if this is your first time installing it.</p>
+<p>OpenIndy is a metrology software solution that can be extended by <a href="/documentation/#plugins">plugins</a>. The project started in 2013 as a student project in the Department of Geoinformatics and Surveying (<a href="https://www.hs-mainz.de/technology/geoinformatics-and-surveying/index.html" target="blank">HS Mainz</a>). Our primary goal is to attract students and to jointly develop and learn.</p>
 
-<p>If you are creating a new Jekyll site using Minimal Mistakes follow these steps:</p>
-
-<ol>
-  <li>Fork the <a href="http://github.com/mmistakes/minimal-mistakes/fork">Minimal Mistakes repo</a>.</li>
-  <li>Clone the repo you just forked and rename it.</li>
-  <li><a href="http://bundler.io">Install Bundler</a> <code>gem install bundler</code> and Run <code>bundle install</code> to install all dependencies (Jekyll, <a href="https://github.com/jekyll/jekyll-sitemap">Jekyll-Sitemap</a>, <a href="https://github.com/octopress/octopress">Octopress</a>, etc)</li>
-  <li>Update <code>config.yml</code>, add navigation, and replace demo posts and pages with your own. Full details below.</li>
-</ol>
-
-<p>If you want to use Minimal Mistakes with an existing Jekyll site follow these steps:</p>
-
-<ol>
-  <li><a href="https://github.com/mmistakes/minimal-mistakes/archive/master.zip">Download Minimal Mistakes</a> and unzip.</li>
-  <li>Rename <code>minimal-mistakes-master</code> to something meaningful ie: <code>new-site</code></li>
-  <li>Run <code>bundle install</code> to install all dependencies (Jekyll, <a href="https://github.com/jekyll/jekyll-sitemap">Jekyll-Sitemap</a>, <a href="https://github.com/octopress/octopress">Octopress</a>, etc)</li>
-  <li>Remove demo posts/pages and replace with your own posts, pages, and any other content you want to move over.</li>
-  <li>Update posts’ and pages’ YAML to match variables used by Minimal Mistakes. Full details below.</li>
-  <li>Update <code>_config.yml</code> and add navigation links. Full details below. </li>
-</ol>
-
-<p class="notice"><strong>Pro-tip:</strong> Delete the <code>gh-pages</code> branch after cloning and start fresh by branching off <code>master</code>. There is a bunch of garbage in <code>gh-pages</code> used for the theme’s demo site that I’m guessing you won’t want.</p>
+<p>This Documentation will guide and help you to understand OpenIndy. The following pages explain the concept and special features of OpenIndy.</p>
 
 <hr />
 
-<h2 id="scaffolding">Scaffolding</h2>
+<h2 id="concept">concept</h2>
 
-<p>How Minimal Mistakes is organized and what the various files are. All posts, layouts, includes, stylesheets, assets, and whatever else is grouped nicely under the root folder. The compiled Jekyll site outputs to <code>_site/</code>.</p>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">minimal-mistakes/
-├── _includes/
-|    ├── _author-bio.html        # bio stuff layout. pulls optional owner data from _config.yml
-|    ├── _browser-upgrade.html   # prompt to install a modern browser for &lt; IE9
-|    ├── _disqus_comments.html   # Disqus comments script
-|    ├── _footer.html            # site footer
-|    ├── _head.html              # site head
-|    ├── _navigation.html        # site top navigation
-|    ├── _open-graph.html        # Twitter Cards and Open Graph meta data
-|    └── _scripts.html           # site scripts
-├── _layouts/
-|    ├── home.html               # homepage layout
-|    ├── page.html               # page layout
-|    ├── post-index.html         # post index layout
-|    └── post.html               # single post layout
-├── _posts/                      # MarkDown formatted posts
-├── _sass/                       # Sass stylesheets
-├── _templates/                  # used by Octopress to define YAML variables for new posts/pages
-├── about/                       # sample about page
-├── assets/
-|    ├── css/                    # compiled stylesheets
-|    ├── fonts/                  # webfonts
-|    ├── js/
-|    |   ├── _main.js            # main JavaScript file, plugin settings, etc
-|    |   ├── plugins/            # scripts and jQuery plugins to combine with _main.js
-|    |   ├── scripts.min.js      # concatenated and minified _main.js + plugin scripts
-|    |   └── vendor/             # vendor scripts to leave alone and load as is
-|    └── less/
-├── images/                      # images for posts and pages
-├── 404.md                       # 404 page
-├── feed.xml                     # Atom feed template
-├── index.md                     # sample homepage. lists 5 latest posts 
-├── posts/                       # sample post index page. lists all posts in reverse chronology
-└── theme-setup/                 # theme setup page. safe to remove</code></pre></div>
+<p>aa2</p>
 
 <hr />
 
-<h2 id="site-setup">Site Setup</h2>
+<h2 id="plugins">plugins</h2>
+<ul>
+  <li>test1
+    <ul>
+      <li>test2
+        <ul>
+          <li>test3</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
 
 <p>A quick checklist of the files you’ll want to edit to get up and running.</p>
 
