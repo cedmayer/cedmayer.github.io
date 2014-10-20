@@ -145,15 +145,15 @@
 
 
 <meta charset="utf-8">
-<title>About OpenIndy &#8211; OpenIndy</title>
-
-<meta name="keywords" content="about, OpenIndy, industrial, measurement, surveying, metrology, laser, tracker, tacheometer, tachymeter, Industrie, Vermessung">
+<title>OiPluginTemplate Tutorial &#8211; OpenIndy</title>
+<meta name="description" content="This tutorial supports you to learn how to write and run your own plugins using this project as a template.">
+<meta name="keywords" content="">
 
 
 
 <!-- Twitter Cards -->
-<meta name="twitter:title" content="About OpenIndy">
-
+<meta name="twitter:title" content="OiPluginTemplate Tutorial">
+<meta name="twitter:description" content="This tutorial supports you to learn how to write and run your own plugins using this project as a template.">
 
 
 
@@ -163,16 +163,16 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="About OpenIndy">
-
-<meta property="og:url" content="http://0.0.0.0:4000//about/">
+<meta property="og:title" content="OiPluginTemplate Tutorial">
+<meta property="og:description" content="This tutorial supports you to learn how to write and run your own plugins using this project as a template.">
+<meta property="og:url" content="http://0.0.0.0:4000//plugins/">
 <meta property="og:site_name" content="OpenIndy">
 
 
 
 
 
-<link rel="canonical" href="http://0.0.0.0:4000//about/">
+<link rel="canonical" href="http://0.0.0.0:4000//plugins/">
 <link href="http://0.0.0.0:4000//feed.xml" type="application/atom+xml" rel="alternate" title="OpenIndy Feed">
 
 
@@ -278,7 +278,7 @@
     
       "http://0.0.0.0:4000//images/banner_oi_proto.jpg"
     
-  alt="About OpenIndy feature image">
+  alt="OiPluginTemplate Tutorial feature image">
 
   </div><!-- /.image-wrap -->
 
@@ -310,92 +310,17 @@
 
   </div>
   <article class="page">
-    <h1>About OpenIndy</h1>
+    <h1>OiPluginTemplate Tutorial</h1>
     <div class="article-wrap">
-      <p>OpenIndy is a metrology software solution that can be extended by <a href="https://github.com/OpenIndy/OiPluginTemplate">plugins</a>. The project started in 2013 as a student project in the Department of Geoinformatics and Surveying (<a href="https://www.hs-mainz.de/technology/geoinformatics-and-surveying/index.html" target="blank">HS Mainz</a>). Our primary goal is to attract students and to jointly develop and learn. For more information take a look at the <a href="/documentation">OpenIndy Documentation</a>.</p>
+      <section id="table-of-contents" class="toc">
+  <header>
+    <h3>Overview</h3>
+  </header>
+<div id="drawer">
 
-<h2 id="openindy-is-all-about">OpenIndy is all about:</h2>
-<ul>
-  <li>much wow</li>
-  <li>very nicely</li>
-  <li>so money-saving</li>
-</ul>
-
-<p><a href="https://github.com/OpenIndy/OpenIndy" class="btn">Join &amp; Fork The Project On GitHub</a></p>
-
-<h1 id="installation-guide">Installation Guide</h1>
-
-<hr />
-
-<h2 id="ide">IDE</h2>
-<p>OpenIndy is developed with the Qt framework (Qt libs + Qt Creator IDE). You can download the framework <a href="http://qt-project.org/downloads">here</a>.</p>
-
-<h2 id="dependencies">Dependencies</h2>
-
-<ul>
-  <li><a href="https://github.com/OpenIndy/OpenIndy/wiki/openIndy-lib-(linear-algebra)">openIndyLib</a></li>
-  <li><a href="http://arma.sourceforge.net">amadillo c++ linear algebra library</a></li>
-  <li><a href="http://www.netlib.org/lapack/">BLAS/LAPACK</a></li>
-  <li><a href="http://qt-project.org">Qt</a></li>
-  <li><a href="https://sqlite.org">sqlite</a></li>
-</ul>
-
-<h2 id="build">Build</h2>
-<p>The easiest way to build OpenIndy is to use the Qt Creator. You can build OpenIndy in <code>debug</code> or <code>release</code> mode.  </p>
-
-<p>First you have to build the openIndyLib. It includes basic mathematic functionalities such as linear algebra algorithms.</p>
-
-<ul>
-  <li>Qt Creator —-&gt; <code>lib/openIndyLib/openIndyLib.pro</code></li>
-</ul>
-
-<p>Then build OpenIndy and copy the dependencies. </p>
-
-<ul>
-  <li>Qt Creator —-&gt; <code>openindy.pro</code></li>
-  <li>Copy the openIndyLib (<code>lib/openIndyLib/bin/debug</code> || <code>lib/openIndyLib/bin/release</code>) 
-and the oisystemdb.sqlite (<code>db/</code>) to <code>bin/debug</code> || <code>bin/release</code>. 
-On Mac OS, you can find the binaries under <code>openindy/contents/MacOs</code></li>
-  <li>Include LAPACK/BLAS</li>
-</ul>
-
-<h2 id="blas-and-lapack">BLAS and LAPACK</h2>
-
-<p>If using Linux:</p>
-
-<ul>
-  <li>Use the Terminal (command line): <code>sudo apt-get install liblapack-dev</code></li>
-</ul>
-
-<p>If using Windows:</p>
-
-<ul>
-  <li>Copy all dll’s from <code>lib/armadillo-3.910.0/examples/lib_win64</code> 
-to <code>bin/debug</code> || <code>bin/release</code></li>
-</ul>
-
-<p>If using Mac OS:</p>
-
-<ul>
-  <li>Copy <code>lib/armadillo-3.910.0/examples/framework_mac/Accelerate.framework</code> to the Mac OS Library <code>/Library/Frameworks</code></li>
-</ul>
-
-<h2 id="opengl-and-glu">OpenGL and GLU</h2>
-
-<p>If using Linux:</p>
-
-<ul>
-  <li>Use the Terminal (command line): 
-    <ul>
-      <li><code>sudo apt-get install build-essential</code></li>
-      <li><code>sudo apt-get install libx11-xcb-dev libglu1-mesa-dev libxrender-dev</code></li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="default-plugin">Default Plugin</h2>
-<p>You can find the default plugin under <code>plugins/OiDefaultPlugin</code>. After you’ve built the plugin you can embed it via the GUI (<code>Plugin -&gt; load plugins</code>). Also you can find a template for a plugin in the folder, which you can copy and start developing your own plugin.</p>
-
+  </div>
+</section>
+<!-- /#table-of-contents -->
 
     </div><!-- /.article-wrap -->
     
@@ -443,8 +368,6 @@ function scrollToTop() {
 <script>window.jQuery || document.write('<script src="http://0.0.0.0:4000//assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 <script src="http://0.0.0.0:4000//assets/js/scripts.min.js"></script>
 
-
-  
           
 
 </body>

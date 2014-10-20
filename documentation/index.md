@@ -1,259 +1,490 @@
 ---
 layout: page
-title: Documentation
+title: Welcome to the OpenIndy Documentation
 modified: 2014-07-31T13:23:02.362000-04:00
 excerpt: "This Documentation will guide and help you to understand OpenIndy."
 image:
   feature: banner_oi_proto.jpg
 ---
 
+
 <section id="table-of-contents" class="toc">
   <header>
     <h3>Overview</h3>
   </header>
 <div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
+* bla
+{:toc} 
+
 </div>
 </section><!-- /#table-of-contents -->
 
-## Welcome to the OpenIndy Documentation
 
-
-
-OpenIndy is a metrology software solution that can be extended by [plugins](/documentation/#plugins). The project started in 2013 as a student project in the Department of Geoinformatics and Surveying ([HS Mainz](https://www.hs-mainz.de/technology/geoinformatics-and-surveying/index.html){:target="blank"}). Our primary goal is to attract students and to jointly develop and learn.
-
-This Documentation will guide and help you to understand OpenIndy. The following pages explain the concept and special features of OpenIndy.
+This Documentation will guide and help you to understand OpenIndy. <br>The following page explains the concept and special features of OpenIndy.
 
 ---
 
-## concept
+##  concept
 
-aa2
+
+> "Metrology is the science of measurement. Metrology includes all theoretical and practical aspects of measurement. The word comes from Greek μέτρον (metron), "measure" + "λόγος" (logos), amongst others meaning "speech, oration, discourse, quote, study, calculation, reason". In Ancient Greek the term μετρολογία (metrologia) meant "theory of ratios"." 
+[(wikipedia)](http://en.wikipedia.org/wiki/Metrology){:target="blank"}
+
+Requirements for OpenIndy:
+
+* Controlling of 3D - Measurement Systems (laser tracker, tachymeter, etc)[(plugins)](/plugins)
+* Open data exchange format (openindyXML.xml)
+* Various algorithms to fit, construct and manipulate geometries [(plugins)](/plugins)
+* Algorithms for the measurement analysis are easy to add or change [(plugins)](/plugins)
+* Easy to use development framework for students 
+* Easy to use GUI, which provides a deep insight into the measurement data.
+
+### OpenIndy Architecture
+{:.no_toc}
+
+![OpenIndy Architecture](https://raw.github.com/OpenIndy/docs/master/images/openIndyArchitecture.png) <br><br>
+
+
+OpenIndy is a typical desktop application. All functionality and sensor integration will be realized by [plugins](/plugins).
+That way you can configure OpenIndy for your custom task pane. The backend is a SQLite database that stores the user-defined configuration. The collected and processed data are stored in a XML format ([openIndyXML](#OpenIndy-XML-Schema-(openIndyXML))).
+
+![OpenIndy class diagram](https://raw.github.com/OpenIndy/docs/master/images/classDiagramSimple.png)
+
+OpenIndy has three major object groups:
+
+ * [Sensor](#sensor)
+ * [Feature](#feature)
+ * [Function](#function)
+
+A sensor generates readings. A reading is an original measurement value of the sensor. For example a polar reading is described by two angles and a distance. If possible the reading will be transformed to an observation. An observation is a 3D coordinate that knows the reading from which it was generated. Each observation can belong to one or more geometries and can be changed by system tranformations.
+
+A feature is anything which can be manipulated by functions. OpenIndy uses features to describe all elements in an abstract way that you need to solve your task. For example you want to measure a pipeline. So you will need the feature cylinder (geometry) to reconstruct the pipeline. In addition to the feature, you need a function(fit or construct) that solves the cylinder.
+
+
+### feature and function
+{:.no_toc}
+![feature and function](https://raw.github.com/OpenIndy/docs/master/images/functionConcept.png) <br><br>
+
+OpenIndy is [feature](#feature) based. Every feature can be changed by [functions](#function). For example, you can solve a geometry with a fit function, and then rotate the geometry using a transformation function. Each function generates a statistics object with information about the accuracy and passes it to the next function. Thus, a consistent error propagation is possible.
 
 ---
 
 ## plugins
-* test1
-   * test2
-      * test3
 
-A quick checklist of the files you'll want to edit to get up and running.
 
-### Site Wide Configuration
-
-`_config.yml` is your friend. Open it up and personalize it. Most variables are self explanatory but here's an explanation of each if needed:
-
-#### title
-
-The title of your site... shocker!
-
-Example `title: My Awesome Site`
-
-#### url
-
-Used to generate absolute urls in `sitemap.xml`, `feed.xml`, and for generating canonical URLs in `<head>`. When developing locally either comment this out or use something like `http://localhost:4000` so all assets load properly. *Don't include a trailing `/`*.
-
-Examples:
-
-{% highlight yaml %}
-url: http://mmistakes.github.io/minimal-mistakes
-url: http://localhost:4000
-url: http://mademistakes.com
-url: 
-{% endhighlight %}
-
-#### Google Analytics and Webmaster Tools
-
-Google Analytics UA and Webmaster Tool verification tags can be entered under `owner` in `_config.yml`. For more information on obtaining these meta tags check [Google Webmaster Tools](http://support.google.com/webmasters/bin/answer.py?hl=en&answer=35179) and [Bing Webmaster Tools](https://ssl.bing.com/webmaster/configure/verify/ownership) support.
-
-### Navigation Links
-
-To set what links appear in the top navigation edit `_data/navigation.yml`. Use the following format to set the URL and title for as many links as you'd like. *External links will open in a new window.*
-
-{% highlight yaml %}
-- title: Portfolio
-  url: /portfolio/
-
-- title: Made Mistakes
-  url: http://mademistakes.com  
-{% endhighlight %}
+<div markdown="0"><a href="/plugins" class="btn btn-info">Start the OiPluginTemplate Tutorial</a></div>
 
 ---
 
-## Adding New Content with Octopress
+## feature
 
-While completely optional, I've included Octopress and some starter templates to automate the creation of new posts and pages. To take advantage of it start by installing the [Octopress](https://github.com/octopress/octopress) gem if it isn't already.
+![feature types](https://raw.github.com/OpenIndy/docs/master/images/featureTypes.png)
 
-{% highlight bash %}
-$ gem install octopress --pre
+There are four kinds of feature:
+
+* [Geometry](#geometry)
+* [Station](#station)
+* [Transformation parameter](#transformation-parameter)
+* [Coordinate systems](#coordinate-system)
+
+OpenIndy describes the "world" through features. A feature has all the necessary attributes to describe it. But a feature doesn't know how to get valid values for his attributes. To calculate values for the attributes of the feature, OpenIndy uses [functions](#function). Functions uses other features or [observations](#sensor) to solve "his" feature.
+<br><br>
+For example:
+<br><br>
+A point feature (geometry) knows his attributes (x,y,z), but it doesn't know how to get them. You set a best fit function for the point. This functions uses any number of observations to solve the attributes of the point.
+<br><br>
+Common attributes of any feature:
+
+{% highlight c++ %}
+class Feature : public Element
+{
+
+public:
+    virtual ~Feature();
+
+    QString name;
+    QString group;
+    bool isUpdated;
+    bool isSolved;
+    QList<Function*> functionList;
+    QList<FeatureWrapper*> usedFor; //features which need this feature to recalc
+    QList<FeatureWrapper*> previouslyNeeded; //features which are needed to recalc this feature
+    Configuration::eColor displayColor;
+};
 {% endhighlight %}
 
-### New Post
 
-Default command
+|---
+| attribute | description |
+|:-|:-|
+| group  | name of the group to which the feature belongs to |
+| isUpdated | true if the feature was successfully transformed into another coordinate system |
+| isSolved| true if a function solves the feature|
+| functionList | a list of all functions of the feature |
+| usedFor | a list of all feature that uses this feature |
+| previouslyNeeded | a list of all feature which are used by this feature |
+| displayColor | color of the feature |
+|---
 
-{% highlight bash %}
-$ octopress new post "Post Title"
-{% endhighlight %}
 
-Default works great if you want all your posts in one directory, but if you're like me and want to group them into subfolders like `/posts`, `/portfolio`, etc. Then this is the command for you. By specifying the DIR it will create a new post in that folder and populate the `categories:` YAML with the same value.
 
-{% highlight bash %}
-$ octopress new post "New Post Title" --dir posts
-{% endhighlight %}
 
-### New Page
-
-To create a new page use the following command.
-
-{% highlight bash %}
-$ octopress new page new-page/
-{% endhighlight %}
-
-This will create a page at `/new-page/index.md`
-
----
-
-## Layouts and Content
-
-Explanations of the various `_layouts` included with the theme and when to use them.
-
-### Post and Page
-
-These two layouts are very similar. Both have an author sidebar, allow for large feature images at the top, and optional Disqus comments. The only real difference is the post layout includes related posts at the end of the page.
-
-### Post Index Page
-
-A [sample index page]({{ site.url }}/posts/) listing all posts grouped by the year they were published has been provided. The name can be customized to your liking by editing a few references. For example, to change **Posts** to **Writing** update the following:
-
-* In `_config.yml` under `links:` rename the title and URL to the following:
-{% highlight yaml %}
-  links:
-  - title: Writing
-    url: /writing/
-{% endhighlight %}
-* Rename `posts/index.md` to `writing/index.md` and update the YAML front matter accordingly.
-* Update the **View all posts** link in the `post.html` layout found in `_layouts` to match title and URL set previously.
-
-### Feature Images
-
-A good rule of thumb is to keep feature images nice and wide so you don't push the body text too far down. An image cropped around around 1024 x 256 pixels will keep file size down with an acceptable resolution for most devices. If you want to serve these images responsively I'd suggest looking at the [Jekyll Picture Tag](https://github.com/robwierzbowski/jekyll-picture-tag) plugin[^plugins].
-
-[^plugins]: If you're using GitHub Pages to host your site be aware that plugins are disabled. You'll need to build your site locally and then manually deploy if you want to use this sweet plugin.
-
-The post and page layouts make the assumption that the feature images live in the `images/` folder. To add a feature image to a post or page just include the filename in the front matter like so. It's probably best to host all your images from this folder, but you can hotlink from external sources if you desire.
-
-{% highlight yaml %}
-image:
-  feature: feature-image-filename.jpg
-  thumb: thumbnail-image.jpg #keep it square 200x200 px is good
-{% endhighlight %}
-
-To add attribution to a feature image use the following YAML front matter on posts or pages. Image credits appear directly below the feature image with a link back to the original source if supplied.
-
-{% highlight yaml %}
-image:
-  feature: feature-image-filename.jpg
-  credit: Michael Rose #name of the person or site you want to credit
-  creditlink: http://mademistakes.com #url to their site or licensing
-{% endhighlight %}
-
-### Thumbnails for OG and Twitter Cards
-
-Feature and thumbnail images are used by [Open Graph](https://developers.facebook.com/docs/opengraph/) and [Twitter Cards](https://dev.twitter.com/docs/cards) as well. If you don't assign a thumbnail the default graphic *(default-thumb.png)* is used. I'd suggest changing this to something more meaningful --- your logo or avatar are good options.
-
-**Pro-Tip**: You need to [apply for Twitter Cards](https://dev.twitter.com/docs/cards) before they will begin showing up when links to your site are shared.
-{:.notice}
-
-### Author Override
-
-By making use of data files you can assign different authors for each post.
-
-Start by modifying `authors.yml` file in the `_data` folder and add your authors using the following format.
-
-{% highlight yaml %}
-# Authors
-
-billy_rick:
-  name: Billy Rick
-  web: http://thewhip.com
-  email: billy@rick.com
-  bio: "What do you want, jewels? I am a very extravagant man."
-  avatar: bio-photo-2.jpg
-  twitter: extravagantman
-  google:
-    plus: +BillyRick
-
-cornelius_fiddlebone:
-  name: Cornelius Fiddlebone
-  email: cornelius@thewhip.com
-  bio: "I ordered what?"
-  avatar: bio-photo.jpg
-  twitter: rhymeswithsackit
-  google:
-    plus: +CorneliusFiddlebone
-{% endhighlight %}
-
-To assign Billy Rick as an author for our post. We'd add the following YAML front matter to a post:
-
-{% highlight yaml %}
-author: billy_rick
-{% endhighlight %}
-
-### Table of Contents
-
-Any post or page that you want a *table of contents* to render insert the following HTML in your post before the actual content. [Kramdown will take care of the rest](http://kramdown.rubyforge.org/converter/html.html#toc) and convert all headlines into a contents list.
-
-**PS:** The TOC is hidden on small devices because I haven't gotten around to optimizing it. For now it only appears on larger screens (tablet and desktop).
-{: .notice}
-
-{% highlight html %}
-<section id="table-of-contents" class="toc">
-  <header>
-    <h3>Overview</h3>
-  </header>
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
+<div class="CSSTableGenerator" >
+<table>
+<tr>
+<td align="left">attribute</td>
+<td align="left">description</td>
+</tr>
+<tr>
+<td align="left">group</td>
+<td align="left">name of the group to which the feature belongs to</td>
+</tr>
+<tr>
+<td align="left">isUpdated</td>
+<td align="left">true if the feature was successfully transformed into another coordinate system</td>
+</tr>
+<tr>
+<td align="left">isSolved</td>
+<td align="left">true if a function solves the feature</td>
+</tr>
+<tr>
+<td align="left">functionList</td>
+<td align="left">a list of all functions of the feature</td>
+</tr>
+<tr>
+<td align="left">usedFor</td>
+<td align="left">a list of all feature that uses this feature</td>
+</tr>
+<tr>
+<td align="left">previouslyNeeded</td>
+<td align="left">a list of all feature which are used by this feature</td>
+</tr>
+<tr>
+<td align="left">displayColor</td>
+<td align="left">color of the feature</td>
+</tr>
+</table>
 </div>
-</section><!-- /#table-of-contents -->
-{% endhighlight %}
 
-#### Videos
 
-Video embeds are responsive and scale with the width of the main content block with the help of [FitVids](http://fitvidsjs.com/).
+---
 
-Not sure if this only effects Kramdown or if it's an issue with Markdown in general. But adding YouTube video embeds causes errors when building your Jekyll site. To fix add a space between the `<iframe>` tags and remove `allowfullscreen`. Example below:
+## featureWrapper
 
-{% highlight html %}
-<iframe width="560" height="315" src="http://www.youtube.com/embed/PWf4WUoMXwg" frameborder="0"> </iframe>
+All features are stored as [featureWrapper](https://github.com/OpenIndy/OpenIndy/blob/master/src/featurewrapper.h)  in one list in the [controller class](https://github.com/OpenIndy/OpenIndy/blob/master/controller/controller.h). To avoid type conversions (downcast), the [featureWrapper](https://github.com/OpenIndy/OpenIndy/blob/master/src/featurewrapper.h) has a pointer for each feature type. 
+
+{% highlight c++ %}
+void FeatureWrapper::setPoint(Point *p){
+    if(p != NULL){
+        this->myFeature = p;
+        this->myGeometry = p;
+        this->myPoint = p;
+        this->typeOfFeature = Configuration::ePointFeature;
+    }
+}
+
+Point* FeatureWrapper::getPoint(){
+    return this->myPoint;
+}
 {% endhighlight %}
 
 ---
 
-## Further Customization
+## feature: geometry
 
-Jekyll 2.x added support for Sass files making it much easier to modify a theme's fonts and colors. By editing values found in `_sass/variables.scss` you can fine tune the site's colors and typography.
+geometry
 
-For example if you wanted a red background instead of white you'd change `$bodycolor: #fff;` to `$bodycolor: $cc0033;`.
+---
 
-To modify the site's JavaScript files I setup a Grunt build script to lint/concatenate/minify all scripts into `scripts.min.js`. [Install Node.js](http://nodejs.org/), then [install Grunt](http://gruntjs.com/getting-started), and then finally install the dependencies for the theme contained in `package.json`:
+## feature: station
 
-{% highlight bash %}
-npm install
+station
+
+---
+
+## feature: transformation parameter
+
+transformation parameter
+
+---
+
+## feature: coordinate system
+
+coordinate system
+
+---
+
+## function
+
+The concept behind OpenIndy envisages that every feature can be solved by one or more functions. Hence you can assign as many functions as you want to a feature. The order of those functions is important, because they will be executed in the same order as they were assigned to a feature. This concept of assigning multiple functions to a feature is illustrated in the following diagram.
+
+![function concept](https://raw.github.com/OpenIndy/docs/master/images/functionConcept.png)
+
+The first function that is assigned to a feature solves it and each additional function changes the previously solved feature. Thereby each function can calculate statistical values for the feature using variance propagation. In OpenIndy there are five different types of functions which are described in the following table.  
+
+<div class="CSSTableGenerator" >
+<table>
+<tr><td>function type </td><td>description</td></tr>
+ <tr><td>fit function </td><td>If overdetermination is present, fit functions have the purpose to calculate the adjusted parameters of a geometry by using observations. So for example a fit function can calculate the center of n xyz-observations.</td></tr>
+ <tr><td>construct function </td><td>Construct functions are used to calculate geometries by using other geometries. For example the intersection of a line and a plane results in a new point.</td></tr>
+ <tr><td>geodetic function </td><td>Geodetic functions are intended to calculate special geodetic tasks like spatial intersection etc..</td></tr>
+ <tr><td>object transformation </td><td>In contrast to fit- and construct functions, object transformations do not define a geometry, but change a previously defined one. A point which has been fit before can for instance be moved along a line by a certain amount.</td></tr>
+ <tr><td>system transformation </td><td>System transformations are used to calculate the parameters of a transformation from one coordinate system to another one.</td></tr>
+</table>
+</div>
+<br><br>
+
+While object transformations can only be assigned to a feature that was previously solved by another function, the other function types are meant to solve a feature so functions of those types can only be assigned to a feature once and only as the first function. (For example you cannot shift a point that has never been solved.) To better understand this concept let us consider a concrete example:
+
+![concept example](https://raw.github.com/OpenIndy/docs/master/images/functionConceptExample.png)
+
+In OpenIndy you can for example create a point feature which you then can measure with a sensor of your choice. This results in n observations and precision values for each of those observations. When you now add the function "Best Fit" to the point feature you get the adjusted coordinates of the point. Therefor the function "Best Fit" uses the n observations and their precision values. Besides the adjusted coordinates this function also calculates the covariance matrix &sum;<sub>XX</sub> with the accuracy of the parameters of the point (X,Y,Z) and their correlation. Now let us assume that you want to shift the adjusted point along the normal vector of a plane by a specified amount. So you add another function "Translate by Plane" to the point. This function needs a plane and a distance to be executed, so you have to input a plane and a distance which may both have been solved by a chain of functions before. In summary the function "Translate by Plane" gets the adjusted point with its covariance matrix, a plane with a covariance matrix and a distance with its accuracy as input. Because this function knows its functional relationship it is able do variance propagation. As the result you get the covariance matrix of the shifted point and, of course, the coordinates of the shifted point itself.  
+OpenIndy allows you to implement you own functions. Therefor you have to write a plugin (or extend an existing one). How this works is described [here](https://github.com/OpenIndy/OiPluginTemplate/wiki).
+
+---
+
+## sensor
+
+sensor
+
+---
+
+## openIndyLib (linear algebra)
+
+"openIndyLib" is a seperate Qt-project where classes for linear algebra are implemented. In OpenIndy and in all plugins the "openIndyLib" is linked against as a dynamic library. In the following diagram you can see the structure of that library.
+
+![linear algebra](https://raw.github.com/OpenIndy/docs/master/images/openIndyLib_linearAlgebra.png)
+
+There are two classes [OiVec](https://github.com/OpenIndy/OpenIndy/blob/master/lib/openIndyLib/include/oivec.h) and [OiMat](https://github.com/OpenIndy/OpenIndy/blob/master/lib/openIndyLib/include/oimat.h). This classes have methods to do vector and matrix algebra and to access the elements of a vector and a matrix respectively. It is recommended to use this classes in your plugins for all calculations. Furthermore there is an interface [LinearAlgebra](https://github.com/OpenIndy/OpenIndy/blob/master/lib/openIndyLib/include/linearalgebra.h) where all methods for vector and matrix algebra are defined. The implementations of the classes [OiVec](https://github.com/OpenIndy/OpenIndy/blob/master/lib/openIndyLib/include/oivec.h) and [OiMat](https://github.com/OpenIndy/OpenIndy/blob/master/lib/openIndyLib/include/oimat.h) use one implementation of that interface. The interface is defined as follows:
+{% highlight c++ %}
+class OI_LIB_EXPORT LinearAlgebra
+{
+public:
+    virtual ~LinearAlgebra(){}
+
+    virtual OiVec addIn(OiVec v1, OiVec v2) = 0;
+    virtual OiMat addIn(OiMat m1, OiMat m2) = 0;
+    virtual OiVec substract(OiVec v1, OiVec v2) = 0;
+    virtual OiMat substract(OiMat m1, OiMat m2) = 0;
+    virtual OiMat multiply(OiMat m1, OiMat m2) = 0;
+    virtual OiVec multiply(OiMat m, OiVec v) = 0;
+    virtual OiMat multiply(double s, OiMat m) = 0;
+    virtual OiVec multiply(double s, OiVec v) = 0;
+    virtual OiMat invert(OiMat m) = 0;
+    virtual OiMat transpose(OiMat m) = 0;
+    virtual void svd(OiMat &u, OiVec &d, OiMat &v, OiMat x) = 0;
+    virtual OiVec cross(OiVec a, OiVec b) = 0;
+    virtual double dot(OiVec a, OiVec b) = 0;
+};
+
+{% endhighlight %}
+This interface may be realized by many different implementations. The great advantage of this is that OpenIndy is not dependent on one special linear algebra library. There is always the possibility to switch the used linear algebra implementation. To switch the current implementation there is the static class [ChooseLALib](https://github.com/OpenIndy/OpenIndy/blob/master/lib/openIndyLib/include/chooselalib.h). Via the method `setLinearAlgebra` the current linear algebra library can be changed. Currently there is only one implementation `LAArmadillo` which uses the open source library [Armadillo](http://arma.sourceforge.net/).
+
+---
+
+## OpenIndy XML Schema
+
+OpenIndy XML Schema
+
+---
+
+## Model View Control (GUI)
+
+openIndy uses the model-view-control principle to handle multi different views on the same data. The data (geometries, stations, functions etc. ) are stored in the model classes and the different views show extracts of the data and its attributes. The controller class handles the interactions between the view and the model. If some changes are made to the view (e.g. some data is edited) the controller calls all needed functions and manages the changes in the model. 
+This allows us to have our own internal data logic that manages our data all needed dependencies and does not depend on any view.
+The multiple views give us different views on the data for a better support during the measurement task. Each view can have some benefits depending on the task, like the graphical representation of the data.
+<br><br>
+Views in openIndy:
+
+* tableviews
+* graphic view
+* console
+
+###tableview
+{:.no_toc}
+the tableview is a tabular representation of the features and their attributes. Each row represents one feature (e.g. one point) and the columns represent the metadata, attributes and values, number of observations for this geometry, measurement configuration and the functions of this feature.
+
+![table view](https://raw.github.com/OpenIndy/docs/master/images/tableview.png)
+
+###graphic view
+{:.no_toc}
+The 3D graphic view, using OpenGL, gives the opportunity for a graphical representation of the features and their dependencies. The graphic view also contains a small tree view that contains all features and their attributes.
+
+![gaphic view](https://raw.github.com/OpenIndy/docs/master/images/graphicView.png)
+
+###console
+{:.no_toc}
+The console actually is used as a output device for information, warnings and errors of currently executed functions and actions/ interactions.
+
+![console](https://raw.github.com/OpenIndy/docs/master/images/console.png)
+
+###implementation
+{:.no_toc}
+Our model class [`tablemodel`](https://github.com/OpenIndy/OpenIndy/blob/master/ui/tablemodel.h) is derived from `QAbstractTableModel` and therefore has to implement three functions.
+{% highlight c++ %}
+int rowCount(const QModelIndex &parent = QModelIndex()) const;
+int columnCount(const QModelIndex &parent = QModelIndex()) const;
+QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
+{% endhighlight %}
+In addition the optional function `headerdata` is also implemented to specify the column description. If you do not implement this function the column descriptions will be their index.
+So all in all our model looks like this:
+{% highlight c++ %}
+class TableModel : public QAbstractTableModel
+{
+    Q_OBJECT
+public:
+    explicit TableModel(QList<FeatureWrapper*> &features, Station *myStation,FeatureWrapper *myFeature,QObject *parent = 0);
+    int rowCount(const QModelIndex &parent = QModelIndex()) const;
+    int columnCount(const QModelIndex &parent = QModelIndex()) const;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
+    virtual QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const;
+
+    QList<FeatureWrapper*> &features;
+
+    FeatureWrapper *activeFeature;
+    Station *activeStation;
+
+signals:
+    
+public slots:
+    void updateModel(FeatureWrapper *fW, Station *sT);
+    
+};
+{% endhighlight %}
+Now the different views on the model are implemented as `QSortFilterProxyModel`.
+As an example here is the view for the main tableview [`FeatureOvserviewProxyModel`](https://github.com/OpenIndy/OpenIndy/blob/master/ui/featureovserviewproxymodel.h) including the geometries and their metadata, attributes, etc.
+{% highlight c++ %}
+class FeatureOvserviewProxyModel : public QSortFilterProxyModel
+{
+    Q_OBJECT
+public:
+
+    QList<FeatureWrapper*> &features;
+
+    explicit FeatureOvserviewProxyModel(QList<FeatureWrapper*> &features,QObject *parent = 0);
+    
+protected:
+    bool filterAcceptsColumn ( int source_column, const QModelIndex & source_parent ) const;
+    bool filterAcceptsRow ( int source_row, const QModelIndex & source_parent ) const;
+    
+};
+{% endhighlight %}
+Here you only have to implement this two functions with your own logic, to filter the columns and rows displayed in the view.
+As a last step you need to set the filter on the source model and then show the filtered data in the view.
+{% highlight c++ %}
+this->featureOverviewModel = new FeatureOvserviewProxyModel(this->features);
+this->featureOverviewModel->setSourceModel(this->tblModel);
+{% endhighlight %}
+{% highlight c++ %}
+ui->tableView_data->setModel(control.featureOverviewModel);
 {% endhighlight %}
 
-From the theme's root, use `grunt` concatenate JavaScript files, and optimize .jpg, .png, and .svg files in the `images/` folder. You can also use `grunt dev` in combination with `jekyll build --watch` to watch for updates JS files that Grunt will then automatically re-build as you write your code which will in turn auto-generate your Jekyll site when developing locally.
+The graphic view is an [`GLWidget`](https://github.com/OpenIndy/OpenIndy/blob/master/ui/glwidget.h) rendered with OpenGL. The draw function of the widget handles the different draw methods of each feature type.
+{% highlight c++ %}
+void GLWidget::draw(){
+
+    glMatrixMode(GL_MODELVIEW);
+    glPushMatrix();
+    glLoadIdentity();
+    //TODO sicht auf schwerpunkt zentrieren
+    glTranslatef(translateX, translateY, translateZ);
+    glRotatef(rotationX, 1.0, 0.0 ,0.0);
+    glRotatef(rotationY, 0.0, 1.0 ,0.0);
+    glRotatef(rotationZ, 0.0, 0.0 ,1.0);
+
+
+
+    qglColor(Qt::red);
+    if(features->size() > 0){
+
+        for(int i =0; i< features->size(); i++){
+            OiGraphix::drawFeature(features->at(i));
+        }
+
+{% endhighlight %}
+To do this it calls the draw function of [`OiGraphix`](https://github.com/OpenIndy/OpenIndy/blob/master/ui/oiGraphixFactory/oigraphix.h) that determines the correct feature type (e.g. plane) and the specific draw function.
+{% highlight c++ %}
+void OiGraphix::drawFeature(FeatureWrapper* feature){
+
+    switch(feature->getTypeOfFeature()){
+    case Configuration::eCoordinateSystemFeature:{
+        break;
+    }
+    case Configuration::eTrafoParamFeature:{
+        break;
+    }
+    case Configuration::ePlaneFeature:
+        OiGraphix::drawPlane(feature->getPlane());
+        break;
+{% endhighlight %}
+The specific drawing classes of the features need to derive from the [`OiGraphixGeomtry class`](https://github.com/OpenIndy/OpenIndy/blob/master/ui/oiGraphixFactory/oigraphix_geometry.h) and implement the draw function. The X, Y and Z attributes are parameters of the draw function. If more attributes are needed (e.g. ijk vector) they have to be given in the constructor.
+In case of a [`plane`](https://github.com/OpenIndy/OpenIndy/blob/master/ui/oiGraphixFactory/oigraphix_plane.h) it looks as follows:
+{% highlight c++ %}
+class OiGraphixPlane: public OiGraphixGeometry
+{
+public:
+    OiGraphixPlane(GLfloat nx,GLfloat ny, GLfloat nz);
+
+    GLfloat rx;
+    GLfloat ry;
+    GLfloat rz;
+
+    void draw(GLfloat x, GLfloat y, GLfloat z);
+};
+{% endhighlight %}
+
+{% highlight c++ %}
+OiGraphixPlane::OiGraphixPlane(GLfloat nx,GLfloat ny, GLfloat nz)
+{
+
+    rx = nx;
+    ry = ny;
+    rz = nz;
+
+}
+
+void OiGraphixPlane::draw(GLfloat x, GLfloat y, GLfloat z){
+
+    glMatrixMode(GL_MODELVIEW);
+    glPushMatrix();
+    glTranslatef(x,y,z);
+
+    glRotatef(acos(rx) * 180.0/PI,1,0,0);
+    glRotatef(acos(rz) * 180.0/PI,0,1,0);
+    glRotatef(acos(ry) * 180.0/PI,0,0,1);
+
+    glBegin(GL_LINES);
+    for (GLfloat i = -2.5; i <= 2.5; i += 0.25) {
+      glVertex3f(i, 0, 2.5); glVertex3f(i, 0, -2.5);
+      glVertex3f(2.5, 0, i); glVertex3f(-2.5, 0, i);
+    }
+    glEnd();
+
+    glPopMatrix();
+
+}
+{% endhighlight %}
 
 ---
 
-## Questions?
+## database (SQLite)
 
-Found a bug or aren't quite sure how something works? By all means Ping me on Twitter [@mmistakes](http://twitter.com/mmistakes) or [file a GitHub Issue](https://github.com/mmistakes/minimal-mistakes/issues/new). And if you make something cool with this theme feel free to let me know.
+database
 
 ---
 
-## License
+## 3D View (oiGraphixFactory)
 
-This theme is free and open source software, distributed under the MIT License. So feel free to use this Jekyll theme on your site without linking back to me or including a disclaimer. 
+OpenGL 3D View
+
+---
+
+## plugin loader
+
+plugin loader
+
+---
+
+## data import (oiDataExchanger)
+
+data import 

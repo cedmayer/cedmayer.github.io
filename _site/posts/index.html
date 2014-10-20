@@ -4,16 +4,156 @@
 <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
+<style>
+.scroll-top-wrapper {
+    position: fixed;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    text-align: center;
+    z-index: 99999999;
+    background-color: #777777;
+    color: #eeeeee;
+    width: 50px;
+    height: 48px;
+    line-height: 48px;
+    right: 30px;
+    bottom: 30px;
+    padding-top: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    /* background: url('/images/go-to-top.png') no-repeat 0px 20px; */
+}
+.scroll-top-wrapper:hover {
+    background-color: #888888;
+}
+.scroll-top-wrapper.show {
+    visibility:visible;
+    cursor:pointer;
+    opacity: 1.0;
+}
+.scroll-top-wrapper i.fa {
+    line-height: inherit;
+}
+ 
+</style>
+
+<style>
+.CSSTableGenerator {
+  margin:0px;padding:0px;
+  width:100%;
+  box-shadow: 10px 10px 5px #888888;
+  border:1px solid #000000;
+  
+  -moz-border-radius-bottomleft:1px;
+  -webkit-border-bottom-left-radius:1px;
+  border-bottom-left-radius:1px;
+  
+  -moz-border-radius-bottomright:1px;
+  -webkit-border-bottom-right-radius:1px;
+  border-bottom-right-radius:1px;
+  
+  -moz-border-radius-topright:1px;
+  -webkit-border-top-right-radius:1px;
+  border-top-right-radius:1px;
+  
+  -moz-border-radius-topleft:1px;
+  -webkit-border-top-left-radius:1px;
+  border-top-left-radius:1px;
+}.CSSTableGenerator table{
+    border-collapse: collapse;
+        border-spacing: 0;
+  width:100%;
+  height:100%;
+  margin:0px;padding:0px;
+}.CSSTableGenerator tr:last-child td:last-child {
+  -moz-border-radius-bottomright:1px;
+  -webkit-border-bottom-right-radius:1px;
+  border-bottom-right-radius:1px;
+}
+.CSSTableGenerator table tr:first-child td:first-child {
+  -moz-border-radius-topleft:1px;
+  -webkit-border-top-left-radius:1px;
+  border-top-left-radius:1px;
+}
+.CSSTableGenerator table tr:first-child td:last-child {
+  -moz-border-radius-topright:1px;
+  -webkit-border-top-right-radius:1px;
+  border-top-right-radius:1px;
+}.CSSTableGenerator tr:last-child td:first-child{
+  -moz-border-radius-bottomleft:1px;
+  -webkit-border-bottom-left-radius:1px;
+  border-bottom-left-radius:1px;
+}.CSSTableGenerator tr:hover td{
+  
+}
+.CSSTableGenerator tr:nth-child(odd){ background-color:#e5e5e5; }
+.CSSTableGenerator tr:nth-child(even)    { background-color:#ffffff; }.CSSTableGenerator td{
+  vertical-align:middle;
+  
+  
+  border:1px solid #000000;
+  border-width:0px 1px 1px 0px;
+  text-align:left;
+  padding:6px;
+  font-size:13px;
+  font-family:Serif;
+  font-weight:normal;
+  color:#2f2f2f;
+}.CSSTableGenerator tr:last-child td{
+  border-width:0px 1px 0px 0px;
+}.CSSTableGenerator tr td:last-child{
+  border-width:0px 0px 1px 0px;
+}.CSSTableGenerator tr:last-child td:last-child{
+  border-width:0px 0px 0px 0px;
+}
+.CSSTableGenerator tr:first-child td{
+    background:-o-linear-gradient(bottom, #ffffff 5%, #a5a5a5 100%);  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #a5a5a5) );
+  background:-moz-linear-gradient( center top, #ffffff 5%, #a5a5a5 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#a5a5a5");  background: -o-linear-gradient(top,#ffffff,a5a5a5);
+
+  background-color:#ffffff;
+  border:0px solid #000000;
+  text-align:center;
+  border-width:0px 0px 1px 1px;
+  font-size:14px;
+  font-family:Serif;
+  font-weight:bold;
+  color:#2f2f2f;
+}
+.CSSTableGenerator tr:first-child:hover td{
+  background:-o-linear-gradient(bottom, #ffffff 5%, #a5a5a5 100%);  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #a5a5a5) );
+  background:-moz-linear-gradient( center top, #ffffff 5%, #a5a5a5 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#a5a5a5");  background: -o-linear-gradient(top,#ffffff,a5a5a5);
+
+  background-color:#ffffff;
+}
+.CSSTableGenerator tr:first-child td:first-child{
+  border-width:0px 0px 1px 0px;
+}
+.CSSTableGenerator tr:first-child td:last-child{
+  border-width:0px 0px 1px 1px;
+}
+</style>
+
+
 <meta charset="utf-8">
-<title>All Posts &#8211; OpenIndy</title>
-<meta name="description" content="A List of Posts">
+<title>News &#8211; OpenIndy</title>
+<meta name="description" content="News about the OpenIndy Project">
 <meta name="keywords" content="">
 
 
 
 <!-- Twitter Cards -->
-<meta name="twitter:title" content="All Posts">
-<meta name="twitter:description" content="A List of Posts">
+<meta name="twitter:title" content="News">
+<meta name="twitter:description" content="News about the OpenIndy Project">
 
 
 
@@ -23,8 +163,8 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="All Posts">
-<meta property="og:description" content="A List of Posts">
+<meta property="og:title" content="News">
+<meta property="og:description" content="News about the OpenIndy Project">
 <meta property="og:url" content="http://0.0.0.0:4000//posts/">
 <meta property="og:site_name" content="OpenIndy">
 
@@ -36,6 +176,8 @@
 <link href="http://0.0.0.0:4000//feed.xml" type="application/atom+xml" rel="alternate" title="OpenIndy Feed">
 
 
+<!--           <link rel="stylesheet" id="font-awesome-css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css" media="screen">
+ 
 <!-- http://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
@@ -105,6 +247,16 @@
 					    
 					    <li><a href="http://0.0.0.0:4000//documentation/" >Documentation</a></li>
 					  
+					    
+					        
+					    
+					    <li><a href="http://0.0.0.0:4000//plugins/" >Tutorial Plugins</a></li>
+					  
+					    
+					        
+					        
+					    <li><a href="http://sigma3d.de" target="_blank">sigma3D</a></li>
+					  
 		    </ul>
 		</nav>
 	</div><!-- /.top-navigation -->
@@ -124,12 +276,12 @@
 <p>Open source software solution for industrial measurement (metrology, laser tracker, quality control)</p>
 
 
+<a href="http://facebook.com/openindy2014" class="author-social" target="_blank"><i class="fa fa-facebook-square"></i> Facebook</a>
 
 
 
 
-
-
+<a href="http://github.com/OpenIndy" class="author-social" target="_blank"><i class="fa fa-github"></i> Github</a>
 
 
 
@@ -139,106 +291,7 @@
 
   </div>
   <div id="index">
-    <h1>All Posts</h1>
-      
-    
-      <h3>2014</h3>
-      
-      <article>
-        
-          <h2><a href="http://0.0.0.0:4000//jekyll/update/welcome-to-jekyll/" title="Welcome to Jekyll!">Welcome to Jekyll!</a></h2>
-          <p>You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different wa...</p>
-        
-      </article>
-      
-    
-        
-        
-        
-      
-      <article>
-        
-          <h2><a href="http://0.0.0.0:4000//author-override/" title="Author Override">Author Override</a></h2>
-          <p>A post to test author overrides using a data file.</p>
-        
-      </article>
-      
-    
-        
-        
-        
-          <h3>2013</h3>
-        
-      
-      <article>
-        
-          <h2><a href="http://0.0.0.0:4000//code-highlighting-post/" title="Syntax Highlighting Post">Syntax Highlighting Post</a></h2>
-          <p>Demo post displaying the various ways of highlighting code in Markdown.</p>
-        
-      </article>
-      
-    
-        
-        
-        
-      
-      <article>
-        
-          <h2 class="link-post"><a href="http://0.0.0.0:4000//sample-link-post/" title="Sample Link Post">Sample Link Post</a> <a href="http://mademistakes.com" target="_blank" title="Sample Link Post"><i class="fa fa-link"></i></h2>
-        
-      </article>
-      
-    
-        
-        
-        
-      
-      <article>
-        
-          <h2><a href="http://0.0.0.0:4000//readability-feature-post/" title="Post with Large Feature Image and Text">Post with Large Feature Image and Text</a></h2>
-          <p>Custom written post descriptions are the way to go... if you're not lazy.</p>
-        
-      </article>
-      
-    
-        
-        
-        
-      
-      <article>
-        
-          <h2><a href="http://0.0.0.0:4000//sample-post-images/" title="A Post with Images">A Post with Images</a></h2>
-          <p>Examples and code for displaying images in posts.</p>
-        
-      </article>
-      
-    
-        
-        
-        
-          <h3>2012</h3>
-        
-      
-      <article>
-        
-          <h2><a href="http://0.0.0.0:4000//readability-post/" title="Testing Readability with a Bunch of Text">Testing Readability with a Bunch of Text</a></h2>
-          <p>A ton of text to test readability.</p>
-        
-      </article>
-      
-    
-        
-        
-        
-          <h3>2011</h3>
-        
-      
-      <article>
-        
-          <h2><a href="http://0.0.0.0:4000//sample-post/" title="Sample Post">Sample Post</a></h2>
-          <p>Just about everything you'll need to style in the theme: headings, paragraphs, blockquotes, tables, code blocks, and more.</p>
-        
-      </article>
+    <h1>News</h1>
     
   </div><!-- /#index -->
 </div><!-- /#main -->
@@ -247,12 +300,40 @@
   <footer>
     
 
-<span>&copy; 2014 OpenIndy.</span>
+<span>&copy; 2014 OpenIndy and <a href="http://sigma3D.de" target="_blank">sigma3D</a> </span>
 
   </footer>
 </div><!-- /.footer-wrap -->
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script>
+ 
+$(function(){
+ 
+    $(document).on( 'scroll', function(){
+ 
+        if ($(window).scrollTop() > 100) {
+            $('.scroll-top-wrapper').addClass('show');
+        } else {
+            $('.scroll-top-wrapper').removeClass('show');
+        }
+    });
+ 
+    $('.scroll-top-wrapper').on('click', scrollToTop);
+});
+ 
+function scrollToTop() {
+    verticalOffset = typeof(verticalOffset) != 'undefined' ? verticalOffset : 0;
+    element = $('body');
+    offset = element.offset();
+    offsetTop = offset.top;
+    $('html, body').animate({scrollTop: offsetTop}, 500, 'linear');
+}
+</script>
+
+
+
 <script>window.jQuery || document.write('<script src="http://0.0.0.0:4000//assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 <script src="http://0.0.0.0:4000//assets/js/scripts.min.js"></script>
 
