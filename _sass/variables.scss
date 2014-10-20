@@ -28,10 +28,10 @@ $danger				: #C64537;
 $info				  : #308cbc;
 
 // Links
-$linkcolor 		    : #343434;
+$linkcolor 		    : #161051;
 $link-color       : $linkcolor;
 $linkcolorhover 	: darken($linkcolor, 10);
-$linkcolorvisited : lighten($linkcolorhover, 20);
+$linkcolorvisited : lighten($linkcolorhover, 25);
 $linkcolorfocus 	: darken($linkcolorvisited, 10);
 
 // Media Queries
