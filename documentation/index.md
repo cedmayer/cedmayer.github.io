@@ -347,7 +347,7 @@ public slots:
 };
 {% endhighlight %}
 Now the different views on the model are implemented as `QSortFilterProxyModel`.
-As an example here is the view for the main tableview [`FeatureOvserviewProxyModel`](https://github.com/OpenIndy/OpenIndy/blob/master/ui/featureovserviewproxymodel.h) including the geometries and their metadata, attributes, etc.
+As an example here is the view for the main tableview [`featureoverviewproxymodel.h`](https://github.com/OpenIndy/OpenIndy/blob/master/ui/featureoverviewproxymodel.h) including the geometries and their metadata, attributes, etc.
 {% highlight c++ %}
 class FeatureOvserviewProxyModel : public QSortFilterProxyModel
 {
