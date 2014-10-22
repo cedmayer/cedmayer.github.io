@@ -6,13 +6,13 @@ _____________________________________
 Github and VM VirtualBox
 _____________________________________
 
--	Create repository for site
+- Create repository for site
 Head over to GitHub and create a new repository named username.github.io, where username is your username (or organization name) on GitHub.
 Go to the folder where you want to store your project, and clone the new repository:
 $ git clone https://github.com/username/username.github.io
 
 
--	manual git commit:
+- manual git commit:
 cd to folder
 
 git add --all
@@ -20,7 +20,7 @@ git commit -m "Initial commit"
 git push
 
 
--	Create Shared Folder for VirtualBox: 
+- Create Shared Folder for VirtualBox: 
 
 VM Box Eigenschaften: Geräte->Gemeinsame Ordner -> neuen gemeinsamen Ordner "sharedFolderDesktop" anlegen
 In Ubuntu in Home/SoftwareDev neuen Ordner SharedFolder anlegen 
@@ -36,7 +36,7 @@ Jekyll
 _____________________________________
 
 
--	Create new Jekyll site:
+- Create new Jekyll site:
 
 change directory to folder
 $ gem install jekyll 
@@ -44,7 +44,7 @@ $ jekyll new username.github.io
 $ cd username.github.io
 
 
--	Install theme with existing Jekyll site:
+- Install theme with existing Jekyll site:
 
 Download Minimal Mistakes and unzip. 
 Copy data to existing folder username.github.io
@@ -57,7 +57,7 @@ Remove demo posts and change existing pages (banner etc.)
 Setup theme: http://mmistakes.github.io/minimal-mistakes/theme-setup/
 
 
--	Scaffolding
+- Scaffolding
 
 How Minimal Mistakes is organized and what the various files are. All posts, layouts, includes, stylesheets, assets, and whatever else is grouped under the root folder. The compiled Jekyll site outputs to _site/.
 
@@ -97,14 +97,14 @@ minimal-mistakes/
 └── theme-setup/                 # theme setup page. safe to remove
 
 
--	Change confic.yml
+- Change confic.yml
 
 "urls" is used to generate absolute urls in sitemap.xml, feed.xml, and for generating canonical URLs in <head>. 
 change URL in config.yml to username.github.io 
 For testing purposes set it to url: http://0.0.0.0:4000/
 
 
--	Run the site locally
+- Run the site locally
 
 cd to site DIR $ jekyll serve --watch
 Info: the attachment --watch replaces the command "$ jekyll build" which is necessary to process the Markdown syntax
@@ -114,20 +114,20 @@ $ jekyll build
 Now open http://0.0.0.0:4000/ in the browser
 (in config.yml you first have to put in this localhost adress into "url:)
 
--	Google Analytics and Webmaster Tools
+- Google Analytics and Webmaster Tools
 
 Google Analytics UA and Webmaster Tool verification tags can be entered under owner in _config.yml. For more information on obtaining these meta tags check Google Webmaster Tools and Bing Webmaster Tools support.
 
 
 
--	Adding New Content with Octopress
+- Adding New Content with Octopress
 
 Install Octopress (https://github.com/octopress/octopress) gem if it isn't already
 
 $ gem install octopress --pre
 
 
--	Generate Sites:
+- Generate Sites:
 - manually:
 Create a file called "index.md" in a folder "newPage"
 cd to folder username.github.io, 
@@ -142,13 +142,16 @@ This will create a page at `/new-page/index.md`
 
 
 
--	Layout:
+- Layout:
 
 The _layouts folder contains the layout informations like header, menu, and footer. 
 
 
+- Landing Page
+Change _layouts/home.html to change the existing Homepage
 
--	Navigation
+
+- Navigation
 To set what links appear in the top navigation edit _data/navigation.yml. Use the following format to set the URL and title. External links will open in a new window.
 
 - title: Download
@@ -158,11 +161,11 @@ To set what links appear in the top navigation edit _data/navigation.yml. Use th
   url: http://wikipedia.org
 
 
--	Change Copyright Text
+- Change Copyright Text
 _includes/_footer.html
 
 
--	Changing CSS Style with Jekyll
+- Changing CSS Style with Jekyll
 
 Jekyll 2.x added support for Sass files making it much easier to modify a theme’s fonts and colors. By editing values found in _sass/variables.scss you can fine tune the site’s colors and typography.
 
@@ -170,7 +173,7 @@ For example if you wanted a red background instead of white you’d change $body
 
 
 
--	New Post
+- New Post
 
 Default command:
 
@@ -184,7 +187,7 @@ $ octopress new post "New Post Title" --dir posts
 By specifying the DIR it will create a new post in that folder (_posts/newDIR) and populate the `categories:` YAML with the same value.
 
 
--	Post Index Page
+- Post Index Page
 
 To change the name of the /post site, wich contains all posts grouped by the year they were published a few references have to be customized. For example, to change Posts to Writing update the following:
 
@@ -199,7 +202,38 @@ Update the View all posts link in the post.html layout found in _layouts to matc
 
 
 
--	Author Override
+- Preview of a post in the post-list
+
+Source: http://truongtx.me/2013/05/01/jekyll-read-more-feature-without-any-plugin/
+Add the following Code, where you want to show a list of posts with a preview:
+
+    {% for post in site.posts limit:5 %}    
+    <article>
+      {% if post.link %}
+        <h2 class="link-post"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <a href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-link"></i></h2>
+      {% else %}
+        <h2><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a><br><br></h2>
+
+        <div class="post-content-truncate">
+            {% if post.content contains "<!-- more -->" %}
+                {{ post.content | split:"<!-- more -->" | first % }} <p>.....</p>
+            {% else %}
+                {{ post.content | strip_html | truncatewords:100 }} <p>.....</p>
+            {% endif %}
+        </div>
+        <p><a href="{{ post.url }}">Read more...</a><br><br><p>
+
+      {% endif %}
+    </article>
+    {% endfor %}
+
+
+In the Post itself you have to put in the following line, where you want to end the preview:
+
+<!-- more -->
+
+
+- Author Override
 
 By making use of data files you can assign different authors for each post. 
 The owner variables are defined in config.yml.
@@ -218,14 +252,14 @@ billy_rick:
 
 To assign Billy Rick as an author for the post, add the following YAML front matter to a post:
 
-	author: billy_rick
+  author: billy_rick
 
 
--	ScrollToTop of site arrow
+- ScrollToTop of site arrow
 
 http://www.webtipblog.com/adding-scroll-top-button-website/
 
--	Tables
+- Tables
 http://www.csstablegenerator.com/
 in /_includes/_head.html there is a .CSSTableGenerator style with the parameters of a table
 In the .md fle you have to put in the raw html-code like this:
@@ -241,19 +275,36 @@ In the .md fle you have to put in the raw html-code like this:
 
 </div>
 
-generate table from excel:
-http://tableizer.journalistopia.com/
+Important: There is no difference between <thead> and <tbody>, you only have to use <tr> and <td>
+
+You can take the html code out of the _site folder after jekyll generates the markdown syntax, which is written like this:
+
+|---
+| Default aligned | Left aligned | Center aligned | Right aligned
+|-|:-|:-:|-:
+| First body part | Second cell | Third cell | fourth cell
+| Second line |foo | **strong** | baz
+| Third line |quux | baz | bar
+|---
+| Second body
+| 2 line
+|===
+| Footer row
+
+( generate tables from excel: 
+  http://tableizer.journalistopia.com/
+)
 _____________________________________
 
 Kramdown Markup Language
 _____________________________________
 
--	Syntax of kramdown 
+- Syntax of kramdown 
 
 http://kramdown.gettalong.org/syntax.html
 
 
--	Sites:
+- Sites:
 Every site has to have a "front matter". Front matter is a mini-configuration block that tells Jekyll about the page, including its title, layout, and other information. Front matter is placed inside of two sets of three dashes, like the following:
 ---
 layout: default
@@ -267,7 +318,7 @@ image:
 
 
 
--	Feature Images
+- Feature Images
 The feature images live in the images/ folder. To add a feature image to a post or page just include the filename in the front matter like so. 
 
 image:
@@ -276,7 +327,7 @@ image:
 
 
 
--	Generating a Table of Contents:
+- Generating a Table of Contents:
 
 Any post or page that you want a table of contents to render insert the following HTML in your post before the actual content. Kramdown will take care of the rest and convert all headlines into a contents list.
 
@@ -299,13 +350,13 @@ To ignore a caption:
 
 
 
--	Sample Post with about everything you'll need to style in the theme
+- Sample Post with about everything you'll need to style in the theme
 
 see sample-post-with-styling.md
 
 
 
--	Syntax Highlighting Code in Post
+- Syntax Highlighting Code in Post
 
 Syntax highlighting is a feature that displays source code, in different colors and fonts according to the category of terms. 
 
@@ -373,7 +424,7 @@ To modify styling and highlight colors edit `/_sass/_coderay.scss`. Line numbers
 ~~~
 
 
--	Post with large feature image
+- Post with large feature image
 
 ---
 layout: post
@@ -391,23 +442,23 @@ image:
 
 
 
--	Footnote
+- Footnote
 
 [^1]: Texture image courtesty of [google.com](http://www.google.com/)
 
--	Comments
+- Comments
 
 {% comment %} 
     These commments will not include inside the source.
 {% endcomment %}
 
--	Links
+- Links
 
 A link that opens in a new tab:
 
 [HS Mainz](https://www.hs-mainz.de/technology/geoinformatics-and-surveying/index.html){:target="blank"}
 
--	Images in posts
+- Images in posts
 
 Simple Image with a description:
 
@@ -416,8 +467,8 @@ Simple Image with a description:
 One image with a caption (as a link to another page)
 
 <figure>
-	<a href="http://farm9.staticflickr.com/8426/7758832526_cc8f681e48_b.jpg"><img src="http://farm9.staticflickr.com/8426/7758832526_cc8f681e48_c.jpg"></a>
-	<figcaption><a href="http://cedmayer.github.io/" title="link description">This caption of the image is a link</a>.</figcaption>
+  <a href="http://farm9.staticflickr.com/8426/7758832526_cc8f681e48_b.jpg"><img src="http://farm9.staticflickr.com/8426/7758832526_cc8f681e48_c.jpg"></a>
+  <figcaption><a href="http://cedmayer.github.io/" title="link description">This caption of the image is a link</a>.</figcaption>
 </figure>
 
 
@@ -426,7 +477,7 @@ Two images: `half` class to display two images side by side that share the same 
 <figure class="half">
     <a href="/images/image-filename-1-large.jpg"><img src="/images/image-filename-1.jpg"></a>
     <a href="/images/image-filename-2-large.jpg"><img src="/images/image-filename-2.jpg"></a>
-	<figcaption>Caption describing these two images.</figcaption>
+  <figcaption>Caption describing these two images.</figcaption>
 </figure>
 
 
@@ -435,14 +486,14 @@ Three images
 Apply the `third` class to display three images side by side that share the same caption:
 
 <figure class="third">
-	<img src="/images/image-filename-1.jpg">
-	<img src="/images/image-filename-2.jpg">
-	<img src="/images/image-filename-3.jpg">
-	<figcaption>Caption describing these three images.</figcaption>
+  <img src="/images/image-filename-1.jpg">
+  <img src="/images/image-filename-2.jpg">
+  <img src="/images/image-filename-3.jpg">
+  <figcaption>Caption describing these three images.</figcaption>
 </figure>
 
 
--	Videos
+- Videos
 
 Video embeds are responsive and scale with the width of the main content block with the help of FitVids.
 Adding YouTube video embeds causes errors when building your Jekyll site. To fix add a space between the <iframe> tags and remove allowfullscreen. Example below:
