@@ -145,14 +145,14 @@
 
 
 <meta charset="utf-8">
-<title>Download &#8211; OpenIndy</title>
+<title>Downloads &#8211; OpenIndy</title>
 
-<meta name="keywords" content="download, OpenIndy">
+<meta name="keywords" content="download, OpenIndy, QT, GitHub">
 
 
 
 <!-- Twitter Cards -->
-<meta name="twitter:title" content="Download">
+<meta name="twitter:title" content="Downloads">
 
 
 
@@ -163,7 +163,7 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Download">
+<meta property="og:title" content="Downloads">
 
 <meta property="og:url" content="http://0.0.0.0:4000//download/">
 <meta property="og:site_name" content="OpenIndy">
@@ -250,7 +250,7 @@
 					    
 					        
 					    
-					    <li><a href="http://0.0.0.0:4000//download/" >Download</a></li>
+					    <li><a href="http://0.0.0.0:4000//download/" >Downloads</a></li>
 					  
 					    
 					        
@@ -260,7 +260,7 @@
 					    
 					        
 					    
-					    <li><a href="http://0.0.0.0:4000//plugins/" >Tutorial Plugins</a></li>
+					    <li><a href="http://0.0.0.0:4000//plugins/" >Plugin Tutorial</a></li>
 					  
 					    
 					        
@@ -278,7 +278,7 @@
     
       "http://0.0.0.0:4000//images/banner_oi_proto.jpg"
     
-  alt="Download feature image">
+  alt="Downloads feature image">
 
   </div><!-- /.image-wrap -->
 
@@ -310,14 +310,95 @@
 
   </div>
   <article class="page">
-    <h1>Download</h1>
+    <h1>Downloads</h1>
     <div class="article-wrap">
-      <h2 id="testberschrift">Testüberschrift</h2>
+      <p>On this section you can download the latest master branch of OpenIndy as a zip file.<br />
+You can also fork the repository of the project on <a href="ttps://github.com/OpenIndy/OpenIndy">GitHub</a>.<br />
+Join our community and support us in the ongoing development!
+<br /><br />
+<a href="https://github.com/OpenIndy/OpenIndy/archive/master.zip" class="btn btn-info">Download OpenIndy Master</a>
+<a href="https://github.com/OpenIndy/OpenIndy" class="btn btn-success">Fork the Repository on GitHub</a>
+<br /><br />
+The development framework of your choice should be QT Creator which is designed to streamline the creation of applications and user interfaces to target multiple platforms with one code base.</p>
 
-<p>BlaBla
-<br />
-<br />
-<a href="http://0.0.0.0:4000//theme-setup" class="btn">Download OpenIndy</a></p>
+<p><br />
+<a href="http://qt-project.org/downloads" class="btn btn-info">Download Qt Creator</a>
+<br /></p>
+
+<h1 id="installation-guide">Installation Guide</h1>
+
+<hr />
+
+<h2 id="ide">IDE</h2>
+<p>As mentioned above, OpenIndy is developed with the <a href="http://qt-project.org/downloads">Qt framework</a> (Qt libs + Qt Creator IDE).
+To configure Qt Creator you may follow the instructions at the <a href="http://qt-project.org/doc/qtcreator-3.0/creator-configuring.html">Qt documentation</a>.</p>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<ul>
+  <li><a href="https://github.com/OpenIndy/OpenIndy/wiki/openIndy-lib-(linear-algebra)">openIndyLib</a></li>
+  <li><a href="http://arma.sourceforge.net">amadillo c++ linear algebra library</a></li>
+  <li><a href="http://www.netlib.org/lapack/">BLAS/LAPACK</a></li>
+  <li><a href="http://qt-project.org">Qt</a></li>
+  <li><a href="https://sqlite.org">sqlite</a></li>
+</ul>
+
+<h2 id="build">Build</h2>
+<p>The easiest way to build OpenIndy is to use the Qt Creator. You can build OpenIndy in <code>debug</code> or <code>release</code> mode.  </p>
+
+<p>First you have to build the openIndyLib. It includes basic mathematic functionalities such as linear algebra algorithms.</p>
+
+<ul>
+  <li>Qt Creator —-&gt; <code>lib/openIndyLib/openIndyLib.pro</code></li>
+</ul>
+
+<p>Then build OpenIndy and copy the dependencies. </p>
+
+<ul>
+  <li>Qt Creator —-&gt; <code>openindy.pro</code></li>
+  <li>Copy the openIndyLib (<code>lib/openIndyLib/bin/debug</code> || <code>lib/openIndyLib/bin/release</code>) 
+and the oisystemdb.sqlite (<code>db/</code>) to <code>bin/debug</code> || <code>bin/release</code>. 
+On Mac OS, you can find the binaries under <code>openindy/contents/MacOs</code></li>
+  <li>Include LAPACK/BLAS</li>
+</ul>
+
+<h2 id="blas-and-lapack">BLAS and LAPACK</h2>
+
+<p>If using Linux:</p>
+
+<ul>
+  <li>Use the Terminal (command line): <code>sudo apt-get install liblapack-dev</code></li>
+</ul>
+
+<p>If using Windows:</p>
+
+<ul>
+  <li>Copy all dll’s from <code>lib/armadillo-3.910.0/examples/lib_win64</code> 
+to <code>bin/debug</code> || <code>bin/release</code></li>
+</ul>
+
+<p>If using Mac OS:</p>
+
+<ul>
+  <li>Copy <code>lib/armadillo-3.910.0/examples/framework_mac/Accelerate.framework</code> to the Mac OS Library <code>/Library/Frameworks</code></li>
+</ul>
+
+<h2 id="opengl-and-glu">OpenGL and GLU</h2>
+
+<p>If using Linux:</p>
+
+<ul>
+  <li>Use the Terminal (command line): 
+    <ul>
+      <li><code>sudo apt-get install build-essential</code></li>
+      <li><code>sudo apt-get install libx11-xcb-dev libglu1-mesa-dev libxrender-dev</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="default-plugin">Default Plugin</h2>
+<p>You can find the default plugin under <code>plugins/OiDefaultPlugin</code>. After you’ve built the plugin you can embed it via the GUI (<code>Plugin -&gt; load plugins</code>). Also you can find a template for a plugin in the folder, which you can copy and start developing your own plugin.</p>
+
 
     </div><!-- /.article-wrap -->
     

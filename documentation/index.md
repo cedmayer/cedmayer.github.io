@@ -24,7 +24,7 @@ This Documentation will guide and help you to understand OpenIndy. <br>The follo
 
 ---
 
-##  concept
+##  Concept
 
 
 > "Metrology is the science of measurement. Metrology includes all theoretical and practical aspects of measurement. The word comes from Greek μέτρον (metron), "measure" + "λόγος" (logos), amongst others meaning "speech, oration, discourse, quote, study, calculation, reason". In Ancient Greek the term μετρολογία (metrologia) meant "theory of ratios"." 
@@ -39,7 +39,7 @@ Requirements for OpenIndy:
 * Easy to use development framework for students 
 * Easy to use GUI, which provides a deep insight into the measurement data.
 
-### OpenIndy Architecture
+### OpenIndy architecture
 {:.no_toc}
 
 ![OpenIndy Architecture](/images/openIndyArchitecture.png) <br><br>
@@ -61,7 +61,7 @@ A sensor generates readings. A reading is an original measurement value of the s
 A feature is anything which can be manipulated by functions. OpenIndy uses features to describe all elements in an abstract way that you need to solve your task. For example you want to measure a pipeline. So you will need the feature cylinder ([geometry](#feature-geometry)) to reconstruct the pipeline. In addition to the feature, you need a function(fit or construct) that solves the cylinder.
 
 
-### feature and function
+### Feature and function
 {:.no_toc}
 ![feature and function](/images/functionConcept.png) <br><br>
 
@@ -69,14 +69,14 @@ OpenIndy is [feature](#feature) based. Every feature can be changed by [function
 
 ---
 
-## plugins
+## Plugins
 
 
 <div markdown="0"><a href="/plugins" class="btn btn-success">Start the OiPluginTemplate Tutorial</a></div>
 
 ---
 
-## feature
+## Feature
 
 ![feature types](/images/featureTypes.png)
 
@@ -151,9 +151,10 @@ public:
 </div>
 
 
----
 
-## featureWrapper
+
+### FeatureWrapper
+{:.no_toc}
 
 All features are stored as [featureWrapper](https://github.com/OpenIndy/OpenIndy/blob/master/src/featurewrapper.h)  in one list in the [controller class](https://github.com/OpenIndy/OpenIndy/blob/master/controller/controller.h). To avoid type conversions (downcast), the [featureWrapper](https://github.com/OpenIndy/OpenIndy/blob/master/src/featurewrapper.h) has a pointer for each feature type. 
 
@@ -174,31 +175,31 @@ Point* FeatureWrapper::getPoint(){
 
 ---
 
-## feature: geometry
+## - Geometry feature
 
 geometry
 
 ---
 
-## feature: station
+## - Station feature
 
 station
 
 ---
 
-## feature: transformation parameter
+## - Transformation parameter feature
 
 transformation parameter
 
 ---
 
-## feature: coordinate system
+## - Coordinate system feature
 
 coordinate system
 
 ---
 
-## function
+## Function
 
 The concept behind OpenIndy envisages that every feature can be solved by one or more functions. Hence you can assign as many functions as you want to a feature. The order of those functions is important, because they will be executed in the same order as they were assigned to a feature. This concept of assigning multiple functions to a feature is illustrated in the following diagram.
 
@@ -232,13 +233,13 @@ OpenIndy allows you to implement you own functions. Therefor you have to write a
 
 ---
 
-## sensor
+## Sensor
 
 sensor
 
 ---
 
-## openIndyLib (linear algebra)
+## OpenIndyLib (linear algebra)
 
 "openIndyLib" is a seperate Qt-project where classes for linear algebra are implemented. In OpenIndy and in all plugins the "openIndyLib" is linked against as a dynamic library. In the following diagram you can see the structure of that library.
 
@@ -273,13 +274,13 @@ This interface may be realized by many different implementations. The great adva
 
 ---
 
-## OpenIndy XML Schema
+## OpenIndy XML schema
 
-OpenIndy XML Schema
+OpenIndy XML schema
 
 ---
 
-## Model View Control (GUI)
+## Model view control (GUI)
 
 openIndy uses the model-view-control principle to handle multi different views on the same data. The data (geometries, stations, functions etc. ) are stored in the model classes and the different views show extracts of the data and its attributes. The controller class handles the interactions between the view and the model. If some changes are made to the view (e.g. some data is edited) the controller calls all needed functions and manages the changes in the model. 
 This allows us to have our own internal data logic that manages our data all needed dependencies and does not depend on any view.
@@ -291,7 +292,7 @@ Views in OpenIndy:
 * [graphic view](#graphic-view)
 * [console](#console)
 
-###tableview
+### Tableview
 {:.no_toc}
 the tableview is a tabular representation of the features and their attributes. Each row represents one feature (e.g. one point) and the columns represent the metadata, attributes and values, number of observations for this geometry, measurement configuration and the functions of this feature.
 <figure>
@@ -299,21 +300,21 @@ the tableview is a tabular representation of the features and their attributes. 
 </figure>
 
 
-###graphic view
+###Graphic view
 {:.no_toc}
 The 3D graphic view, using OpenGL, gives the opportunity for a graphical representation of the features and their dependencies. The graphic view also contains a small tree view that contains all features and their attributes.
 <figure>
 	<a href="/images/graphicView.png"><img src="/images/graphicView.png"></a>
 </figure>
 
-###console
+###Console
 {:.no_toc}
 The console actually is used as a output device for information, warnings and errors of currently executed functions and actions/ interactions.
 <figure>
 	<a href="/images/console.png"><img src="/images/console.png"></a>
 </figure>
 
-###implementation
+###Implementation
 {:.no_toc}
 Our model class [`tablemodel`](https://github.com/OpenIndy/OpenIndy/blob/master/ui/tablemodel.h) is derived from `QAbstractTableModel` and therefore has to implement three functions.
 {% highlight c++ %}
@@ -462,24 +463,24 @@ void OiGraphixPlane::draw(GLfloat x, GLfloat y, GLfloat z){
 
 ---
 
-## database (SQLite)
+## Database (SQLite)
 
 database
 
 ---
 
-## 3D View (oiGraphixFactory)
+## 3D view (oiGraphixFactory)
 
 OpenGL 3D View
 
 ---
 
-## plugin loader
+## Plugin loader
 
 plugin loader
 
 ---
 
-## data import (oiDataExchanger)
+## Data import (oiDataExchanger)
 
 data import 

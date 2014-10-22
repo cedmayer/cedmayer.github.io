@@ -1,5 +1,5 @@
 ---
 layout: post-index
-title: News
+title: Latest News
 excerpt: "News about the OpenIndy Project"
 ---

@@ -250,7 +250,7 @@
 					    
 					        
 					    
-					    <li><a href="http://0.0.0.0:4000//download/" >Download</a></li>
+					    <li><a href="http://0.0.0.0:4000//download/" >Downloads</a></li>
 					  
 					    
 					        
@@ -260,7 +260,7 @@
 					    
 					        
 					    
-					    <li><a href="http://0.0.0.0:4000//plugins/" >Tutorial Plugins</a></li>
+					    <li><a href="http://0.0.0.0:4000//plugins/" >Plugin Tutorial</a></li>
 					  
 					    
 					        
@@ -318,23 +318,22 @@
   </header>
 <div id="drawer">
 <ul id="markdown-toc">
-  <li><a href="#concept">concept</a></li>
-  <li><a href="#plugins">plugins</a></li>
-  <li><a href="#feature">feature</a></li>
-  <li><a href="#featurewrapper">featureWrapper</a></li>
-  <li><a href="#feature-geometry">feature: geometry</a></li>
-  <li><a href="#feature-station">feature: station</a></li>
-  <li><a href="#feature-transformation-parameter">feature: transformation parameter</a></li>
-  <li><a href="#feature-coordinate-system">feature: coordinate system</a></li>
-  <li><a href="#function">function</a></li>
-  <li><a href="#sensor">sensor</a></li>
-  <li><a href="#openindylib-linear-algebra">openIndyLib (linear algebra)</a></li>
-  <li><a href="#openindy-xml-schema">OpenIndy XML Schema</a></li>
-  <li><a href="#model-view-control-gui">Model View Control (GUI)</a></li>
-  <li><a href="#database-sqlite">database (SQLite)</a></li>
-  <li><a href="#d-view-oigraphixfactory">3D View (oiGraphixFactory)</a></li>
-  <li><a href="#plugin-loader">plugin loader</a></li>
-  <li><a href="#data-import-oidataexchanger">data import (oiDataExchanger)</a></li>
+  <li><a href="#concept">Concept</a></li>
+  <li><a href="#plugins">Plugins</a></li>
+  <li><a href="#feature">Feature</a></li>
+  <li><a href="#geometry-feature">- Geometry feature</a></li>
+  <li><a href="#station-feature">- Station feature</a></li>
+  <li><a href="#transformation-parameter-feature">- Transformation parameter feature</a></li>
+  <li><a href="#coordinate-system-feature">- Coordinate system feature</a></li>
+  <li><a href="#function">Function</a></li>
+  <li><a href="#sensor">Sensor</a></li>
+  <li><a href="#openindylib-linear-algebra">OpenIndyLib (linear algebra)</a></li>
+  <li><a href="#openindy-xml-schema">OpenIndy XML schema</a></li>
+  <li><a href="#model-view-control-gui">Model view control (GUI)</a></li>
+  <li><a href="#database-sqlite">Database (SQLite)</a></li>
+  <li><a href="#d-view-oigraphixfactory">3D view (oiGraphixFactory)</a></li>
+  <li><a href="#plugin-loader">Plugin loader</a></li>
+  <li><a href="#data-import-oidataexchanger">Data import (oiDataExchanger)</a></li>
 </ul>
 
   </div>
@@ -345,7 +344,7 @@
 
 <hr />
 
-<h2 id="concept">concept</h2>
+<h2 id="concept">Concept</h2>
 
 <blockquote>
   <p>“Metrology is the science of measurement. Metrology includes all theoretical and practical aspects of measurement. The word comes from Greek μέτρον (metron), “measure” + “λόγος” (logos), amongst others meaning “speech, oration, discourse, quote, study, calculation, reason”. In Ancient Greek the term μετρολογία (metrologia) meant “theory of ratios”.” 
@@ -363,7 +362,7 @@
   <li>Easy to use GUI, which provides a deep insight into the measurement data.</li>
 </ul>
 
-<h3 class="no_toc" id="openindy-architecture">OpenIndy Architecture</h3>
+<h3 class="no_toc" id="openindy-architecture">OpenIndy architecture</h3>
 
 <p><img src="/images/openIndyArchitecture.png" alt="OpenIndy Architecture" /> <br /><br /></p>
 
@@ -384,20 +383,20 @@ That way you can configure OpenIndy for your custom task pane. The backend is a 
 
 <p>A feature is anything which can be manipulated by functions. OpenIndy uses features to describe all elements in an abstract way that you need to solve your task. For example you want to measure a pipeline. So you will need the feature cylinder (<a href="#feature-geometry">geometry</a>) to reconstruct the pipeline. In addition to the feature, you need a function(fit or construct) that solves the cylinder.</p>
 
-<h3 class="no_toc" id="feature-and-function">feature and function</h3>
+<h3 class="no_toc" id="feature-and-function">Feature and function</h3>
 <p><img src="/images/functionConcept.png" alt="feature and function" /> <br /><br /></p>
 
 <p>OpenIndy is <a href="#feature">feature</a> based. Every feature can be changed by <a href="#function">functions</a>. For example, you can solve a geometry with a fit function, and then rotate the geometry using a transformation function. Each function generates a statistics object with information about the accuracy and passes it to the next function. Thus, a consistent error propagation is possible.</p>
 
 <hr />
 
-<h2 id="plugins">plugins</h2>
+<h2 id="plugins">Plugins</h2>
 
 <div><a href="/plugins" class="btn btn-success">Start the OiPluginTemplate Tutorial</a></div>
 
 <hr />
 
-<h2 id="feature">feature</h2>
+<h2 id="feature">Feature</h2>
 
 <p><img src="/images/featureTypes.png" alt="feature types" /></p>
 
@@ -471,9 +470,7 @@ Common attributes of any feature:</p>
 </table>
 </div>
 
-<hr />
-
-<h2 id="featurewrapper">featureWrapper</h2>
+<h3 class="no_toc" id="featurewrapper">FeatureWrapper</h3>
 
 <p>All features are stored as <a href="https://github.com/OpenIndy/OpenIndy/blob/master/src/featurewrapper.h">featureWrapper</a>  in one list in the <a href="https://github.com/OpenIndy/OpenIndy/blob/master/controller/controller.h">controller class</a>. To avoid type conversions (downcast), the <a href="https://github.com/OpenIndy/OpenIndy/blob/master/src/featurewrapper.h">featureWrapper</a> has a pointer for each feature type. </p>
 
@@ -492,31 +489,31 @@ Common attributes of any feature:</p>
 
 <hr />
 
-<h2 id="feature-geometry">feature: geometry</h2>
+<h2 id="geometry-feature">- Geometry feature</h2>
 
 <p>geometry</p>
 
 <hr />
 
-<h2 id="feature-station">feature: station</h2>
+<h2 id="station-feature">- Station feature</h2>
 
 <p>station</p>
 
 <hr />
 
-<h2 id="feature-transformation-parameter">feature: transformation parameter</h2>
+<h2 id="transformation-parameter-feature">- Transformation parameter feature</h2>
 
 <p>transformation parameter</p>
 
 <hr />
 
-<h2 id="feature-coordinate-system">feature: coordinate system</h2>
+<h2 id="coordinate-system-feature">- Coordinate system feature</h2>
 
 <p>coordinate system</p>
 
 <hr />
 
-<h2 id="function">function</h2>
+<h2 id="function">Function</h2>
 
 <p>The concept behind OpenIndy envisages that every feature can be solved by one or more functions. Hence you can assign as many functions as you want to a feature. The order of those functions is important, because they will be executed in the same order as they were assigned to a feature. This concept of assigning multiple functions to a feature is illustrated in the following diagram.</p>
 
@@ -550,13 +547,13 @@ In summary the function “Translate by Plane” gets the adjusted point with it
 
 <hr />
 
-<h2 id="sensor">sensor</h2>
+<h2 id="sensor">Sensor</h2>
 
 <p>sensor</p>
 
 <hr />
 
-<h2 id="openindylib-linear-algebra">openIndyLib (linear algebra)</h2>
+<h2 id="openindylib-linear-algebra">OpenIndyLib (linear algebra)</h2>
 
 <p>“openIndyLib” is a seperate Qt-project where classes for linear algebra are implemented. In OpenIndy and in all plugins the “openIndyLib” is linked against as a dynamic library. In the following diagram you can see the structure of that library.</p>
 
@@ -590,13 +587,13 @@ In summary the function “Translate by Plane” gets the adjusted point with it
 
 <hr />
 
-<h2 id="openindy-xml-schema">OpenIndy XML Schema</h2>
+<h2 id="openindy-xml-schema">OpenIndy XML schema</h2>
 
-<p>OpenIndy XML Schema</p>
+<p>OpenIndy XML schema</p>
 
 <hr />
 
-<h2 id="model-view-control-gui">Model View Control (GUI)</h2>
+<h2 id="model-view-control-gui">Model view control (GUI)</h2>
 
 <p>openIndy uses the model-view-control principle to handle multi different views on the same data. The data (geometries, stations, functions etc. ) are stored in the model classes and the different views show extracts of the data and its attributes. The controller class handles the interactions between the view and the model. If some changes are made to the view (e.g. some data is edited) the controller calls all needed functions and manages the changes in the model. 
 This allows us to have our own internal data logic that manages our data all needed dependencies and does not depend on any view.
@@ -610,25 +607,25 @@ Views in OpenIndy:</p>
   <li><a href="#console">console</a></li>
 </ul>
 
-<h3 class="no_toc" id="tableview">tableview</h3>
+<h3 class="no_toc" id="tableview">Tableview</h3>
 <p>the tableview is a tabular representation of the features and their attributes. Each row represents one feature (e.g. one point) and the columns represent the metadata, attributes and values, number of observations for this geometry, measurement configuration and the functions of this feature.</p>
 <figure>
 	<a href="/images/tableview.png"><img src="/images/tableview.png" /></a>
 </figure>
 
-<h3 class="no_toc" id="graphic-view">graphic view</h3>
+<h3 class="no_toc" id="graphic-view">Graphic view</h3>
 <p>The 3D graphic view, using OpenGL, gives the opportunity for a graphical representation of the features and their dependencies. The graphic view also contains a small tree view that contains all features and their attributes.</p>
 <figure>
 	<a href="/images/graphicView.png"><img src="/images/graphicView.png" /></a>
 </figure>
 
-<h3 class="no_toc" id="console">console</h3>
+<h3 class="no_toc" id="console">Console</h3>
 <p>The console actually is used as a output device for information, warnings and errors of currently executed functions and actions/ interactions.</p>
 <figure>
 	<a href="/images/console.png"><img src="/images/console.png" /></a>
 </figure>
 
-<h3 class="no_toc" id="implementation">implementation</h3>
+<h3 class="no_toc" id="implementation">Implementation</h3>
 <p>Our model class <a href="https://github.com/OpenIndy/OpenIndy/blob/master/ui/tablemodel.h"><code>tablemodel</code></a> is derived from <code>QAbstractTableModel</code> and therefore has to implement three functions.</p>
 
 <div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="kt">int</span> <span class="n">rowCount</span><span class="p">(</span><span class="k">const</span> <span class="n">QModelIndex</span> <span class="o">&amp;</span><span class="n">parent</span> <span class="o">=</span> <span class="n">QModelIndex</span><span class="p">())</span> <span class="k">const</span><span class="p">;</span>
@@ -770,25 +767,25 @@ In case of a <a href="https://github.com/OpenIndy/OpenIndy/blob/master/ui/oiGrap
 
 <hr />
 
-<h2 id="database-sqlite">database (SQLite)</h2>
+<h2 id="database-sqlite">Database (SQLite)</h2>
 
 <p>database</p>
 
 <hr />
 
-<h2 id="d-view-oigraphixfactory">3D View (oiGraphixFactory)</h2>
+<h2 id="d-view-oigraphixfactory">3D view (oiGraphixFactory)</h2>
 
 <p>OpenGL 3D View</p>
 
 <hr />
 
-<h2 id="plugin-loader">plugin loader</h2>
+<h2 id="plugin-loader">Plugin loader</h2>
 
 <p>plugin loader</p>
 
 <hr />
 
-<h2 id="data-import-oidataexchanger">data import (oiDataExchanger)</h2>
+<h2 id="data-import-oidataexchanger">Data import (oiDataExchanger)</h2>
 
 <p>data import </p>
 

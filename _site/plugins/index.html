@@ -145,14 +145,14 @@
 
 
 <meta charset="utf-8">
-<title>OiPluginTemplate Tutorial &#8211; OpenIndy</title>
+<title>Welcome to the OiPluginTemplate Tutorial &#8211; OpenIndy</title>
 <meta name="description" content="This tutorial supports you to learn how to write and run your own plugins using this project as a template.">
 <meta name="keywords" content="">
 
 
 
 <!-- Twitter Cards -->
-<meta name="twitter:title" content="OiPluginTemplate Tutorial">
+<meta name="twitter:title" content="Welcome to the OiPluginTemplate Tutorial">
 <meta name="twitter:description" content="This tutorial supports you to learn how to write and run your own plugins using this project as a template.">
 
 
@@ -163,7 +163,7 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OiPluginTemplate Tutorial">
+<meta property="og:title" content="Welcome to the OiPluginTemplate Tutorial">
 <meta property="og:description" content="This tutorial supports you to learn how to write and run your own plugins using this project as a template.">
 <meta property="og:url" content="http://0.0.0.0:4000//plugins/">
 <meta property="og:site_name" content="OpenIndy">
@@ -250,7 +250,7 @@
 					    
 					        
 					    
-					    <li><a href="http://0.0.0.0:4000//download/" >Download</a></li>
+					    <li><a href="http://0.0.0.0:4000//download/" >Downloads</a></li>
 					  
 					    
 					        
@@ -260,7 +260,7 @@
 					    
 					        
 					    
-					    <li><a href="http://0.0.0.0:4000//plugins/" >Tutorial Plugins</a></li>
+					    <li><a href="http://0.0.0.0:4000//plugins/" >Plugin Tutorial</a></li>
 					  
 					    
 					        
@@ -278,7 +278,7 @@
     
       "http://0.0.0.0:4000//images/banner_oi_proto.jpg"
     
-  alt="OiPluginTemplate Tutorial feature image">
+  alt="Welcome to the OiPluginTemplate Tutorial feature image">
 
   </div><!-- /.image-wrap -->
 
@@ -310,17 +310,912 @@
 
   </div>
   <article class="page">
-    <h1>OiPluginTemplate Tutorial</h1>
+    <h1>Welcome to the OiPluginTemplate Tutorial</h1>
     <div class="article-wrap">
       <section id="table-of-contents" class="toc">
   <header>
-    <h3>Overview</h3>
+    <h3>Tutorial Overview</h3>
   </header>
 <div id="drawer">
+<ul id="markdown-toc">
+  <li><a href="#get-started">Get started</a></li>
+  <li><a href="#write-plugins">Write plugins</a></li>
+  <li><a href="#function">Function</a></li>
+  <li><a href="#sensor">Sensor</a></li>
+  <li><a href="#network-adjustment">Network adjustment</a></li>
+  <li><a href="#plugin-implementation---bra-step-by-step-guide">Plugin implementation - <br />A step by step guide</a></li>
+  <li><a href="#initial-steps">- Initial steps</a></li>
+  <li><a href="#your-first-function">- Your first function</a></li>
+  <li><a href="#make-your-plugin-ready">- Make your plugin ready</a></li>
+  <li><a href="#install-plugins">Install Plugins</a></li>
+</ul>
 
   </div>
 </section>
 <!-- /#table-of-contents -->
+
+<p>OiPluginTemplate is a predefined Qt project which we recommend you to use if you want to write a plugin for OpenIndy. If you do not know OpenIndy yet, you may want to inform yourself <a href="/documentation">here</a>.
+In the next chapters it is assumed that you know the terminology of OpenIndy (like element, feature, function, sensor etc.). Read the following steps to learn how to write and run your own plugins using this project as a template.</p>
+
+<hr />
+
+<h2 id="get-started">Get started</h2>
+
+<p>First you need to get a copy of the Qt-project “OiTemplatePlugin” on your local machine. Therefor you have two options available:  </p>
+
+<p>On the one hand you might fork this repository (OiPluginTemplate) and get a copy of it on your local machine. If you are new to GitHub you may want to follow the guidance at <a href="https://help.github.com/articles/fork-a-repo">https://help.github.com/articles/fork-a-repo</a>. 
+On the other hand you might also fork and clone the OpenIndy repository. That repository contains a folder <code>plugins</code> which may look like this:</p>
+
+<p><img src="/images/oiPluginFolders.png" alt="oiPluginFolders" /> </p>
+
+<p>To get your own plugin you have to copy the folder <code>OiPluginTemplate</code> and paste it again next to it. You may choose any name for your new folder.</p>
+
+<p>No matter which option you choose you get one Qt-project for your own plugin. Every Qt-project is represented by a <code>*.pro</code>-file. In your case it is the file <code>OiTemplatePlugin.pro</code>. If you choose the first option the folder structure of the Qt-project will look like this:</p>
+
+<p><img src="/images/pluginTemplateFolderStructure.png" alt="oiPluginFolders" /> </p>
+
+<p>However if you choose the second option the folder structure will look as follows:</p>
+
+<p><img src="/images/OiPluginTemplateFolderStructure.png" alt="oiPluginFolders" /> </p>
+
+<p>How to work on your own plugin and what you have to take in account is explained in the next chapters.</p>
+
+<p>Furthermore you now need to install Qt Creator. You can download it <a href="http://qt-project.org/downloads">here</a>. To configure Qt Creator you may follow the instructions at the <a href="http://qt-project.org/doc/qtcreator-3.0/creator-configuring.html">Qt documentation</a>.</p>
+
+<p>You are now ready to get started with the implementation of your own plugin. Notice that the content of the folders <code>src</code> and <code>lib</code>, which came with the template (only if you have chosen option 1 above), must not be changed. You may add other libraries to the <code>lib</code> folder, but existing content has to stay as it is if you do not want to get undesirable behaviour.</p>
+
+<h2 id="write-plugins">Write plugins</h2>
+
+<p>OpenIndy provides interfaces for functions, sensors and network adjustments. How to implement them and integrate them in a plugin is described in the next three subchapters. It is explained in detail what you have to take in account when implementing such a plugin. In contrast there is also a step by step guide in the next chapter that leads you through a tutorial where you implement a small plugin with a function and a sensor.<br />
+In general it is important to know that neither the name of the pro-file <a href="https://github.com/OpenIndy/OiPluginTemplate/blob/master/OiTemplatePlugin.pro"><code>OiTemplatePlugin.pro</code></a> nor the names of the files <a href="https://github.com/OpenIndy/OiPluginTemplate/blob/master/p_factory.h"><code>p_factory.h</code></a>, <a href="https://github.com/OpenIndy/OiPluginTemplate/blob/master/p_factory.cpp"><code>p_factory.cpp</code></a> and <a href="https://github.com/OpenIndy/OiPluginTemplate/blob/master/metaInfo.json"><code>metaInfo.json</code></a> must be changed.</p>
+
+<h3 class="no_toc" id="plugin-meta-data">Plugin meta data</h3>
+
+<p>The file <a href="https://github.com/OpenIndy/OiPluginTemplate/blob/master/metaInfo.json"><code>metaInfo.json</code></a> should contain meta information about your plugin. The meaning of each attribute is described in the table below.</p>
+
+<div class="CSSTableGenerator">
+<table>
+    <tr>
+      <td style="text-align: left">attribute</td>
+      <td style="text-align: left">description</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">isOiPlugin</td>
+      <td style="text-align: left">Set this parameter to <code>true</code> so that OpenIndy recognises your plugin as valid.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">The name of your plugin.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">pluginVersion</td>
+      <td style="text-align: left">The version of your plugin. This version has to correspond with the version <code>OiPlugin_iidd</code> which is defined in the file <a href="https://github.com/OpenIndy/OpenIndy/blob/master/src/plugin/pi_oiplugin.h"><code>pi_oiplugin.h</code></a>.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">author</td>
+      <td style="text-align: left">You can enter your name or the name of your company here.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">compiler</td>
+      <td style="text-align: left">This attribute has to contain the compiler with which you are going to compile your plugin. You might choose <code>MVSC 64bit</code> (Microsoft Visual Studio), <code>minGW</code> (GNU GCC/G++), <code>clang 64bit</code> (Clang/LLVM), <code>intel</code> (Intel ICC/ICPC), <code>intelC</code> (IBM XL C/C++), <code>hewlett</code> (Hewlett-Packard C/aC++), <code>portland</code> (Portland Group PGCC/PGCPP) or <code>oracle</code> (Oracle Solaris Studio). This is important for OpenIndy to know, because a plugin can only be loaded in OpenIndy if OpenIndy has been compiled with the same compiler.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">operatingSystem</td>
+      <td style="text-align: left">Here you have to enter the operating system on which you compile your plugin. There are three options: “windows”, “linux” or “mac os”.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">description</td>
+      <td style="text-align: left">A description of your plugin.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dependencies</td>
+      <td style="text-align: left">Set this parameter to <code>true</code> if your plugin has some dependencies that have to be copied to the executable of OpenIndy.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">libPaths</td>
+      <td style="text-align: left">If you set the above parameter to <code>true</code> then you can add here as many dependencies as you want. One dependency is represented by a <code>name</code> and a <code>path</code>. Set <code>name</code> to the file name of the library (including the file extension) or the name of a hole folder. That library or folder has to be placed next to your plugin library (e.g. <code>*.dll</code>). You might also enter a hole path to a library like “myLib/dependency.dll”. And in addition set the attribute <code>path</code> to “app” so that the dependency (a library or a folder) will be put next to the executable of OpenIndy.</td>
+    </tr>
+</table>
+</div>
+<p><br /><br /></p>
+
+<p>Now that you have set up the Json-file you can start with the actual implementation of your plugin.</p>
+
+<h3 class="no_toc" id="plugin-factory">Plugin factory</h3>
+
+<p>The <a href="https://github.com/OpenIndy/OiPluginTemplate/blob/master/p_factory.h">class OiTemplatePlugin</a>, which is defined in files <a href="https://github.com/OpenIndy/OiPluginTemplate/blob/master/p_factory.h"><code>p_factory.h</code></a> and <a href="https://github.com/OpenIndy/OiPluginTemplate/blob/master/p_factory.cpp"><code>p_factory.cpp</code></a>, implements the actual interface for every plugin which itself is defined in the header file <a href="https://github.com/OpenIndy/OpenIndy/blob/master/src/plugin/pi_oiplugin.h">pi_oiplugin.h</a>.</p>
+
+<p>That interface looks like this:</p>
+
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="k">class</span> <span class="nc">OiPlugin</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="k">virtual</span> <span class="o">~</span><span class="n">OiPlugin</span><span class="p">(){}</span>
+
+    <span class="k">virtual</span> <span class="n">QList</span><span class="o">&lt;</span><span class="n">Sensor</span><span class="o">*&gt;</span> <span class="n">createSensors</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="n">QList</span><span class="o">&lt;</span><span class="n">Function</span><span class="o">*&gt;</span> <span class="n">createFunctions</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="n">QList</span><span class="o">&lt;</span><span class="n">NetworkAdjustment</span><span class="o">*&gt;</span> <span class="n">createNetworkAdjustments</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="n">Sensor</span><span class="o">*</span> <span class="n">createSensor</span><span class="p">(</span><span class="n">QString</span> <span class="n">name</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="n">Function</span><span class="o">*</span> <span class="n">createFunction</span><span class="p">(</span><span class="n">QString</span> <span class="n">name</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="n">NetworkAdjustment</span><span class="o">*</span> <span class="n">createNetworkAdjustment</span><span class="p">(</span><span class="n">QString</span> <span class="n">name</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span></code></pre></div>
+
+<p>As you can see there are six methods which must be implemented. The methods <code>createSensors</code>, <code>createFunctions</code> and <code>createNetworkAdjustments</code> return a list of pointers to sensors, functions and network adjustments respectively. These lists shall contain all sensors, functions and network adjustments which you have implemented in your plugin. The methods <code>createSensor</code>, <code>createFunction</code> and <code>createNetworkAdjustment</code>, which expect the string <code>name</code> as a parameter, return only one sensor, function and network adjustment respectively. The parameter <code>name</code> represents the name of the sensor, function or network adjustment. So each of these three methods shall return only the proper pointer or NULL if no sensor, function or network adjustment with the given name is available. Certainly this becomes more clear when looking at an example:</p>
+
+<p>Assuming that you have implemented two sensors called “sensor a” and “sensor b” and in addition two functions called “function a” and “function b” before, your implementation of the six methods above might look as follows:</p>
+
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="n">QList</span><span class="o">&lt;</span><span class="n">Sensor</span><span class="o">*&gt;</span> <span class="n">OiTemplatePlugin</span><span class="o">::</span><span class="n">createSensors</span><span class="p">(){</span>
+    <span class="n">QList</span><span class="o">&lt;</span><span class="n">Sensor</span><span class="o">*&gt;</span> <span class="n">resultSet</span><span class="p">;</span>
+    <span class="n">Sensor</span> <span class="o">*</span><span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SensorA</span><span class="p">();</span>
+    <span class="n">Sensor</span> <span class="o">*</span><span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SensorB</span><span class="p">();</span>
+    <span class="n">resultSet</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+    <span class="n">resultSet</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">resultSet</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">QList</span><span class="o">&lt;</span><span class="n">Function</span><span class="o">*&gt;</span> <span class="n">OiTemplatePlugin</span><span class="o">::</span><span class="n">createFunctions</span><span class="p">(){</span>
+    <span class="n">QList</span><span class="o">&lt;</span><span class="n">Function</span><span class="o">*&gt;</span> <span class="n">resultSet</span><span class="p">;</span>
+    <span class="n">Function</span> <span class="o">*</span><span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FunctionA</span><span class="p">();</span>
+    <span class="n">Function</span> <span class="o">*</span><span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FunctionB</span><span class="p">();</span>
+    <span class="n">resultSet</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+    <span class="n">resultSet</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">resultSet</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">QList</span><span class="o">&lt;</span><span class="n">NetworkAdjustment</span><span class="o">*&gt;</span> <span class="n">OiTemplatePlugin</span><span class="o">::</span><span class="n">createNetworkAdjustments</span><span class="p">(){</span>
+    <span class="n">QList</span><span class="o">&lt;</span><span class="n">NetworkAdjustment</span><span class="o">*&gt;</span> <span class="n">resultSet</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">resultSet</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">Sensor</span><span class="o">*</span> <span class="n">OiTemplatePlugin</span><span class="o">::</span><span class="n">createSensor</span><span class="p">(</span><span class="n">QString</span> <span class="n">name</span><span class="p">){</span>
+    <span class="n">Sensor</span> <span class="o">*</span><span class="n">result</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">compare</span><span class="p">(</span><span class="s">&quot;sensor a&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SensorA</span><span class="p">();</span>
+    <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">compare</span><span class="p">(</span><span class="s">&quot;sensor b&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SensorB</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">Function</span><span class="o">*</span> <span class="n">OiTemplatePlugin</span><span class="o">::</span><span class="n">createFunction</span><span class="p">(</span><span class="n">QString</span> <span class="n">name</span><span class="p">){</span>
+    <span class="n">Function</span> <span class="o">*</span><span class="n">result</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">compare</span><span class="p">(</span><span class="s">&quot;function a&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FunctionA</span><span class="p">();</span>
+    <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">compare</span><span class="p">(</span><span class="s">&quot;function b&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FunctionB</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">NetworkAdjustment</span><span class="o">*</span> <span class="n">OiTemplatePlugin</span><span class="o">::</span><span class="n">createNetworkAdjustment</span><span class="p">(</span><span class="n">QString</span> <span class="n">name</span><span class="p">){</span>
+    <span class="n">NetworkAdjustment</span> <span class="o">*</span><span class="n">result</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+<p>If you do not add your functions, sensors and network adjustments, which are implemented in your plugin, to the six methods above then OpenIndy will not be able to use them. In other words you can think of the <a href="https://github.com/OpenIndy/OiPluginTemplate/blob/master/p_factory.h">class OiTemplatePlugin</a> as a factory which creates and delivers function-, sensor- and network adjustment objects from the plugin to OpenIndy as soon as it is required.</p>
+
+<h3 class="no_toc" id="implement-functions-sensors-and-network-adjustments">Implement functions, sensors and network adjustments</h3>
+
+<p>Now you know how to implement the plugin interface of OpenIndy, what is important to instantiate your function-, sensor- and network adjustment classes and deliver the resulting objects to OpenIndy. To learn how to implement your own functions, sensors and network adjustment you can follow the links below.</p>
+
+<ul>
+  <li><a href="#function">implement functions</a></li>
+  <li><a href="#sensor">implement sensors</a></li>
+  <li><a href="#network-adjustment">implement network adjustments</a></li>
+</ul>
+
+<h2 id="function">Function</h2>
+
+<h3 class="no_toc" id="introduction">Introduction</h3>
+
+<p>Every feature in OpenIndy can have any number of functions. There are construct-, fit- and geodetic functions and furthermore object transformations and system transformations. The list below gives you a review of those function types.</p>
+
+<div class="CSSTableGenerator">
+<table>
+    <tr>
+      <td style="text-align: left">function type</td>
+      <td style="text-align: left">description</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fit function</td>
+      <td style="text-align: left">If overdetermination is present, fit functions have the purpose to calculate the adjusted parameters of a geometry by using observations. So for example a fit function can calculate the center of n xyz-observations.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">construct function</td>
+      <td style="text-align: left">Construct functions are used to calculate geometries by using other geometries. For example the intersection of a line and a plane results in a new point.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">geodetic function</td>
+      <td style="text-align: left">Geodetic functions are intended to calculate special geodetic tasks like spatial intersection etc..</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">object transformation</td>
+      <td style="text-align: left">In contrast to fit- and construct functions, object transformations do not define a geometry, but change a previously defined one. A point which has been fit before can for instance be moved along a line by a certain amount.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">system transformation</td>
+      <td style="text-align: left">System transformations are used to calculate the parameters of a transformation from one coordinate system to another one.</td>
+    </tr>
+</table>
+</div>
+<p><br /><br /></p>
+
+<p>These function types are implemented as classes which extend the <a href="https://github.com/OpenIndy/OpenIndy/blob/master/src/function.h">class Function</a>. When you want to write your own function in your plugin then you have to extend one of the classes <a href="https://github.com/OpenIndy/OpenIndy/blob/master/src/plugin/pi_fitfunction.h">FitFunction</a>, <a href="https://github.com/OpenIndy/OpenIndy/blob/master/src/plugin/pi_constructfunction.h">ConstructFunction</a>, <a href="https://github.com/OpenIndy/OpenIndy/blob/master/src/plugin/pi_geodeticfunction.h">GeodeticFunction</a>, <a href="https://github.com/OpenIndy/OpenIndy/blob/master/src/plugin/pi_objecttransformation.h">ObjectTransformation</a> or <a href="https://github.com/OpenIndy/OpenIndy/blob/master/src/plugin/pi_systemtransformation.h">SystemTransformation</a>. Please do not try to extend the <a href="https://github.com/OpenIndy/OpenIndy/blob/master/src/function.h">class Function</a> itself. While this currently works for some kind of function types for others it does not because additional methods and attributes are necessary which are defined only in the subclasses.</p>
+
+<p>Let us first look at the <a href="https://github.com/OpenIndy/OpenIndy/blob/master/src/function.h">class Function</a> itself. There are some methods that you always have to override (pure virtual methods). This methods are pure virtual in the five subclasses of the <a href="https://github.com/OpenIndy/OpenIndy/blob/master/src/function.h">class Function</a>, too.:</p>
+
+<h3 class="no_toc" id="pure-virtual-methods">Pure virtual methods</h3>
+
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="k">virtual</span> <span class="n">QList</span><span class="o">&lt;</span><span class="n">InputParams</span><span class="o">&gt;</span> <span class="n">getNeededElements</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">virtual</span> <span class="n">QList</span><span class="o">&lt;</span><span class="n">Configuration</span><span class="o">::</span><span class="n">FeatureTypes</span><span class="o">&gt;</span> <span class="n">applicableFor</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">virtual</span> <span class="n">PluginMetaData</span><span class="o">*</span> <span class="n">getMetaData</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span></code></pre></div>
+
+<p>The method <code>getNeededElements</code> has to return a list of <code>InputParams</code>. <code>InputParams</code> is a struct and is defined in the upper part of the header file from <a href="https://github.com/OpenIndy/OpenIndy/blob/master/src/function.h">class Function</a>. An input parameter represents an element that is required for the calculation of the actual function. For example if you want to implement a construct function which calculates the intersection of a line and a plane, you might implement the method as follows:</p>
+
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="n">QList</span><span class="o">&lt;</span><span class="n">InputParams</span><span class="o">&gt;</span> <span class="n">IntersectLinePlane</span><span class="o">::</span><span class="n">getNeededElements</span><span class="p">(){</span>
+    <span class="n">QList</span><span class="o">&lt;</span><span class="n">InputParams</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>
+    <span class="n">InputParams</span> <span class="n">param1</span><span class="p">;</span>
+    <span class="n">param1</span><span class="p">.</span><span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">param1</span><span class="p">.</span><span class="n">description</span> <span class="o">=</span> <span class="s">&quot;Select a line to calculate the intersection.&quot;</span><span class="p">;</span>
+    <span class="n">param1</span><span class="p">.</span><span class="n">infinite</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="n">param1</span><span class="p">.</span><span class="n">typeOfElement</span> <span class="o">=</span> <span class="n">Configuration</span><span class="o">::</span><span class="n">eLineElement</span><span class="p">;</span>
+    <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">param1</span><span class="p">);</span>
+    <span class="n">InputParams</span> <span class="n">param2</span><span class="p">;</span>
+    <span class="n">param2</span><span class="p">.</span><span class="n">index</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">param2</span><span class="p">.</span><span class="n">description</span> <span class="o">=</span> <span class="s">&quot;Select a plane to calculate the intersection.&quot;</span><span class="p">;</span>
+    <span class="n">param2</span><span class="p">.</span><span class="n">infinite</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="n">param2</span><span class="p">.</span><span class="n">typeOfElement</span> <span class="o">=</span> <span class="n">Configuration</span><span class="o">::</span><span class="n">ePlaneElement</span><span class="p">;</span>
+    <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">param2</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+<p>The <a href="https://github.com/OpenIndy/OpenIndy/blob/master/src/configuration.h">class Configuration</a> contains the enumeration <code>ElementTypes</code> which has a value for each available element. Each input parameter that you add to the result list has to “know” which element type it represents (<code>typeOfElement</code>) and how often this element type can be included (<code>infinite</code>). If <code>infinite</code> is <code>true</code> a user can enter as many elements of the specified type as he wants. Otherwise only one element is expected. In addition you can optionally define a description for each input parameter, so that the user of your plugin will know about the use of each parameter.  </p>
+
+<p>The second method <code>applicableFor</code> has to return a list of feature types. As well as <code>ElementTypes</code>, <code>FeatureTypes</code> is an enumeration defined in the <a href="https://github.com/OpenIndy/OpenIndy/blob/master/src/configuration.h">class Configuration</a> and has one value for each available feature. The result list has to contain every feature type which this function can be assigned to. Assuming you wrote a function called “TranslateByLine” which is able to move a point or a sphere along a line by a specified amount then you have to add the enum values of the features point and sphere to the result list. Your implementation of the method might look like this:</p>
+
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="n">QList</span><span class="o">&lt;</span><span class="n">Configuration</span><span class="o">::</span><span class="n">FeatureTypes</span><span class="o">&gt;</span> <span class="n">TranslateByLine</span><span class="o">::</span><span class="n">applicableFor</span><span class="p">(){</span>
+    <span class="n">QList</span><span class="o">&lt;</span><span class="n">Configuration</span><span class="o">::</span><span class="n">FeatureTypes</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>
+    <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">Configuration</span><span class="o">::</span><span class="n">ePointFeature</span><span class="p">);</span>
+    <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">Configuration</span><span class="o">::</span><span class="n">eSphereFeature</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Last but not least there is the method <code>getMetaData</code> which has to return a pointer to an object of the type <a href="https://github.com/OpenIndy/OpenIndy/blob/master/src/pluginmetadata.h">PluginMetaData</a>. In the meta data object that is returned in your implementation of this method you can define for example a name and a description for your function. It is not necessary that you fill all attributes that you can find in the <a href="https://github.com/OpenIndy/OpenIndy/blob/master/src/pluginmetadata.h">class PluginMetaData</a>, but a minimal implementation should contain an iid, a name, a description and the name of the plugin which the function belongs to. The name and the description that you chose for your function are later shown in the function plugin loader of OpenIndy (after you have successfully installed your plugin) where users can assign functions to features. As the name of the plugin you have to chose the name which you already defined in the json file (next to the pro file of your Qt project). The iid has a special structure:</p>
+
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="n">de</span><span class="p">.</span><span class="n">openIndy</span><span class="p">.</span><span class="n">Plugin</span><span class="p">.</span><span class="n">Function</span><span class="p">.[</span><span class="n">TYPE_OF_FUNCTION</span><span class="p">].[</span><span class="n">VERSION_OF_PLUGIN</span><span class="p">]</span></code></pre></div>
+
+<p>Replace <code>[TYPE_OF_FUNCTION]</code> by “FitFunction”, “ConstructFunction”, “GeodeticFunction”, “ObjectTransformation” or “SystemTransformation” for your specific case. As <code>[VERSION_OF_PLUGIN]</code> please chose the same as you did in your json file, but format it like “v001”.  </p>
+
+<h3 class="no_toc" id="virtual-methods">Virtual methods</h3>
+
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="k">virtual</span> <span class="kt">bool</span> <span class="nf">exec</span><span class="p">(</span><span class="n">Station</span><span class="o">&amp;</span><span class="p">);</span>
+<span class="k">virtual</span> <span class="kt">bool</span> <span class="nf">exec</span><span class="p">(</span><span class="n">CoordinateSystem</span><span class="o">&amp;</span><span class="p">);</span>
+<span class="k">virtual</span> <span class="kt">bool</span> <span class="nf">exec</span><span class="p">(</span><span class="n">TrafoParam</span><span class="o">&amp;</span><span class="p">);</span>
+<span class="k">virtual</span> <span class="kt">bool</span> <span class="nf">exec</span><span class="p">(</span><span class="n">Point</span><span class="o">&amp;</span><span class="p">);</span>
+<span class="k">virtual</span> <span class="kt">bool</span> <span class="nf">exec</span><span class="p">(</span><span class="n">Line</span><span class="o">&amp;</span><span class="p">);</span>
+<span class="k">virtual</span> <span class="kt">bool</span> <span class="nf">exec</span><span class="p">(</span><span class="n">Plane</span><span class="o">&amp;</span><span class="p">);</span>
+<span class="k">virtual</span> <span class="kt">bool</span> <span class="nf">exec</span><span class="p">(</span><span class="n">Sphere</span><span class="o">&amp;</span><span class="p">);</span>
+<span class="k">virtual</span> <span class="kt">bool</span> <span class="nf">exec</span><span class="p">(</span><span class="n">Circle</span><span class="o">&amp;</span><span class="p">);</span>
+<span class="k">virtual</span> <span class="kt">bool</span> <span class="nf">exec</span><span class="p">(</span><span class="n">Cone</span><span class="o">&amp;</span><span class="p">);</span>
+<span class="k">virtual</span> <span class="kt">bool</span> <span class="nf">exec</span><span class="p">(</span><span class="n">Cylinder</span><span class="o">&amp;</span><span class="p">);</span>
+<span class="k">virtual</span> <span class="kt">bool</span> <span class="nf">exec</span><span class="p">(</span><span class="n">Ellipsoid</span><span class="o">&amp;</span><span class="p">);</span>
+<span class="k">virtual</span> <span class="kt">bool</span> <span class="nf">exec</span><span class="p">(</span><span class="n">Hyperboloid</span><span class="o">&amp;</span><span class="p">);</span>
+<span class="k">virtual</span> <span class="kt">bool</span> <span class="nf">exec</span><span class="p">(</span><span class="n">Nurbs</span><span class="o">&amp;</span><span class="p">);</span>
+<span class="k">virtual</span> <span class="kt">bool</span> <span class="nf">exec</span><span class="p">(</span><span class="n">Paraboloid</span><span class="o">&amp;</span><span class="p">);</span>
+<span class="k">virtual</span> <span class="kt">bool</span> <span class="nf">exec</span><span class="p">(</span><span class="n">PointCloud</span><span class="o">&amp;</span><span class="p">);</span>
+<span class="k">virtual</span> <span class="kt">bool</span> <span class="nf">exec</span><span class="p">(</span><span class="n">ScalarEntityAngle</span><span class="o">&amp;</span><span class="p">);</span>
+<span class="k">virtual</span> <span class="kt">bool</span> <span class="nf">exec</span><span class="p">(</span><span class="n">ScalarEntityDistance</span><span class="o">&amp;</span><span class="p">);</span>  
+
+<span class="k">virtual</span> <span class="n">QMap</span><span class="o">&lt;</span><span class="n">QString</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">getIntegerParameter</span><span class="p">();</span>
+<span class="k">virtual</span> <span class="n">QMap</span><span class="o">&lt;</span><span class="n">QString</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">getDoubleParameter</span><span class="p">();</span>
+<span class="k">virtual</span> <span class="n">QMap</span><span class="o">&lt;</span><span class="n">QString</span><span class="p">,</span> <span class="n">QStringList</span><span class="o">&gt;</span> <span class="n">getStringParameter</span><span class="p">();</span>  
+
+<span class="k">virtual</span> <span class="n">QStringList</span> <span class="nf">getResultProtocol</span><span class="p">();</span>  
+
+<span class="k">virtual</span> <span class="kt">void</span> <span class="nf">clear</span><span class="p">();</span>
+<span class="k">virtual</span> <span class="kt">void</span> <span class="nf">clearResults</span><span class="p">();</span></code></pre></div>
+
+<p>For each feature that is currently defined in OpenIndy there is an <code>exec</code> method in the <a href="https://github.com/OpenIndy/OpenIndy/blob/master/src/function.h">class Function</a>. OpenIndy will call the <code>exec</code> method of a function each time a feature which that function is assigned to has to be recalculated. A recalculation of a feature is necessary whenever one or more elements which that feature depends on are changed. This is the case for example when you add a new observation to the fit function of the feature or indirectly when your feature is constructed from another feature which is now changed (for example because of a new observation added). Therefore your <code>exec</code> methods have to contain the actual implementation of your algorithm (of course you can subdivide your implementation into your own methods which you then call from the <code>exec</code> method). As the <code>exec</code> methods are not pure virtual you do not have to implement all of them. If you want to implement the intersection of a line and a plane then of course you only have to implement the <code>exec</code> method for the type point. But be sure that your choice of <code>exec</code> methods which you want to implement is consistent with how you implemented the method <code>applicableFor</code>. Read the part about the implementation of <code>exec</code> methods below to get a detailed description on what you have to consider when implementing an <code>exec</code> method.<br />
+The methods <code>getIntegerParameter</code>, <code>getDoubleParameter</code> and <code>getStringParameter</code> are meant to give you the chance to define special parameters for your function. As you learned before the method <code>getNeededElements</code> allows you to define elements (e.g. observations, points, planes etc.) as input parameters. Your function can use this elements to calculate whatever you want. But in some cases you maybe need to ask an user for special parameters (like wether you shall calculate a transformation with or without scale). Therefore you can implement those three methods and thereby tell OpenIndy to ask users for those parameters. Let us look at an example:</p>
+
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="n">QMap</span><span class="o">&lt;</span><span class="n">QString</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">TranslateByLine</span><span class="o">::</span><span class="n">getIntegerParameter</span><span class="p">(){</span>
+    <span class="n">QMap</span><span class="o">&lt;</span><span class="n">QString</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>
+    <span class="n">QString</span> <span class="n">key</span> <span class="o">=</span> <span class="s">&quot;paramA&quot;</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">defaultValue</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">result</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">defaultValue</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">QMap</span><span class="o">&lt;</span><span class="n">QString</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">TranslateByLine</span><span class="o">::</span><span class="n">getDoubleParameter</span><span class="p">(){</span>
+    <span class="n">QMap</span><span class="o">&lt;</span><span class="n">QString</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>
+    <span class="n">QString</span> <span class="n">key</span> <span class="o">=</span> <span class="s">&quot;paramB&quot;</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">defaultValue</span> <span class="o">=</span> <span class="mf">12.34</span><span class="p">;</span>
+    <span class="n">result</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">defaultValue</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">QMap</span><span class="o">&lt;</span><span class="n">QString</span><span class="p">,</span> <span class="n">QStringList</span><span class="o">&gt;</span> <span class="n">TranslateByLine</span><span class="o">::</span><span class="n">getStringParameter</span><span class="p">(){</span>
+    <span class="n">QMap</span><span class="o">&lt;</span><span class="n">QString</span><span class="p">,</span> <span class="n">QStringList</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>
+    <span class="n">QString</span> <span class="n">key</span> <span class="o">=</span> <span class="s">&quot;paramC&quot;</span><span class="p">;</span>
+    <span class="n">QStringList</span> <span class="n">defaultValues</span><span class="p">;</span>
+    <span class="n">defaultValues</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;option A&quot;</span><span class="p">);</span>
+    <span class="n">defaultValues</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;option B&quot;</span><span class="p">);</span>
+    <span class="n">defaultValues</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;option C&quot;</span><span class="p">);</span>
+    <span class="n">result</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+<p>You can define three different types of parameters: integer-values, double-values and string-values. Each parameter you define has a key and a default value. In contrast to integer- and double-parameters string-parameters are defined as lists. So you define multiple options and users can select one of those optionse or they can type in a custom string. Default value is always the first entry in the list, in this case that would be the string “option A”. We recommend you to use only one single string as a key and define the description of each parameter in the description of the whole function. In OpenIndy your parameters appear as follows:  </p>
+
+<p><br />
+<img src="/images/extraParameterExample.png" alt="extra Parameter Example" />
+<br /><br /></p>
+
+<p>In the above illustration you can see a string-parameter with the key “invert” and the possible options “yes” and “no”.  </p>
+
+<p>Furthermore there is the method <code>getResultProtocol</code> which you can override. Your implementation of this method might return a list of strings which shows special results or information on your calculations that otherwise would not have been shown.  </p>
+
+<p>Last but not least you might override the methods <code>clear</code> and <code>clearResults</code>. As the name implies the method <code>clearResults</code> erases all results of the last execution of the function. That concerns for example the statistic of that function. On the contrary the method <code>clear</code> erases not only those results, but the whole setup of the function. This also includes all elements which were assigned to the function. If you plan to reimplement this two methods then you might want to take a look at the implementation in the <a href="https://github.com/OpenIndy/OpenIndy/blob/master/src/function.h">class Function</a>.</p>
+
+<h3 class="no_toc" id="further-non-virtual-methods">Further non-virtual methods</h3>
+
+<p>There are some further methods which you cannot reimplement, but which are important to know and use when implementing a function. First of all there is the method <code>setUseState</code>. In your implementation you mostly use other elements to calculate one feature. As you will learn in the next part not every element is valid, so it may occur that while most of the given elements are used for calculation some are not. So for each element you should call this method and tell it wether to use the element or not.
+Moreover there is the method <code>isValid</code> which returns true if all elements that are necessary for calculation are present. This method uses your implementation of <code>getNeededElements</code> to decide wether all elements are present or not.</p>
+
+<p>It is also possible to access the console of OpenIndy from the function class. Therefore you can use the method <code>writeToConsole</code> by passing your message as a parameter. This might be useful for execptions for example. Furthermore there are methods to get a special element by its id or a whole list of all elements of a special type (e.g. observation, point, plane etc.).</p>
+
+<p>As you can see when looking at the definition of the <a href="https://github.com/OpenIndy/OpenIndy/blob/master/src/function.h">class Function</a> there are a a few other methods not mentioned yet. Those methods are not important when implementing a function. They are called from OpenIndy to get information on the current setup of the function (e.g. statistic or assigned elements etc.).</p>
+
+<h3 class="no_toc" id="implementation-of-exec-methods">Implementation of <code>exec</code> methods</h3>
+
+<p>As you have learned recently an <code>exec</code> method contains the actual implementation of you algorithm. As input you get a reference to the feature which this function is assigned to and which your implementation has to modify. This input feature may have been solved by previous functions. If so you can access this feature’s attributes to get the result of those functions. If the feature is a geometry there is a statistic object, defined in the <a href="https://github.com/OpenIndy/OpenIndy/blob/master/src/geometry.h">class Geometry</a>, with the current statistic of the geometry. Besides that input feature you also need the elements which you defined in your implementation of the method <code>getNeededElements</code> for your calculation.</p>
+
+<h2 id="sensor">Sensor</h2>
+
+<p>sensor</p>
+
+<h2 id="network-adjustment">Network adjustment</h2>
+
+<p>network adjustment</p>
+
+<h2 id="plugin-implementation---bra-step-by-step-guide">Plugin implementation - <br />A step by step guide</h2>
+
+<p>This section leads you through the implementation of a simple plugin for OpenIndy. You will implement a function and you will learn how to make your plugin ready for the use in OpenIndy.</p>
+
+<h2 id="initial-steps">- Initial steps</h2>
+
+<p>After you have completed the <a href="#get-started">Get Started</a> chapter you have got a local copy of the OiTemplatePlugin-project. The folder structure of your local project should look like the left image if you have chosen to fork the <a href="https://github.com/OpenIndy/OiPluginTemplate">OiPluginTemplate</a> repository. Otherwise, if you have forked the <a href="https://github.com/OpenIndy/OpenIndy">OpenIndy</a> repository, the folder structure of your local project should look like the right image.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td> <img src="https://raw.github.com/OpenIndy/docs/master/images/pluginTemplateFolderStructure.png" /> </td>
+      <td> <img src="https://raw.github.com/OpenIndy/docs/master/images/OiPluginTemplateFolderStructure.png" /> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Before you open the plugin-project you should open and compile the “openIndyLib”-project. That project contains the classes for linear algebra. If you have forked the <a href="https://github.com/OpenIndy/OiPluginTemplate">OiPluginTemplate</a> repository you can find the <code>openIndyLib.pro</code>-file under <code>/lib/openIndyLib</code>. In contrast if you have forked the <a href="https://github.com/OpenIndy/OpenIndy">OpenIndy</a> repository you can find the <code>openIndyLib.pro</code>-file under <code>../../lib/openIndyLib</code>. 
+In both cases it is assumed that you navigate to the <code>openIndyLib</code>-folder starting at the folder which is shown in the images above respectively. </p>
+
+<p>You can open Qt projects (in Qt Creator) by clicking “File” &gt; “Open File or Project…” and selecting your <code>*.pro</code>-file. To compile a project select “Build” &gt; “Run qmake” and afterwards “Build” &gt; “Rebuild Project xy”.<br />
+<br />
+Now, after you have compiled the “openIndyLib”-project, please open the OiTemplatePlugin-project.</p>
+
+<h3 class="no_toc" id="plugin-meta-data-1">Plugin meta data</h3>
+
+<p>Let us first set up the file <code>metaInfo.json</code>. Please copy the following lines to your <code>metaInfo.json</code>-file:  </p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">{</span>
+    <span class="s2">&quot;isOiPlugin&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+
+    <span class="s2">&quot;name&quot;</span>  <span class="o">:</span> <span class="s2">&quot;Plugin Tutorial&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pluginVersion&quot;</span> <span class="o">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;author&quot;</span>  <span class="o">:</span> <span class="s2">&quot;OpenIndyOrg&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;compiler&quot;</span> <span class="o">:</span> <span class="s2">&quot;MVSC 64bit&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;operatingSystem&quot;</span> <span class="o">:</span> <span class="s2">&quot;windows&quot;</span><span class="p">,</span>
+
+    <span class="s2">&quot;description&quot;</span> <span class="o">:</span> <span class="s2">&quot;This is an example plugin. It is meant as a reference for you to create your own plugins.&quot;</span><span class="p">,</span>
+
+    <span class="s2">&quot;dependencies&quot;</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">&quot;libPaths&quot;</span> <span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span> <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;dependencies&quot;</span><span class="p">,</span> <span class="s2">&quot;path&quot;</span><span class="o">:</span> <span class="s2">&quot;app&quot;</span> <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span></code></pre></div>
+
+<p>If you are not working on a Windows system with the Microsoft Visual Studio Compiler you have to replace “windows” or “MSVC 64bit” respectively with the appropriate value. You might replace “windows” by either “linux” or “mac os” if you are working on a Linux or Mac system. The following table gives you a review of all possible values for the compiler.  </p>
+
+<div class="CSSTableGenerator">
+<table>
+    <tr>
+      <td style="text-align: left">compiler</td>
+      <td style="text-align: left">value</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Microsoft Visual Studio</td>
+      <td style="text-align: left">MVSC 64bit</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GNU GCC/G++</td>
+      <td style="text-align: left">minGW</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Clang/LLVM</td>
+      <td style="text-align: left">clang 64bit</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Intel ICC/ICPC</td>
+      <td style="text-align: left">intel</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">IBM XL C/C++</td>
+      <td style="text-align: left">intelC</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Hewlett-Packard C/aC++</td>
+      <td style="text-align: left">hewlett</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Portland Group PGCC/PGCPP</td>
+      <td style="text-align: left">portland</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Oracle Solaris Studio</td>
+      <td style="text-align: left">oracle</td>
+    </tr>
+</table>
+</div>
+<p><br /></p>
+
+<p>So for example if you are working on a linux system with the GNU GCC/G++ compiler you have to replace “windows” by “linux” and “MSVC 64bit” by “minGW”.<br />
+As there are no dependencies (e.g. external libraries) for this example plugin the parameter “dependencies” is set to <code>false</code>.    </p>
+
+<p>You are now ready to start with the implementation of your first function.</p>
+
+<h2 id="your-first-function">- Your first function</h2>
+
+<p>In this subchapter you will implement a function for fitting a point. As input that function expects any number of XYZ-observations. The function then calculates the central point and the covariance matrix of the averaged point.</p>
+
+<h3 class="no_toc" id="set-up-the-function">Set up the function</h3>
+
+<p>Initially you have to create two empty files <code>pointFit.h</code> and <code>pointFit.cpp</code> next to the <code>OiTemplatePlugin.pro</code>-file. Afterwards you can add that two files to your Qt-project by right clicking on the project entry (OiTemplatePlugin) in the project treeview of Qt Creator and selecting the menu item “add existing files”. Browse to those two files, <code>pointFit.h</code> and <code>pointFit.cpp</code>, and add them to your project. They also appear in the <code>OiTemplatePlugin.pro</code>-file now, so you do not have to modify it yourself.  </p>
+
+<p>Now you can start implementing your function. Please copy the following lines to the <code>pointFit.h</code>-file.</p>
+
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="cp">#ifndef POINTFIT_H</span>
+<span class="cp">#define POINTFIT_H</span>
+
+<span class="cp">#include &quot;pi_fitfunction.h&quot;</span>
+<span class="cp">#include &quot;configuration.h&quot;</span>
+<span class="cp">#include &quot;pluginmetadata.h&quot;</span>
+
+<span class="k">class</span> <span class="nc">PointFit</span> <span class="o">:</span> <span class="k">public</span> <span class="n">FitFunction</span>
+<span class="p">{</span>
+
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">PluginMetaData</span><span class="o">*</span> <span class="n">getMetaData</span><span class="p">();</span>
+    <span class="n">QList</span><span class="o">&lt;</span><span class="n">InputParams</span><span class="o">&gt;</span> <span class="n">getNeededElements</span><span class="p">();</span>
+    <span class="n">QList</span><span class="o">&lt;</span><span class="n">Configuration</span><span class="o">::</span><span class="n">FeatureTypes</span><span class="o">&gt;</span> <span class="n">applicableFor</span><span class="p">();</span>
+
+<span class="p">};</span>
+
+<span class="cp">#endif </span><span class="c1">// POINTFIT_H</span></code></pre></div>
+
+<p>The corresponding <code>cpp</code>-file <code>pointFit.cpp</code> has to look as follows:</p>
+
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="cp">#include &quot;pointFit.h&quot;</span>
+
+<span class="n">PluginMetaData</span><span class="o">*</span> <span class="n">PointFit</span><span class="o">::</span><span class="n">getMetaData</span><span class="p">(){</span>
+    <span class="n">PluginMetaData</span><span class="o">*</span> <span class="n">metaData</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PluginMetaData</span><span class="p">();</span>
+    <span class="n">metaData</span><span class="o">-&gt;</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;PointFit&quot;</span><span class="p">;</span>
+    <span class="n">metaData</span><span class="o">-&gt;</span><span class="n">pluginName</span> <span class="o">=</span> <span class="s">&quot;Plugin Tutorial&quot;</span><span class="p">;</span>
+    <span class="n">metaData</span><span class="o">-&gt;</span><span class="n">author</span> <span class="o">=</span> <span class="s">&quot;OpenIndyOrg&quot;</span><span class="p">;</span>
+    <span class="n">metaData</span><span class="o">-&gt;</span><span class="n">description</span> <span class="o">=</span> <span class="n">QString</span><span class="p">(</span><span class="s">&quot;%1 %2&quot;</span><span class="p">)</span>
+            <span class="p">.</span><span class="n">arg</span><span class="p">(</span><span class="s">&quot;This function calculates an adjusted point.&quot;</span><span class="p">)</span>
+            <span class="p">.</span><span class="n">arg</span><span class="p">(</span><span class="s">&quot;You can input as many observations as you want which are then used to find the best fit 3D point.&quot;</span><span class="p">);</span>
+    <span class="n">metaData</span><span class="o">-&gt;</span><span class="n">iid</span> <span class="o">=</span> <span class="s">&quot;de.openIndy.Plugin.Function.FitFunction.v001&quot;</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">metaData</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">QList</span><span class="o">&lt;</span><span class="n">InputParams</span><span class="o">&gt;</span> <span class="n">PointFit</span><span class="o">::</span><span class="n">getNeededElements</span><span class="p">(){</span>
+    <span class="n">QList</span><span class="o">&lt;</span><span class="n">InputParams</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>
+    <span class="n">InputParams</span> <span class="n">param</span><span class="p">;</span>
+    <span class="n">param</span><span class="p">.</span><span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">param</span><span class="p">.</span><span class="n">description</span> <span class="o">=</span> <span class="s">&quot;Select observations to calculate the best fit point.&quot;</span><span class="p">;</span>
+    <span class="n">param</span><span class="p">.</span><span class="n">infinite</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">param</span><span class="p">.</span><span class="n">typeOfElement</span> <span class="o">=</span> <span class="n">Configuration</span><span class="o">::</span><span class="n">eObservationElement</span><span class="p">;</span>
+    <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">param</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">QList</span><span class="o">&lt;</span><span class="n">Configuration</span><span class="o">::</span><span class="n">FeatureTypes</span><span class="o">&gt;</span> <span class="n">PointFit</span><span class="o">::</span><span class="n">applicableFor</span><span class="p">(){</span>
+    <span class="n">QList</span><span class="o">&lt;</span><span class="n">Configuration</span><span class="o">::</span><span class="n">FeatureTypes</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>
+    <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">Configuration</span><span class="o">::</span><span class="n">ePointFeature</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Now you have a minimum implementation of a function. The name and the description you have defined in the method <code>getMetaData</code> are important, because they appear later when using your function in OpenIndy. That description tells the users of your function how this function works and what it does. In the method <code>getNeededElements</code> it is determined what elements your function needs to be able to calculate something. As your function calculates the center of n observations, of course, you need some observations. This is defined in the parameter <code>typeOfElement</code>. </p>
+
+<p>Again there is a description parameter which will also appear later in OpenIndy. That description tells the user of your function what the element (observation) is used for in the function. The parameter <code>infinite</code> determines that the user of your function might add as many observations to the function as he wants. At last there is the method <code>applicableFor</code> which tells OpenIndy that your function can only be assigned to a point feature.  </p>
+
+<p>For test purpose you might also compile your plugin now, if you want. There is no actual algorithm implemented, so this function is useless at the moment. Therefor let us continue by adding the algorithm for fitting a point.</p>
+
+<h3 class="no_toc" id="add-the-actual-functionality-to-the-function">Add the actual functionality to the function</h3>
+
+<p>Please add the definition of an <code>exec</code> method for a point feature to the header file <code>pointFit.h</code>. Your header file should look like this now:</p>
+
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="cp">#ifndef POINTFIT_H</span>
+<span class="cp">#define POINTFIT_H</span>
+
+<span class="cp">#include &quot;pi_fitfunction.h&quot;</span>
+<span class="cp">#include &quot;configuration.h&quot;</span>
+<span class="cp">#include &quot;pluginmetadata.h&quot;</span>
+
+<span class="k">class</span> <span class="nc">PointFit</span> <span class="o">:</span> <span class="k">public</span> <span class="n">FitFunction</span>
+<span class="p">{</span>
+
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">PluginMetaData</span><span class="o">*</span> <span class="n">getMetaData</span><span class="p">();</span>
+    <span class="n">QList</span><span class="o">&lt;</span><span class="n">InputParams</span><span class="o">&gt;</span> <span class="n">getNeededElements</span><span class="p">();</span>
+    <span class="n">QList</span><span class="o">&lt;</span><span class="n">Configuration</span><span class="o">::</span><span class="n">FeatureTypes</span><span class="o">&gt;</span> <span class="n">applicableFor</span><span class="p">();</span>
+
+    <span class="kt">bool</span> <span class="nf">exec</span><span class="p">(</span><span class="n">Point</span><span class="o">&amp;</span><span class="p">);</span>
+
+<span class="p">};</span>
+
+<span class="cp">#endif </span><span class="c1">// POINTFIT_H</span></code></pre></div>
+
+<p>At the very bottom of the corresponding <code>cpp</code>-file (<code>pointFit.cpp</code>) please add the implementation of that <code>exec</code> method as follows:</p>
+
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="kt">bool</span> <span class="n">PointFit</span><span class="o">::</span><span class="n">exec</span><span class="p">(</span><span class="n">Point</span> <span class="o">&amp;</span><span class="n">p</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">isValid</span><span class="p">()){</span>
+
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+<p>The method <code>isValid</code>, which is called here, is defined in the function class and checks wether all needed elements are available. In this <code>exec</code> method you can now implement the calculation of the central point. The first thing you need is a list of all observations that shall be used for calculation. Therefor please change the implementation of your <code>exec</code> method as follows:</p>
+
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="kt">bool</span> <span class="n">PointFit</span><span class="o">::</span><span class="n">exec</span><span class="p">(</span><span class="n">Point</span> <span class="o">&amp;</span><span class="n">p</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">isValid</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">featureOrder</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="mi">0</span><span class="p">)){</span>
+        <span class="n">QList</span><span class="o">&lt;</span><span class="n">Observation</span><span class="o">*&gt;</span> <span class="n">myObservations</span><span class="p">;</span>
+        <span class="n">QList</span><span class="o">&lt;</span><span class="n">InputFeature</span><span class="o">&gt;</span> <span class="n">myObservationIds</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">featureOrder</span><span class="p">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+        <span class="n">foreach</span><span class="p">(</span><span class="n">InputFeature</span> <span class="n">obs</span><span class="p">,</span> <span class="n">myObservationIds</span><span class="p">){</span>
+            <span class="n">Observation</span> <span class="o">*</span><span class="n">myObservation</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">getObservation</span><span class="p">(</span><span class="n">obs</span><span class="p">.</span><span class="n">id</span><span class="p">);</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">myObservation</span> <span class="o">!=</span> <span class="nb">NULL</span> <span class="o">&amp;&amp;</span> <span class="n">myObservation</span><span class="o">-&gt;</span><span class="n">isValid</span><span class="p">){</span>
+                <span class="n">myObservations</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">myObservation</span><span class="p">);</span>
+            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                <span class="k">this</span><span class="o">-&gt;</span><span class="n">setUseState</span><span class="p">(</span><span class="n">obs</span><span class="p">.</span><span class="n">id</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">myObservations</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+            <span class="c1">//TODO</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+<p>The attribute <code>featureOrder</code> is a map, defined in the function class, which contains the id’s of all elements that were assigned to your function by the user of OpenIndy in a special order. In this case that map has only got the key “0”, because you only defined one needed element (observations) in the method <code>getNeededElements</code>. You get a list of objects, which hold the id’s of the observations, by accessing the value of the map with the key “0”. </p>
+
+<p>To get a list with the actual observations you have to iterate through a loop and call the method <code>getObservation</code> each time with the id of the observation you are searching for. The result is a pointer to an observation object. You should check for NULL and you should also check wether that observation is valid or not. An observation is valid if it is available in the current coordinate system. If an observation is not valid the method <code>setUseState</code> is called to tell OpenIndy that your function won’t include that observation in its calculations. To not overfill the <code>exec</code> method please define a private method in the header file <code>pointFit.h</code> as follows:</p>
+
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="cp">#ifndef POINTFIT_H</span>
+<span class="cp">#define POINTFIT_H</span>
+
+<span class="cp">#include &quot;pi_fitfunction.h&quot;</span>
+<span class="cp">#include &quot;configuration.h&quot;</span>
+<span class="cp">#include &quot;pluginmetadata.h&quot;</span>
+
+<span class="k">class</span> <span class="nc">PointFit</span> <span class="o">:</span> <span class="k">public</span> <span class="n">FitFunction</span>
+<span class="p">{</span>
+
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">PluginMetaData</span><span class="o">*</span> <span class="n">getMetaData</span><span class="p">();</span>
+    <span class="n">QList</span><span class="o">&lt;</span><span class="n">InputParams</span><span class="o">&gt;</span> <span class="n">getNeededElements</span><span class="p">();</span>
+    <span class="n">QList</span><span class="o">&lt;</span><span class="n">Configuration</span><span class="o">::</span><span class="n">FeatureTypes</span><span class="o">&gt;</span> <span class="n">applicableFor</span><span class="p">();</span>
+
+    <span class="kt">bool</span> <span class="nf">exec</span><span class="p">(</span><span class="n">Point</span><span class="o">&amp;</span><span class="p">);</span>
+
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">bool</span> <span class="n">calculateCentralPoint</span><span class="p">(</span><span class="n">Point</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">QList</span><span class="o">&lt;</span><span class="n">Observation</span><span class="o">*&gt;</span><span class="p">);</span>
+
+<span class="p">};</span>
+
+<span class="cp">#endif </span><span class="c1">// POINTFIT_H</span></code></pre></div>
+
+<p>Again you can add the following implementation at the very bottom of the <code>cpp</code>-file <code>pointFit.cpp</code>:</p>
+
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="kt">bool</span> <span class="n">PointFit</span><span class="o">::</span><span class="n">calculateCentralPoint</span><span class="p">(</span><span class="n">Point</span> <span class="o">&amp;</span><span class="n">p</span><span class="p">,</span> <span class="n">QList</span><span class="o">&lt;</span><span class="n">Observation</span><span class="o">*&gt;</span> <span class="n">myObservations</span><span class="p">){</span>
+    <span class="c1">//TODO</span>
+    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Now, please replace the <code>//TODO</code> in the <code>exec</code> method by calling the method you just created and returning its result:</p>
+
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">calculateCentralPoint</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">myObservations</span><span class="p">);</span></code></pre></div>
+
+<p>As you will see the classes <a href="https://github.com/OpenIndy/OpenIndy/blob/master/lib/openIndyLib/include/oivec.h">OiVec</a> and <a href="https://github.com/OpenIndy/OpenIndy/blob/master/lib/openIndyLib/include/oimat.h">OiMat</a>, mentioned before, are used to do all calculations. At first we create and fill the l vector with the XYZ-coordinates of all observations. For this purpose please replace the <code>//TODO</code> in the method <code>calculateCentralPoint</code> by the following lines:</p>
+
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="c1">//set up l vector with all observations</span>
+    <span class="n">OiVec</span> <span class="n">l</span><span class="p">;</span>
+    <span class="n">foreach</span><span class="p">(</span><span class="n">Observation</span> <span class="o">*</span><span class="n">obs</span><span class="p">,</span> <span class="n">myObservations</span><span class="p">){</span>
+        <span class="n">l</span><span class="p">.</span><span class="n">add</span><span class="p">(</span> <span class="n">obs</span><span class="o">-&gt;</span><span class="n">myXyz</span><span class="p">.</span><span class="n">getAt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">);</span>
+        <span class="n">l</span><span class="p">.</span><span class="n">add</span><span class="p">(</span> <span class="n">obs</span><span class="o">-&gt;</span><span class="n">myXyz</span><span class="p">.</span><span class="n">getAt</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">);</span>
+        <span class="n">l</span><span class="p">.</span><span class="n">add</span><span class="p">(</span> <span class="n">obs</span><span class="o">-&gt;</span><span class="n">myXyz</span><span class="p">.</span><span class="n">getAt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">//TODO</span></code></pre></div>
+
+<p>The next step is to set up the A matrix. Again please replace the <code>//TODO</code> by the following lines:</p>
+
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="n">OiMat</span> <span class="nf">a</span><span class="p">(</span><span class="n">l</span><span class="p">.</span><span class="n">getSize</span><span class="p">(),</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">l</span><span class="p">.</span><span class="n">getSize</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span> <span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">){</span>
+            <span class="n">a</span><span class="p">.</span><span class="n">setAt</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">Point</span><span class="o">::</span><span class="n">unknownX</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+        <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span> <span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">){</span>
+            <span class="n">a</span><span class="p">.</span><span class="n">setAt</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">Point</span><span class="o">::</span><span class="n">unknownY</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+        <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span> <span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">){</span>
+            <span class="n">a</span><span class="p">.</span><span class="n">setAt</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">Point</span><span class="o">::</span><span class="n">unknownZ</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="c1">//TODO</span></code></pre></div>
+
+<p>The three values <code>unknownX</code>, <code>unknownY</code> and <code>unknownZ</code> are enumeration values. The corresponding enumeration is defined in the <a href="https://github.com/OpenIndy/OpenIndy/blob/master/src/geometry/point.h">class Point</a>. This enumeration values specify the order of unknowns for the A matrix and thus also the order of the covariance matrix. OpenIndy itself and further functions have to know about this order, because otherwise the covariance matrix you calculate would be useless.<br />
+Again please replace the <code>//TODO</code> by the following lines:</p>
+
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="c1">//calculate coordinates of central point and corresponding statistic</span>
+    <span class="n">OiMat</span> <span class="n">n</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">t</span><span class="p">()</span> <span class="o">*</span> <span class="n">a</span><span class="p">;</span>
+    <span class="n">OiVec</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">t</span><span class="p">()</span> <span class="o">*</span> <span class="n">l</span><span class="p">;</span>
+    <span class="n">try</span><span class="p">{</span>
+
+        <span class="n">OiMat</span> <span class="n">qxx</span> <span class="o">=</span> <span class="n">n</span><span class="p">.</span><span class="n">inv</span><span class="p">();</span>
+        <span class="n">OiVec</span> <span class="n">x</span> <span class="o">=</span> <span class="n">qxx</span> <span class="o">*</span> <span class="n">c</span><span class="p">;</span> <span class="c1">//coordinates of central point</span>
+        <span class="n">OiVec</span> <span class="n">v</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span> <span class="o">-</span> <span class="n">l</span><span class="p">;</span>
+        <span class="n">x</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mf">1.0</span><span class="p">);</span> <span class="c1">//x vector as homogeneous coordinates</span>
+        <span class="c1">//calculate statistic</span>
+        <span class="kt">double</span> <span class="n">stdv</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">getSize</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">){</span>
+            <span class="kt">double</span> <span class="n">sum_vv</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">v</span><span class="p">.</span><span class="n">getSize</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+                <span class="n">sum_vv</span> <span class="o">+=</span> <span class="n">v</span><span class="p">.</span><span class="n">getAt</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">*</span> <span class="n">v</span><span class="p">.</span><span class="n">getAt</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">stdv</span> <span class="o">=</span> <span class="n">qSqrt</span><span class="p">(</span><span class="n">sum_vv</span> <span class="o">/</span> <span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">getSize</span><span class="p">()</span> <span class="o">-</span> <span class="mi">3</span><span class="p">));</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="n">stdv</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="c1">//set up result</span>
+        <span class="n">p</span><span class="p">.</span><span class="n">myStatistic</span><span class="p">.</span><span class="n">s0_apriori</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+        <span class="n">p</span><span class="p">.</span><span class="n">myStatistic</span><span class="p">.</span><span class="n">s0_aposteriori</span> <span class="o">=</span> <span class="n">stdv</span><span class="p">;</span>
+        <span class="n">p</span><span class="p">.</span><span class="n">xyz</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+        <span class="n">p</span><span class="p">.</span><span class="n">myStatistic</span><span class="p">.</span><span class="n">qxx</span> <span class="o">=</span> <span class="n">qxx</span><span class="p">;</span>
+        <span class="n">p</span><span class="p">.</span><span class="n">myStatistic</span><span class="p">.</span><span class="n">v</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+        <span class="n">p</span><span class="p">.</span><span class="n">myStatistic</span><span class="p">.</span><span class="n">stdev</span> <span class="o">=</span> <span class="n">stdv</span><span class="p">;</span>
+
+        <span class="c1">//TODO</span>
+
+        <span class="n">p</span><span class="p">.</span><span class="n">myStatistic</span><span class="p">.</span><span class="n">isValid</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">myStatistic</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">myStatistic</span><span class="p">;</span>
+
+        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+
+    <span class="p">}</span><span class="k">catch</span><span class="p">(</span><span class="n">logic_error</span> <span class="n">e</span><span class="p">){</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">writeToConsole</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">());</span>
+        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span><span class="k">catch</span><span class="p">(</span><span class="n">runtime_error</span> <span class="n">e</span><span class="p">){</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">writeToConsole</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">());</span>
+        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span></code></pre></div>
+
+<p>In the above code snippet the actual algorithm is implemented. The <code>x</code> vector holds the coordinates of the central point and the matrix <code>qxx</code> is the cofactor matrix of that central point. As the point feature <code>p</code>, which your function shall calculate, is passed as a reference you can easily set the results to the reference. Furthermore the point <code>p</code> has got an attribute <code>myStatistic</code> which you can assign your statistical results to. Not only the point, but also the function itself has got an attribute <code>myStatistic</code>. </p>
+
+<p>After you have set the points statistic you have to assign that statistic object to the statistic object of your function, too. This is because the statistic of the point might later be changed by another function that is assigned to the point. The statistic of a function is only modified by the function itself (and no other functions) and can be reviewed via special dialogs in OpenIndy.  </p>
+
+<p>Now one last step is missing. For the residuals to be displayed you have to fill the attribute <code>displayResiduals</code> of the point object. Therefor please replace the <code>//TODO</code> by the following snippet:</p>
+
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="c1">//display the residuals in OpenIndy</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">p</span><span class="p">.</span><span class="n">myStatistic</span><span class="p">.</span><span class="n">v</span><span class="p">.</span><span class="n">getSize</span><span class="p">()</span> <span class="o">/</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">Residual</span> <span class="n">r</span><span class="p">;</span>
+
+    <span class="n">r</span><span class="p">.</span><span class="n">addValue</span><span class="p">(</span><span class="s">&quot;vx&quot;</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">getAt</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">3</span><span class="p">),</span> <span class="n">UnitConverter</span><span class="o">::</span><span class="n">eMetric</span><span class="p">);</span>
+    <span class="n">r</span><span class="p">.</span><span class="n">addValue</span><span class="p">(</span><span class="s">&quot;vy&quot;</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">getAt</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="mi">3</span><span class="p">),</span> <span class="n">UnitConverter</span><span class="o">::</span><span class="n">eMetric</span><span class="p">);</span>
+    <span class="n">r</span><span class="p">.</span><span class="n">addValue</span><span class="p">(</span><span class="s">&quot;vz&quot;</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">getAt</span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="mi">3</span><span class="p">),</span> <span class="n">UnitConverter</span><span class="o">::</span><span class="n">eMetric</span><span class="p">);</span>
+
+    <span class="n">p</span><span class="p">.</span><span class="n">myStatistic</span><span class="p">.</span><span class="n">displayResiduals</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="p">);</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Maybe you ask yourself why OpenIndy does not simply display the residuals which you have previously assigned to the <code>v</code> vector. This is because OpenIndy does not no anything about your algorithm. The <code>v</code> vector could contain anything in any unit. The residual objects you add to the list <code>displayResiduals</code> above define what a residual represents by specifying a header (e.g. “vx”) and they also determine the unit in which the residuals are saved.</p>
+
+<h3 class="no_toc" id="summary">Summary</h3>
+
+<p>To make sure that your implementation equals the reference implementation of this function you can compare your one to the implementations below.</p>
+
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="cp">#ifndef POINTFIT_H</span>
+<span class="cp">#define POINTFIT_H</span>
+
+<span class="cp">#include &quot;pi_fitfunction.h&quot;</span>
+<span class="cp">#include &quot;configuration.h&quot;</span>
+<span class="cp">#include &quot;pluginmetadata.h&quot;</span>
+
+<span class="k">class</span> <span class="nc">PointFit</span> <span class="o">:</span> <span class="k">public</span> <span class="n">FitFunction</span>
+<span class="p">{</span>
+
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">PluginMetaData</span><span class="o">*</span> <span class="n">getMetaData</span><span class="p">();</span>
+    <span class="n">QList</span><span class="o">&lt;</span><span class="n">InputParams</span><span class="o">&gt;</span> <span class="n">getNeededElements</span><span class="p">();</span>
+    <span class="n">QList</span><span class="o">&lt;</span><span class="n">Configuration</span><span class="o">::</span><span class="n">FeatureTypes</span><span class="o">&gt;</span> <span class="n">applicableFor</span><span class="p">();</span>
+
+    <span class="kt">bool</span> <span class="nf">exec</span><span class="p">(</span><span class="n">Point</span><span class="o">&amp;</span><span class="p">);</span>
+
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">bool</span> <span class="n">calculateCentralPoint</span><span class="p">(</span><span class="n">Point</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">QList</span><span class="o">&lt;</span><span class="n">Observation</span><span class="o">*&gt;</span><span class="p">);</span>
+
+<span class="p">};</span>
+
+<span class="cp">#endif </span><span class="c1">// POINTFIT_H</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="cp">#include &quot;pointFit.h&quot;</span>
+
+<span class="n">PluginMetaData</span><span class="o">*</span> <span class="n">PointFit</span><span class="o">::</span><span class="n">getMetaData</span><span class="p">(){</span>
+    <span class="n">PluginMetaData</span><span class="o">*</span> <span class="n">metaData</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PluginMetaData</span><span class="p">();</span>
+    <span class="n">metaData</span><span class="o">-&gt;</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;PointFit&quot;</span><span class="p">;</span>
+    <span class="n">metaData</span><span class="o">-&gt;</span><span class="n">pluginName</span> <span class="o">=</span> <span class="s">&quot;Plugin Tutorial&quot;</span><span class="p">;</span>
+    <span class="n">metaData</span><span class="o">-&gt;</span><span class="n">author</span> <span class="o">=</span> <span class="s">&quot;OpenIndyOrg&quot;</span><span class="p">;</span>
+    <span class="n">metaData</span><span class="o">-&gt;</span><span class="n">description</span> <span class="o">=</span> <span class="n">QString</span><span class="p">(</span><span class="s">&quot;%1 %2&quot;</span><span class="p">)</span>
+            <span class="p">.</span><span class="n">arg</span><span class="p">(</span><span class="s">&quot;This function calculates an adjusted point.&quot;</span><span class="p">)</span>
+            <span class="p">.</span><span class="n">arg</span><span class="p">(</span><span class="s">&quot;You can input as many observations as you want which are then used to find the best fit 3D point.&quot;</span><span class="p">);</span>
+    <span class="n">metaData</span><span class="o">-&gt;</span><span class="n">iid</span> <span class="o">=</span> <span class="s">&quot;de.openIndy.Plugin.Function.FitFunction.v001&quot;</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">metaData</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">QList</span><span class="o">&lt;</span><span class="n">InputParams</span><span class="o">&gt;</span> <span class="n">PointFit</span><span class="o">::</span><span class="n">getNeededElements</span><span class="p">(){</span>
+    <span class="n">QList</span><span class="o">&lt;</span><span class="n">InputParams</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>
+    <span class="n">InputParams</span> <span class="n">param</span><span class="p">;</span>
+    <span class="n">param</span><span class="p">.</span><span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">param</span><span class="p">.</span><span class="n">description</span> <span class="o">=</span> <span class="s">&quot;Select observations to calculate the best fit point.&quot;</span><span class="p">;</span>
+    <span class="n">param</span><span class="p">.</span><span class="n">infinite</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">param</span><span class="p">.</span><span class="n">typeOfElement</span> <span class="o">=</span> <span class="n">Configuration</span><span class="o">::</span><span class="n">eObservationElement</span><span class="p">;</span>
+    <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">param</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">QList</span><span class="o">&lt;</span><span class="n">Configuration</span><span class="o">::</span><span class="n">FeatureTypes</span><span class="o">&gt;</span> <span class="n">PointFit</span><span class="o">::</span><span class="n">applicableFor</span><span class="p">(){</span>
+    <span class="n">QList</span><span class="o">&lt;</span><span class="n">Configuration</span><span class="o">::</span><span class="n">FeatureTypes</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>
+    <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">Configuration</span><span class="o">::</span><span class="n">ePointFeature</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span> <span class="n">PointFit</span><span class="o">::</span><span class="n">exec</span><span class="p">(</span><span class="n">Point</span> <span class="o">&amp;</span><span class="n">p</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">isValid</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">featureOrder</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="mi">0</span><span class="p">)){</span>
+        <span class="n">QList</span><span class="o">&lt;</span><span class="n">Observation</span><span class="o">*&gt;</span> <span class="n">myObservations</span><span class="p">;</span>
+        <span class="n">QList</span><span class="o">&lt;</span><span class="n">InputFeature</span><span class="o">&gt;</span> <span class="n">myObservationIds</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">featureOrder</span><span class="p">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+        <span class="n">foreach</span><span class="p">(</span><span class="n">InputFeature</span> <span class="n">obs</span><span class="p">,</span> <span class="n">myObservationIds</span><span class="p">){</span>
+            <span class="n">Observation</span> <span class="o">*</span><span class="n">myObservation</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">getObservation</span><span class="p">(</span><span class="n">obs</span><span class="p">.</span><span class="n">id</span><span class="p">);</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">myObservation</span> <span class="o">!=</span> <span class="nb">NULL</span> <span class="o">&amp;&amp;</span> <span class="n">myObservation</span><span class="o">-&gt;</span><span class="n">isValid</span><span class="p">){</span>
+                <span class="n">myObservations</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">myObservation</span><span class="p">);</span>
+            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                <span class="k">this</span><span class="o">-&gt;</span><span class="n">setUseState</span><span class="p">(</span><span class="n">obs</span><span class="p">.</span><span class="n">id</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">myObservations</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+            <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">calculateCentralPoint</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">myObservations</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span> <span class="n">PointFit</span><span class="o">::</span><span class="n">calculateCentralPoint</span><span class="p">(</span><span class="n">Point</span> <span class="o">&amp;</span><span class="n">p</span><span class="p">,</span> <span class="n">QList</span><span class="o">&lt;</span><span class="n">Observation</span><span class="o">*&gt;</span> <span class="n">myObservations</span><span class="p">){</span>
+    <span class="c1">//set up l vector with all observations</span>
+    <span class="n">OiVec</span> <span class="n">l</span><span class="p">;</span>
+    <span class="n">foreach</span><span class="p">(</span><span class="n">Observation</span> <span class="o">*</span><span class="n">obs</span><span class="p">,</span> <span class="n">myObservations</span><span class="p">){</span>
+        <span class="n">l</span><span class="p">.</span><span class="n">add</span><span class="p">(</span> <span class="n">obs</span><span class="o">-&gt;</span><span class="n">myXyz</span><span class="p">.</span><span class="n">getAt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">);</span>
+        <span class="n">l</span><span class="p">.</span><span class="n">add</span><span class="p">(</span> <span class="n">obs</span><span class="o">-&gt;</span><span class="n">myXyz</span><span class="p">.</span><span class="n">getAt</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">);</span>
+        <span class="n">l</span><span class="p">.</span><span class="n">add</span><span class="p">(</span> <span class="n">obs</span><span class="o">-&gt;</span><span class="n">myXyz</span><span class="p">.</span><span class="n">getAt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">//Fill A matrix</span>
+    <span class="n">OiMat</span> <span class="n">a</span><span class="p">(</span><span class="n">l</span><span class="p">.</span><span class="n">getSize</span><span class="p">(),</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">l</span><span class="p">.</span><span class="n">getSize</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span> <span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">){</span>
+            <span class="n">a</span><span class="p">.</span><span class="n">setAt</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">Point</span><span class="o">::</span><span class="n">unknownX</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+        <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span> <span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">){</span>
+            <span class="n">a</span><span class="p">.</span><span class="n">setAt</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">Point</span><span class="o">::</span><span class="n">unknownY</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+        <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span> <span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">){</span>
+            <span class="n">a</span><span class="p">.</span><span class="n">setAt</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">Point</span><span class="o">::</span><span class="n">unknownZ</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="c1">//calculate coordinates of central point and corresponding statistic</span>
+    <span class="n">OiMat</span> <span class="n">n</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">t</span><span class="p">()</span> <span class="o">*</span> <span class="n">a</span><span class="p">;</span>
+    <span class="n">OiVec</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">t</span><span class="p">()</span> <span class="o">*</span> <span class="n">l</span><span class="p">;</span>
+    <span class="n">try</span><span class="p">{</span>
+
+        <span class="n">OiMat</span> <span class="n">qxx</span> <span class="o">=</span> <span class="n">n</span><span class="p">.</span><span class="n">inv</span><span class="p">();</span>
+        <span class="n">OiVec</span> <span class="n">x</span> <span class="o">=</span> <span class="n">qxx</span> <span class="o">*</span> <span class="n">c</span><span class="p">;</span> <span class="c1">//coordinates of central point</span>
+        <span class="n">OiVec</span> <span class="n">v</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span> <span class="o">-</span> <span class="n">l</span><span class="p">;</span>
+        <span class="n">x</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mf">1.0</span><span class="p">);</span> <span class="c1">//x vector as homogeneous coordinates</span>
+        <span class="c1">//calculate statistic</span>
+        <span class="kt">double</span> <span class="n">stdv</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">getSize</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">){</span>
+            <span class="kt">double</span> <span class="n">sum_vv</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">v</span><span class="p">.</span><span class="n">getSize</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+                <span class="n">sum_vv</span> <span class="o">+=</span> <span class="n">v</span><span class="p">.</span><span class="n">getAt</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">*</span> <span class="n">v</span><span class="p">.</span><span class="n">getAt</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">stdv</span> <span class="o">=</span> <span class="n">qSqrt</span><span class="p">(</span><span class="n">sum_vv</span> <span class="o">/</span> <span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">getSize</span><span class="p">()</span> <span class="o">-</span> <span class="mi">3</span><span class="p">));</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="n">stdv</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="c1">//set up result</span>
+        <span class="n">p</span><span class="p">.</span><span class="n">myStatistic</span><span class="p">.</span><span class="n">s0_apriori</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+        <span class="n">p</span><span class="p">.</span><span class="n">myStatistic</span><span class="p">.</span><span class="n">s0_aposteriori</span> <span class="o">=</span> <span class="n">stdv</span><span class="p">;</span>
+        <span class="n">p</span><span class="p">.</span><span class="n">xyz</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+        <span class="n">p</span><span class="p">.</span><span class="n">myStatistic</span><span class="p">.</span><span class="n">qxx</span> <span class="o">=</span> <span class="n">qxx</span><span class="p">;</span>
+        <span class="n">p</span><span class="p">.</span><span class="n">myStatistic</span><span class="p">.</span><span class="n">v</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+        <span class="n">p</span><span class="p">.</span><span class="n">myStatistic</span><span class="p">.</span><span class="n">stdev</span> <span class="o">=</span> <span class="n">stdv</span><span class="p">;</span>
+
+        <span class="c1">//display the residuals in OpenIndy</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">p</span><span class="p">.</span><span class="n">myStatistic</span><span class="p">.</span><span class="n">v</span><span class="p">.</span><span class="n">getSize</span><span class="p">()</span> <span class="o">/</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+            <span class="n">Residual</span> <span class="n">r</span><span class="p">;</span>
+
+            <span class="n">r</span><span class="p">.</span><span class="n">addValue</span><span class="p">(</span><span class="s">&quot;vx&quot;</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">getAt</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">3</span><span class="p">),</span> <span class="n">UnitConverter</span><span class="o">::</span><span class="n">eMetric</span><span class="p">);</span>
+            <span class="n">r</span><span class="p">.</span><span class="n">addValue</span><span class="p">(</span><span class="s">&quot;vy&quot;</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">getAt</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="mi">3</span><span class="p">),</span> <span class="n">UnitConverter</span><span class="o">::</span><span class="n">eMetric</span><span class="p">);</span>
+            <span class="n">r</span><span class="p">.</span><span class="n">addValue</span><span class="p">(</span><span class="s">&quot;vz&quot;</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">getAt</span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="mi">3</span><span class="p">),</span> <span class="n">UnitConverter</span><span class="o">::</span><span class="n">eMetric</span><span class="p">);</span>
+
+            <span class="n">p</span><span class="p">.</span><span class="n">myStatistic</span><span class="p">.</span><span class="n">displayResiduals</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="n">p</span><span class="p">.</span><span class="n">myStatistic</span><span class="p">.</span><span class="n">isValid</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">myStatistic</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">myStatistic</span><span class="p">;</span>
+
+        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+
+    <span class="p">}</span><span class="k">catch</span><span class="p">(</span><span class="n">logic_error</span> <span class="n">e</span><span class="p">){</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">writeToConsole</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">());</span>
+        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span><span class="k">catch</span><span class="p">(</span><span class="n">runtime_error</span> <span class="n">e</span><span class="p">){</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">writeToConsole</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">());</span>
+        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Now you have implemented your first function. With this function you are able to calculate the central point out of any number of XYZ-observations. Next you will learn how to make your plugin ready for the use in OpenIndy.</p>
+
+<h2 id="make-your-plugin-ready">- Make your plugin ready</h2>
+
+<p>To make your plugin ready you have to update the files <code>p_factory.h</code> and <code>p_factory.cpp</code> first. Please add the include <code>#include "pointFit.h"</code> at the upper part of the file <code>p_factory.h</code>. In the file <code>p_factory.cpp</code> you can find the following two methods:</p>
+
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="n">QList</span><span class="o">&lt;</span><span class="n">Function</span><span class="o">*&gt;</span> <span class="n">OiTemplatePlugin</span><span class="o">::</span><span class="n">createFunctions</span><span class="p">(){</span>
+    <span class="n">QList</span><span class="o">&lt;</span><span class="n">Function</span><span class="o">*&gt;</span> <span class="n">resultSet</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">resultSet</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="n">Function</span><span class="o">*</span> <span class="n">OiTemplatePlugin</span><span class="o">::</span><span class="n">createFunction</span><span class="p">(</span><span class="n">QString</span> <span class="n">name</span><span class="p">){</span>
+    <span class="n">Function</span> <span class="o">*</span><span class="n">result</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+<p>You have to instantiate your function there, so that OpenIndy is able to work with it. Please change these two methods as follows:</p>
+
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="n">QList</span><span class="o">&lt;</span><span class="n">Function</span><span class="o">*&gt;</span> <span class="n">OiTemplatePlugin</span><span class="o">::</span><span class="n">createFunctions</span><span class="p">(){</span>
+    <span class="n">QList</span><span class="o">&lt;</span><span class="n">Function</span><span class="o">*&gt;</span> <span class="n">resultSet</span><span class="p">;</span>
+    <span class="n">resultSet</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="k">new</span> <span class="n">PointFit</span><span class="p">());</span>
+    <span class="k">return</span> <span class="n">resultSet</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="n">Function</span><span class="o">*</span> <span class="n">OiTemplatePlugin</span><span class="o">::</span><span class="n">createFunction</span><span class="p">(</span><span class="n">QString</span> <span class="n">name</span><span class="p">){</span>
+    <span class="n">Function</span> <span class="o">*</span><span class="n">result</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">compare</span><span class="p">(</span><span class="s">&quot;PointFit&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PointFit</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Now please compile your plugin and then it will be ready for the use in OpenIndy. The last step is to learn how your plugin can be installed in OpenIndy.</p>
+
+<h2 id="install-plugins">Install Plugins</h2>
+
+<p>To install a plugin in OpenIndy you first have to compile and run OpenIndy itself. Afterwards in OpenIndy select “Plugin” &gt; “load plugins”. This opens a dialog where you can enter the path to the plugin you want to load. After the plugin was checked by OpenIndy you can click “Ok” to load the plugin.  </p>
+
+<p>If you have completed the step by step guide you can now load your own plugin as described above. Then you might create a point feature in OpenIndy and mark it as the active feature. Accordingly select “Function” &gt; “set function” which opens another dialog. Switch to the tab “new function”. There you can see the function “PointFit” that you created in your own plugin before.
+<br /><br />
+<img src="/images/functionPluginLoaderTutorial.png" alt="function Plugin Loader Tutorial" /></p>
 
     </div><!-- /.article-wrap -->
     

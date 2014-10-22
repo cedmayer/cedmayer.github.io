@@ -26,19 +26,37 @@
   </div><!-- /.image-wrap -->
 {% endif %}
 
+<div class="post-content-truncate">
+  {% if post.content contains "<!-- more -->" %}
+    {{ post.content | split:"<!-- more -->" | first % }}
+  {% else %}
+    {{ post.content | strip_html | truncatewords:100 }}
+  {% endif %}
+</div>
+
 <div id="main" role="main"> 
   <div class="article-author-side">
     {% include _author-bio.html %}
   </div>
   <div id="index">
-    <h3><a href="{{ site.url}}/posts/">Recent Posts</a></h3>
+  <h2>Welcome to the website of OpenIndy -<br>An Open source software solution for industrial measurement</h2><br>
+    <h3><a href="{{ site.url}}/posts/">Latest News</a><br></h3>
     {% for post in site.posts limit:5 %}    
     <article>
       {% if post.link %}
         <h2 class="link-post"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <a href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-link"></i></h2>
       {% else %}
-        <h2><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
-        <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
+        <h2><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a><br><br></h2>
+
+        <div class="post-content-truncate">
+            {% if post.content contains "<!-- more -->" %}
+                {{ post.content | split:"<!-- more -->" | first % }} <p>.....</p>
+            {% else %}
+                {{ post.content | strip_html | truncatewords:100 }} <p>.....</p>
+            {% endif %}
+        </div>
+        <p><a href="{{ post.url }}">Read more...</a><br><br><p>
+
       {% endif %}
     </article>
     {% endfor %}
