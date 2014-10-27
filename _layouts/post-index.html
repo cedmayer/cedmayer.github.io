@@ -50,9 +50,9 @@
 
         <div class="post-content-truncate">
             {% if post.content contains "<!-- more -->" %}
-                {{ post.content | split:"<!-- more -->" | first % }} <p>.....</p>
+                {{ post.content | split:"<!-- more -->" | first % }} <nobr>...</nobr>
             {% else %}
-                {{ post.content | strip_html | truncatewords:100 }} <p>.....</p>
+                {{ post.content | strip_html | truncatewords:100 }} <nobr>...</nobr>
             {% endif %}
         </div>
         <p><a href="{{ post.url }}">Read more...</a><br><br><p>
