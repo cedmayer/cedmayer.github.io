@@ -10,3 +10,29 @@ martiL:
   twitter: #username
   google:
     plus: #username
+
+usr:
+  name: OpenIndy User Documentation
+  web: #url
+  email: #mail
+  bio: "Open source software solution for industrial measurement (metrology, laser tracker, quality control)"
+  avatar: icons/icon-usr-author.png
+  facebook: openindy2014
+  twitter: #username
+  github: OpenIndy
+  google:
+    plus: #username
+
+dev:
+  name: OpenIndy Dev Documentation
+  web: #url
+  email: #mail
+  bio: "Open source software solution for industrial measurement (metrology, laser tracker, quality control)"
+  avatar: icons/icon-dev-author.png
+  facebook: openindy2014
+  twitter: #username
+  github: OpenIndy
+  google:
+    plus: #username
+
+

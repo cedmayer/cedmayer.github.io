@@ -28,9 +28,10 @@ OpenIndy is a metrology software solution that can be extended by [plugins](http
 
 ####The next Steps
 
-* [Fork the project on GitHub, download QT framework, read our installation guide](/download)
-* [Inform yourself to get to know the architecture of OpenIndy](/documentation)
-* [Write and run your first own plugin using OpenIndy as a template](/plugins)
+* [Download the executable program or fork the project on GitHub](/download)
+* [For users: Read the application documentation of OpenIndy](/documentation/docu-usr.html)
+* [For developer: Inform yourself to get to know the architecture of OpenIndy](/documentation/docu-dev.html)
+* [Write and run your first own plugin using OpenIndy as a template](/documentation/plugins.html)
 * [Get in touch with the OpenIndy team](http://sigma3d.de/unternehmen/service/kontakt.html)
 
 <br>

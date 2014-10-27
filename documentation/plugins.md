@@ -3,6 +3,7 @@ layout: page
 title: Welcome to the OiPluginTemplate Tutorial 
 modified: 2014-07-31T13:23:02.362000-04:00
 excerpt: "This tutorial supports you to learn how to write and run your own plugins using this project as a template."
+author: dev
 image:
   feature: banner_oi.jpg
 ---
@@ -19,7 +20,7 @@ image:
 </div>
 </section><!-- /#table-of-contents -->
 
-OiPluginTemplate is a predefined Qt project which we recommend you to use if you want to write a plugin for OpenIndy. If you do not know OpenIndy yet, you may want to inform yourself [here](/documentation).
+OiPluginTemplate is a predefined Qt project which we recommend you to use if you want to write a plugin for OpenIndy. If you do not know OpenIndy yet, you may want to inform yourself [here](/documentation/docu-dev.html).
 In the next chapters it is assumed that you know the terminology of OpenIndy (like element, feature, function, sensor etc.). Read the following steps to learn how to write and run your own plugins using this project as a template.
 
 ---

@@ -145,15 +145,15 @@
 
 
 <meta charset="utf-8">
-<title>OpenIndy</title>
-<meta name="description" content="Welcome to OpenIndy - An Open source software solution for industrial measurement">
-<meta name="keywords" content="about, OpenIndy, industrial, measurement, surveying, metrology, laser, tracker, tacheometer, tachymeter, Industrie, Vermessung">
+<title>OpenIndy User Documentation &#8211; OpenIndy</title>
+<meta name="description" content="User documentation for OpenIndy.">
+<meta name="keywords" content="">
 
-
+  
 
 <!-- Twitter Cards -->
-<meta name="twitter:title" content="OpenIndy">
-<meta name="twitter:description" content="Welcome to OpenIndy - An Open source software solution for industrial measurement">
+<meta name="twitter:title" content="OpenIndy User Documentation">
+<meta name="twitter:description" content="User documentation for OpenIndy.">
 
 
 
@@ -163,16 +163,16 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OpenIndy">
-<meta property="og:description" content="Welcome to OpenIndy - An Open source software solution for industrial measurement">
-<meta property="og:url" content="http://0.0.0.0:4000//">
+<meta property="og:title" content="OpenIndy User Documentation">
+<meta property="og:description" content="User documentation for OpenIndy.">
+<meta property="og:url" content="http://0.0.0.0:4000//documentation/docu-usr.html">
 <meta property="og:site_name" content="OpenIndy">
 
 
 
 
 
-<link rel="canonical" href="http://0.0.0.0:4000//">
+<link rel="canonical" href="http://0.0.0.0:4000//documentation/docu-usr.html">
 <link href="http://0.0.0.0:4000//feed.xml" type="application/atom+xml" rel="alternate" title="OpenIndy Feed">
 
 
@@ -215,7 +215,17 @@
 
 </head>
 
-<body class="home">
+
+
+
+
+<body class="page">
+
+<div class="scroll-top-wrapper ">
+    <span class="scroll-top-inner">
+        <i class="fa fa-2x fa-arrow-circle-up"></i>
+    </span>
+</div>
 
 <!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
 
@@ -263,26 +273,20 @@
     
       "http://0.0.0.0:4000//images/banner_oi.jpg"
     
-  alt=" feature image">
+  alt="OpenIndy User Documentation feature image">
 
   </div><!-- /.image-wrap -->
 
 
-<div class="post-content-truncate">
-  
-    
-  
-</div>
-
-<div id="main" role="main"> 
+<div id="main" role="main">
   <div class="article-author-side">
     
+  
 
 
+	<img src="http://0.0.0.0:4000//images/icons/icon-usr-author.png" class="bio-photo" alt="OpenIndy User Documentation bio photo">
 
-	<img src="http://0.0.0.0:4000//images/oi_logo.png" class="bio-photo" alt="OpenIndy bio photo">
-
-<h3>OpenIndy</h3>
+<h3>OpenIndy User Documentation</h3>
 <p>Open source software solution for industrial measurement (metrology, laser tracker, quality control)</p>
 
 
@@ -300,36 +304,74 @@
 
 
   </div>
-  <div id="index">
-  <h2>Welcome to the website of OpenIndy -<br>An Open source software solution for industrial measurement</h2><br>
-    <h3><a href="http://0.0.0.0:4000//posts/">Latest News</a><br></h3>
-        
-    <article>
-      
-        <h2><a href="http://0.0.0.0:4000//news/welcome/" title="A short overview of OpenIndy">A short overview of OpenIndy</a><br><br></h2>
-
-        <div class="post-content-truncate">
-            
-                <p><em>OpenIndy is …</em></p>
-
-<ul>
-  <li>Open Source - easy customization and expansion</li>
-  <li>User friendly - clear graphical user interface and table view</li>
-  <li>Honestly - all analysis processes are transparent and their results fully visible</li>
-  <li>Accurately - consistent implementation of variance propagation</li>
-  <li>Compatibility - a multiplatform software for Windows, Mac and Linux</li>
+  <article class="page">
+    <h1>OpenIndy User Documentation</h1>
+    <div class="article-wrap">
+      <section id="table-of-contents" class="toc">
+  <header>
+    <h3>User Documentation Overview</h3>
+  </header>
+<div id="drawer">
+<ul id="markdown-toc">
+  <li><a href="#getting-started">Getting started</a></li>
+  <li><a href="#introducing-the-graphical-user-interface-gui">Introducing the graphical user interface (GUI)</a></li>
+  <li><a href="#creating-a-new-measurement">Creating a new measurement</a></li>
+  <li><a href="#viewing-a-measurement">Viewing a measurement</a></li>
 </ul>
 
-<p><em>For whom is it intended?</em> <nobr>...</nobr>
-            
-        </div>
-        <p><a href="/news/welcome/">Read more...</a><br><br><p>
+  </div>
+</section>
+<!-- /#table-of-contents -->
 
-      
-    </article>
+<hr />
+
+<h2 id="getting-started">Getting started</h2>
+
+<p>This guide introduces you to the software OpenIndy and provides information about system connections and
+interfaces.</p>
+
+<h2 id="introducing-the-graphical-user-interface-gui">Introducing the graphical user interface (GUI)</h2>
+
+<p>The graphical user interface (GUI) gives the user instant access to all measurement functions and plugins, making it easy to perform and analyse a measuring procedure.
+The most frequently used functions are displayed as icons on a toolbar, allowing quick and easy access to the measurement information.
+The forms-based graphical interaction helps you define your measurement quickly and easily. 
+Each form tab is labeled with its content, preventing you from getting lost in the defining process.</p>
+
+<h3 class="no_toc" id="tableview">Tableview</h3>
+<p>the tableview is a tabular representation of the features and their attributes. Each row represents one feature (e.g. one point) and the columns represent the metadata, attributes and values, number of observations for this geometry, measurement configuration and the functions of this feature.</p>
+<figure>
+	<a href="/images/tableview.png"><img src="/images/tableview.png" /></a>
+</figure>
+
+<h3 class="no_toc" id="graphic-view">Graphic view</h3>
+<p>The 3D graphic view, using OpenGL, gives the opportunity for a graphical representation of the features and their dependencies. The graphic view also contains a small tree view that contains all features and their attributes.</p>
+<figure>
+	<a href="/images/graphicView.png"><img src="/images/graphicView.png" /></a>
+</figure>
+
+<h3 class="no_toc" id="console">Console</h3>
+<p>The console actually is used as a output device for information, warnings and errors of currently executed functions and actions/ interactions.</p>
+<figure>
+	<a href="/images/console.png"><img src="/images/console.png" /></a>
+</figure>
+
+<p>Other features include:
+• Plotting data without spurs
+• Tabular listing of spurs
+• Plotting in alternate bandwidths
+• Parameter summary
+• Color printouts to any supported color printer</p>
+
+<h2 id="creating-a-new-measurement">Creating a new measurement</h2>
+
+<h3 class="no_toc" id="confirm-new-measurement">Confirm new measurement</h3>
+
+<h2 id="viewing-a-measurement">Viewing a measurement</h2>
+
+    </div><!-- /.article-wrap -->
     
-  </div><!-- /#index -->
-</div><!-- /#main -->
+  </article>
+</div><!-- /#index -->
 
 <div class="footer-wrap">
   <footer>
@@ -372,7 +414,7 @@ function scrollToTop() {
 <script>window.jQuery || document.write('<script src="http://0.0.0.0:4000//assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 <script src="http://0.0.0.0:4000//assets/js/scripts.min.js"></script>
 
+          
 
-  
 </body>
 </html>

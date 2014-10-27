@@ -1,26 +1,26 @@
 ---
 layout: page
-title: Downloads
+title: Latest Version
 tags: [download, OpenIndy, QT, GitHub]
 comments: true
 image:
   feature: banner_oi.jpg
 ---
-
-On this section you can download the latest master branch of OpenIndy as a zip file.<br>
-You can also fork the repository of the project on [GitHub](ttps://github.com/OpenIndy/OpenIndy).<br>
-Join our community and support us in the ongoing development!
+<b>Version 0.1 Posted on November 4th, 2014</b>
+<br>On this section you can download the latest executable version of OpenIndy.
 <br><br>
-<a markdown="0" href="https://github.com/OpenIndy/OpenIndy/archive/master.zip" class="btn btn-info">Download OpenIndy Master</a>
-<a markdown="0" href="https://github.com/OpenIndy/OpenIndy" class="btn btn-success">Fork the Repository on GitHub</a>
+<a markdown="0" href="" class="btn btn-success">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Download Version 0.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+<h1>Sourcecode</h1>
+To join our community and support us in the ongoing development, you can also fork the repository of the project on [GitHub](https://github.com/OpenIndy/OpenIndy).
 <br><br>
+<a markdown="0" href="https://github.com/OpenIndy/OpenIndy" class="btn btn-info">Fork the Repository on GitHub</a>
+<h1>Other Downloads</h1>
 The development framework of your choice should be QT Creator which is designed to streamline the creation of applications and user interfaces to target multiple platforms with one code base.
+<br><br>
+<a markdown="0" href="http://qt-project.org/downloads" class="btn btn-info">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Download Qt Creator&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+<br><br>
 
-<br>
-<a markdown="0" href="http://qt-project.org/downloads" class="btn btn-info">Download Qt Creator</a>
-<br>
-
-Installation Guide
+Build Guide
 ====
 
 ----
@@ -86,7 +86,6 @@ Default Plugin
 ---------------
 You can find the default plugin under `plugins/OiDefaultPlugin`. After you've built the plugin you can embed it via the GUI (`Plugin -> load plugins`). Also you can find a template for a plugin in the folder, which you can copy and start developing your own plugin.
 
-
-
+For more infos about plugins, check our [OiPluginTemplate Tutorial](/documentation/plugins.html)
 
 
