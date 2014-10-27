@@ -311,7 +311,7 @@ layout: default
 title: test
 tags: [test, theme, about]
 image:
-  feature: banner_oi_proto.jpg
+  feature: banner_oi.jpg
 ---
 "image:feature" is important for the layout style to show a banner for example
 

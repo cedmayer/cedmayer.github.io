@@ -4,7 +4,7 @@ title: Downloads
 tags: [download, OpenIndy, QT, GitHub]
 comments: true
 image:
-  feature: banner_oi_proto.jpg
+  feature: banner_oi.jpg
 ---
 
 On this section you can download the latest master branch of OpenIndy as a zip file.<br>
