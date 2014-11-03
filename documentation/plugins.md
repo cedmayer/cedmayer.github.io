@@ -32,17 +32,17 @@ First you need to get a copy of the Qt-project "OiTemplatePlugin" on your local 
 On the one hand you might fork this repository (OiPluginTemplate) and get a copy of it on your local machine. If you are new to GitHub you may want to follow the guidance at [https://help.github.com/articles/fork-a-repo](https://help.github.com/articles/fork-a-repo). 
 On the other hand you might also fork and clone the OpenIndy repository. That repository contains a folder `plugins` which may look like this:
 
-![oiPluginFolders](/images/oiPluginFolders.png) 
+![oiPluginFolders](/documentation/images/dev/oiPluginFolders.png) 
 
 To get your own plugin you have to copy the folder `OiPluginTemplate` and paste it again next to it. You may choose any name for your new folder.
 
 No matter which option you choose you get one Qt-project for your own plugin. Every Qt-project is represented by a `*.pro`-file. In your case it is the file `OiTemplatePlugin.pro`. If you choose the first option the folder structure of the Qt-project will look like this:
 
-![oiPluginFolders](/images/pluginTemplateFolderStructure.png) 
+![oiPluginFolders](/documentation/images/dev/pluginTemplateFolderStructure.png) 
 
 However if you choose the second option the folder structure will look as follows:
 
-![oiPluginFolders](/images/OiPluginTemplateFolderStructure.png) 
+![oiPluginFolders](/documentation/images/dev/OiPluginTemplateFolderStructure.png) 
 
 How to work on your own plugin and what you have to take in account is explained in the next chapters.
 
@@ -347,7 +347,7 @@ QMap<QString, QStringList> TranslateByLine::getStringParameter(){
 You can define three different types of parameters: integer-values, double-values and string-values. Each parameter you define has a key and a default value. In contrast to integer- and double-parameters string-parameters are defined as lists. So you define multiple options and users can select one of those optionse or they can type in a custom string. Default value is always the first entry in the list, in this case that would be the string "option A". We recommend you to use only one single string as a key and define the description of each parameter in the description of the whole function. In OpenIndy your parameters appear as follows:  
 
 <br>
-![extra Parameter Example](/images/extraParameterExample.png)
+![extra Parameter Example](/documentation/images/dev/extraParameterExample.png)
 <br><br>
 
 In the above illustration you can see a string-parameter with the key "invert" and the possible options "yes" and "no".  
@@ -390,8 +390,8 @@ After you have completed the [Get Started](#get-started) chapter you have got a 
 <table>
   <tbody>
     <tr>
-      <td> <img src="https://raw.github.com/OpenIndy/docs/master/images/pluginTemplateFolderStructure.png" /> </td>
-      <td> <img src="https://raw.github.com/OpenIndy/docs/master/images/OiPluginTemplateFolderStructure.png" /> </td>
+      <td> <img src="/documentation/images/dev/pluginTemplateFolderStructure.png" /> </td>
+      <td> <img src="/documentation/images/dev/OiPluginTemplateFolderStructure.png" /> </td>
     </tr>
   </tbody>
 </table>
@@ -925,4 +925,4 @@ To install a plugin in OpenIndy you first have to compile and run OpenIndy itsel
 
 If you have completed the step by step guide you can now load your own plugin as described above. Then you might create a point feature in OpenIndy and mark it as the active feature. Accordingly select "Function" > "set function" which opens another dialog. Switch to the tab "new function". There you can see the function "PointFit" that you created in your own plugin before.
 <br><br>
-![function Plugin Loader Tutorial](/images/functionPluginLoaderTutorial.png)
+![function Plugin Loader Tutorial](/documentation/images/dev/functionPluginLoaderTutorial.png)

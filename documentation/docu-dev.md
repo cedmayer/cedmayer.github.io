@@ -39,13 +39,13 @@ Requirements for OpenIndy:
 ### OpenIndy architecture
 {:.no_toc}
 
-![OpenIndy Architecture](/images/openIndyArchitecture.png) <br><br>
+![OpenIndy Architecture](/documentation/images/dev/openIndyArchitecture.png) <br><br>
 
 
 OpenIndy is a typical desktop application. All functionality and sensor integration will be realized by [plugins](/documentation/plugins.html).
 That way you can configure OpenIndy for your custom task pane. The backend is a SQLite database that stores the user-defined configuration. The collected and processed data are stored in a XML format ([openIndyXML](#openindy-xml-schema)).
 
-![OpenIndy class diagram](/images/classDiagramSimple.png)
+![OpenIndy class diagram](/documentation/images/dev/classDiagramSimple.png)
 
 OpenIndy has three major object groups:
 
@@ -60,7 +60,7 @@ A feature is anything which can be manipulated by functions. OpenIndy uses featu
 
 ### Feature and function
 {:.no_toc}
-![feature and function](/images/functionConcept.png) <br><br>
+![feature and function](/documentation/images/dev/functionConcept.png) <br><br>
 
 OpenIndy is [feature](#feature) based. Every feature can be changed by [functions](#function). For example, you can solve a geometry with a fit function, and then rotate the geometry using a transformation function. Each function generates a statistics object with information about the accuracy and passes it to the next function. Thus, a consistent error propagation is possible.
 
@@ -75,7 +75,7 @@ OpenIndy is [feature](#feature) based. Every feature can be changed by [function
 
 ## Feature
 
-![feature types](/images/featureTypes.png)
+![feature types](/documentation/images/dev/featureTypes.png)
 
 There are four kinds of feature:
 
@@ -200,7 +200,7 @@ coordinate system
 
 The concept behind OpenIndy envisages that every feature can be solved by one or more functions. Hence you can assign as many functions as you want to a feature. The order of those functions is important, because they will be executed in the same order as they were assigned to a feature. This concept of assigning multiple functions to a feature is illustrated in the following diagram.
 
-![function concept](/images/functionConcept.png)
+![function concept](/documentation/images/dev/functionConcept.png)
 
 The first function that is assigned to a feature solves it and each additional function changes the previously solved feature. Thereby each function can calculate statistical values for the feature using variance propagation. In OpenIndy there are five different types of functions which are described in the following table.  
 
@@ -218,7 +218,7 @@ The first function that is assigned to a feature solves it and each additional f
 
 While object transformations can only be assigned to a feature that was previously solved by another function, the other function types are meant to solve a feature so functions of those types can only be assigned to a feature once and only as the first function. (For example you cannot shift a point that has never been solved.) To better understand this concept let us consider a concrete example:
 
-![concept example](/images/functionConceptExample.png)
+![concept example](/documentation/images/dev/functionConceptExample.png)
 
 In OpenIndy you can for example create a point feature which you then can measure with a sensor of your choice. This results in n observations and precision values for each of those observations. When you now add the function "Best Fit" to the point feature you get the adjusted coordinates of the point. 
 Therefor the function "Best Fit" uses the n observations and their precision values. Besides the adjusted coordinates this function also calculates the covariance matrix &sum;<sub>XX</sub> with the accuracy of the parameters of the point (X,Y,Z) and their correlation. 
@@ -240,7 +240,7 @@ sensor
 
 "openIndyLib" is a seperate Qt-project where classes for linear algebra are implemented. In OpenIndy and in all plugins the "openIndyLib" is linked against as a dynamic library. In the following diagram you can see the structure of that library.
 
-![linear algebra](/images/openIndyLib_linearAlgebra.png)
+![linear algebra](/documentation/images/dev/openIndyLib_linearAlgebra.png)
 
 There are two classes [OiVec](https://github.com/OpenIndy/OpenIndy/blob/master/lib/openIndyLib/include/oivec.h) and [OiMat](https://github.com/OpenIndy/OpenIndy/blob/master/lib/openIndyLib/include/oimat.h). This classes have methods to do vector and matrix algebra and to access the elements of a vector and a matrix respectively. It is recommended to use this classes in your plugins for all calculations. Furthermore there is an interface [LinearAlgebra](https://github.com/OpenIndy/OpenIndy/blob/master/lib/openIndyLib/include/linearalgebra.h) where all methods for vector and matrix algebra are defined. 
 
@@ -293,7 +293,8 @@ Views in OpenIndy:
 {:.no_toc}
 the tableview is a tabular representation of the features and their attributes. Each row represents one feature (e.g. one point) and the columns represent the metadata, attributes and values, number of observations for this geometry, measurement configuration and the functions of this feature.
 <figure>
-	<a href="/images/tableview.png"><img src="/images/tableview.png"></a>
+    <a href="/documentation/images/dev/tableview.png"><img src="/documentation/images/dev/tableview.png"></a>
+    <p align="middle"><i>The table view</i></p>
 </figure>
 
 
@@ -301,15 +302,18 @@ the tableview is a tabular representation of the features and their attributes. 
 {:.no_toc}
 The 3D graphic view, using OpenGL, gives the opportunity for a graphical representation of the features and their dependencies. The graphic view also contains a small tree view that contains all features and their attributes.
 <figure>
-	<a href="/images/graphicView.png"><img src="/images/graphicView.png"></a>
+    <a href="/documentation/images/dev/graphicView.png"><img src="/documentation/images/dev/graphicView.png"></a>
+    <p align="middle"><i>The graphic view</i></p>
 </figure>
 
 ###Console
 {:.no_toc}
-The console actually is used as a output device for information, warnings and errors of currently executed functions and actions/ interactions.
+The console actually is used as a output device for information, warnings and errors of currently executed functions and actions as well as interactions.
 <figure>
-	<a href="/images/console.png"><img src="/images/console.png"></a>
+    <a href="/documentation/images/dev/console.png"><img src="/documentation/images/dev/console.png"></a>
+    <p align="middle"><i>The console</i></p>
 </figure>
+
 
 ###Implementation
 {:.no_toc}

@@ -22,13 +22,13 @@ $accentcolor    : $black;
 
 // Buttons
 $primary			: $black;
-$success			: #5cb85c;
+$success			: #5c950e;
 $warning			: #dd8338;
 $danger				: #C64537;
 $info				  : #308cbc;
 
 // Links
-$linkcolor 		    : #303b64;
+$linkcolor 		    : #2b6310;
 $link-color       : $linkcolor;
 $linkcolorhover 	: lighten($linkcolor, 12); 
 $linkcolorvisited : darken($linkcolorhover, 10);

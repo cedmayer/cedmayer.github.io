@@ -1,0 +1,556 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<style>
+.scroll-top-wrapper {
+    position: fixed;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    text-align: center;
+    z-index: 99999999;
+    background-color: #5c950e;
+    color: #eeeeee;
+    width: 50px;
+    height: 48px;
+    line-height: 48px;
+    right: 30px;
+    bottom: 30px;
+    padding-top: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+
+}
+.scroll-top-wrapper:hover {
+    background-color: #435628;
+}
+.scroll-top-wrapper.show {
+    visibility:visible;
+    cursor:pointer;
+    opacity: 1.0;
+}
+.scroll-top-wrapper i.fa {
+    line-height: inherit;
+}
+ 
+</style>
+
+<style>
+.CSSTableGenerator {
+  margin:0px;padding:0px;
+  width:100%;
+  box-shadow: 10px 10px 5px #888888;
+  border:1px solid #000000;
+  
+  -moz-border-radius-bottomleft:1px;
+  -webkit-border-bottom-left-radius:1px;
+  border-bottom-left-radius:1px;
+  
+  -moz-border-radius-bottomright:1px;
+  -webkit-border-bottom-right-radius:1px;
+  border-bottom-right-radius:1px;
+  
+  -moz-border-radius-topright:1px;
+  -webkit-border-top-right-radius:1px;
+  border-top-right-radius:1px;
+  
+  -moz-border-radius-topleft:1px;
+  -webkit-border-top-left-radius:1px;
+  border-top-left-radius:1px;
+}.CSSTableGenerator table{
+    border-collapse: collapse;
+        border-spacing: 0;
+  width:100%;
+  height:100%;
+  margin:0px;padding:0px;
+}.CSSTableGenerator tr:last-child td:last-child {
+  -moz-border-radius-bottomright:1px;
+  -webkit-border-bottom-right-radius:1px;
+  border-bottom-right-radius:1px;
+}
+.CSSTableGenerator table tr:first-child td:first-child {
+  -moz-border-radius-topleft:1px;
+  -webkit-border-top-left-radius:1px;
+  border-top-left-radius:1px;
+}
+.CSSTableGenerator table tr:first-child td:last-child {
+  -moz-border-radius-topright:1px;
+  -webkit-border-top-right-radius:1px;
+  border-top-right-radius:1px;
+}.CSSTableGenerator tr:last-child td:first-child{
+  -moz-border-radius-bottomleft:1px;
+  -webkit-border-bottom-left-radius:1px;
+  border-bottom-left-radius:1px;
+}.CSSTableGenerator tr:hover td{
+  
+}
+.CSSTableGenerator tr:nth-child(odd){ background-color:#e5e5e5; }
+.CSSTableGenerator tr:nth-child(even)    { background-color:#ffffff; }.CSSTableGenerator td{
+  vertical-align:middle;
+  
+  
+  border:1px solid #000000;
+  border-width:0px 1px 1px 0px;
+  text-align:left;
+  padding:6px;
+  font-size:13px;
+  font-family:Serif;
+  font-weight:normal;
+  color:#2f2f2f;
+}.CSSTableGenerator tr:last-child td{
+  border-width:0px 1px 0px 0px;
+}.CSSTableGenerator tr td:last-child{
+  border-width:0px 0px 1px 0px;
+}.CSSTableGenerator tr:last-child td:last-child{
+  border-width:0px 0px 0px 0px;
+}
+.CSSTableGenerator tr:first-child td{
+    background:-o-linear-gradient(bottom, #ffffff 5%, #a5a5a5 100%);  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #a5a5a5) );
+  background:-moz-linear-gradient( center top, #ffffff 5%, #a5a5a5 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#a5a5a5");  background: -o-linear-gradient(top,#ffffff,a5a5a5);
+
+  background-color:#ffffff;
+  border:0px solid #000000;
+  text-align:center;
+  border-width:0px 0px 1px 1px;
+  font-size:14px;
+  font-family:Serif;
+  font-weight:bold;
+  color:#2f2f2f;
+}
+.CSSTableGenerator tr:first-child:hover td{
+  background:-o-linear-gradient(bottom, #ffffff 5%, #a5a5a5 100%);  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #a5a5a5) );
+  background:-moz-linear-gradient( center top, #ffffff 5%, #a5a5a5 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#a5a5a5");  background: -o-linear-gradient(top,#ffffff,a5a5a5);
+
+  background-color:#ffffff;
+}
+.CSSTableGenerator tr:first-child td:first-child{
+  border-width:0px 0px 1px 0px;
+}
+.CSSTableGenerator tr:first-child td:last-child{
+  border-width:0px 0px 1px 1px;
+}
+</style>
+
+
+<meta charset="utf-8">
+<title>Measurement &#8211; OpenIndy</title>
+<meta name="description" content="User documentation for OpenIndy.">
+<meta name="keywords" content="">
+
+  
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="Measurement">
+<meta name="twitter:description" content="User documentation for OpenIndy.">
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://0.0.0.0:4000//images/banner_oi.jpg">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Measurement">
+<meta property="og:description" content="User documentation for OpenIndy.">
+<meta property="og:url" content="http://0.0.0.0:4000//documentation/docu-usr/measurement.html">
+<meta property="og:site_name" content="OpenIndy">
+
+
+
+
+
+<link rel="canonical" href="http://0.0.0.0:4000//documentation/docu-usr/measurement.html">
+<link href="http://0.0.0.0:4000//feed.xml" type="application/atom+xml" rel="alternate" title="OpenIndy Feed">
+
+
+<!--           <link rel="stylesheet" id="font-awesome-css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css" media="screen">
+ 
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://0.0.0.0:4000//assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+	<script src="http://0.0.0.0:4000//assets/js/vendor/html5shiv.min.js"></script>
+	<script src="http://0.0.0.0:4000//assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="http://0.0.0.0:4000//assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+<link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700%7CPT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://0.0.0.0:4000//favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://0.0.0.0:4000//favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://0.0.0.0:4000//images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://0.0.0.0:4000//images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://0.0.0.0:4000//images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://0.0.0.0:4000//images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+
+
+
+
+<body class="page">
+
+<div class="scroll-top-wrapper ">
+    <span class="scroll-top-inner">
+        <i class="fa fa-2x fa-arrow-circle-up"></i>
+    </span>
+</div>
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="http://0.0.0.0:4000/">OpenIndy</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" id="site-nav" class="nav">
+		    <ul>
+		        
+					    
+					        
+					    
+					    <li><a href="http://0.0.0.0:4000//posts/about.html" >About</a></li>
+					  
+					    
+					        
+					    
+					    <li><a href="http://0.0.0.0:4000//posts/" >Blog</a></li>
+					  
+					    
+					        
+					    
+					    <li><a href="http://0.0.0.0:4000//download/" >Downloads</a></li>
+					  
+					    
+					        
+					    
+					    <li><a href="http://0.0.0.0:4000//documentation/" >Documentation</a></li>
+					  
+					    
+					        
+					    
+					    <li><a href="http://0.0.0.0:4000//posts/contact.html" >Contact</a></li>
+					  
+					    
+					        
+					        
+					    <li><a href="http://sigma3d.de" target="_blank">sigma3D</a></li>
+					  
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+  <div class="image-wrap">
+  <img src=
+    
+      "http://0.0.0.0:4000//images/banner_oi.jpg"
+    
+  alt="Measurement feature image">
+
+  </div><!-- /.image-wrap -->
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    
+  
+
+
+	<img src="http://0.0.0.0:4000//images/icons/icon-usr-author.png" class="bio-photo" alt="OpenIndy User Documentation bio photo">
+
+<h3>OpenIndy User Documentation</h3>
+<p>Open source software solution for industrial measurement (metrology, laser tracker, quality control)</p>
+
+
+<a href="http://facebook.com/openindy2014" class="author-social" target="_blank"><i class="fa fa-facebook-square"></i> Facebook</a>
+
+
+
+
+<a href="http://github.com/OpenIndy" class="author-social" target="_blank"><i class="fa fa-github"></i> Github</a>
+
+
+
+
+
+
+
+  </div>
+  <article class="page">
+    <h1>Measurement</h1>
+    <div class="article-wrap">
+      <section id="table-of-contents" class="toc">
+  <header>
+    <h3>Measurement Overview</h3>
+  </header>
+<div id="drawer">
+<ul id="markdown-toc">
+  <li><a href="#the-measurement-task">The measurement task</a></li>
+  <li><a href="#set-instrument">Set instrument</a></li>
+  <li><a href="#import-nominal-data">Import nominal data</a></li>
+  <li><a href="#create-features-to-be-measured">Create features to be measured</a>    <ul>
+      <li><a href="#measurement-config">Measurement config</a></li>
+    </ul>
+  </li>
+  <li><a href="#add-functions">Add functions</a></li>
+  <li><a href="#measuring-features">Measuring features</a>    <ul>
+      <li><a href="#scalar-entity-distance">Scalar entity distance</a></li>
+    </ul>
+  </li>
+  <li><a href="#transformation-parameter">Transformation parameter</a>    <ul>
+      <li><a href="#apply-a-function-to-the-transformation-parameter">Apply a function to the transformation parameter</a></li>
+      <li><a href="#apply-checkpoints-to-the-7-parameter-transformation">Apply checkpoints to the 7 parameter transformation</a></li>
+    </ul>
+  </li>
+  <li><a href="#save-and-load-project">Save and load project.</a></li>
+</ul>
+
+  </div>
+</section>
+<!-- /#table-of-contents -->
+
+<hr />
+
+<p><a href="/documentation/docu-usr.html" class="btn">Overview</a>  <a href="/documentation/docu-usr/preperation.html" class="btn">Preperation</a>  <a href="/documentation/docu-usr/views.html" class="btn">Different Views</a>  <a href="/documentation/docu-usr/measurement.html" class="btn btn-success">Measurement</a>  <a href="/documentation/docu-usr/functionalities.html" class="btn">Other Functionalities</a>  </p>
+
+<p><br />
+This section shows one possible way to solve the task. There are also other ways or orders of steps to solve it.</p>
+
+<h3 id="the-measurement-task">The measurement task</h3>
+<p>The task is to check some features of the object vs CAD nominal data. The ten focal points of the drill-holes and the 2 small spheres have to be checked
+against the nominal CAD data. The coordinates of the nominal data are in the object coordinate system, so you also have to transform between the instrument
+coordinatesystem and the object coordinatesystem. The four marked drill-holes are used as checkpoints for the transformation.</p>
+<figure>
+	<img src="/documentation/images/usr/object.jpg" /> 
+	<p align="middle"><i>the object that has to be checked</i></p>
+</figure>
+
+<h3 id="set-instrument">Set instrument</h3>
+<p>The first step is to set and connect an instrument. The instrument is set at the active station. On default STATION01 is the active station and marked grey.
+ Other stations, if you have some, are marked light grey. Only one station can be active, but it is possible to switch them. <br />
+To set the instrument click <strong>Station &gt; set instrument</strong>.
+The following dialog will appear:</p>
+<figure>
+	<a href="../images/usr/setInstrument.png"><img src="/documentation/images/usr/setInstrument.png" /></a> 
+	<p align="middle"><i>set instrument dialog</i></p>
+</figure>
+<p>In this dialog you first have to select your instrument type. In this screenshot it is totalstation. After that click in the table and select the instrument
+you want. Here only one sensor is implemented, so there is only one totalstation displayed. After selecting the instrument, you have to set up the connection
+settings to the sensor, that will be used to connect with the sensor. You also need to put in the accuracy and other sensor configurations in this dialog.
+After you set up the instrument, press Ok. The programm now asks you if you want to connect the sensor automatically, or if you want to connect to it later
+ by hand.</p>
+
+<h3 id="import-nominal-data">Import nominal data</h3>
+<p>One of the first steps to solve the task is to import the nominal data for the two spheres and drill-holes. To do this. click on <strong>File &gt; import &gt; elemts</strong>.
+In the import dialog choose the data format that is ASCII in our example. Then choose the geometry typ. In our case it´s point and sphere, so you have to do it
+twice. And as third parameter you need to choose the destination coordinatesystem for the nominal geometries. In our case use the default PART coordinate system.
+You can also choose other coordinate systems, if you create them via the toolbar before importing the nominal data.</p>
+<figure>
+	<p align="middle"><img src="/documentation/images/usr/nominalSphere.png" /> </p>
+	<p align="middle"><i>The nominal spheres file for the measurement task </i></p>
+</figure>
+<figure>
+	<p align="middle"><img src="/documentation/images/usr/nominalPoints.png" /> </p>
+	<p align="middle"><i>The nominal points file for the measurement task</i></p>
+</figure>
+<figure>
+	<a href="../images/usr/importNominals.png"><img src="/documentation/images/usr/importNominals.png" /></a> 
+	<p align="middle"><i>import nominal dialog</i></p>
+</figure>
+<p><br /></p>
+
+<h3 id="create-features-to-be-measured">Create features to be measured</h3>
+<p>In the next step you need to create the features you want to measure. For this use the toolbar on the left or click on <strong>view &gt; show/hide feature toolbar</strong>
+to get the special toolbar for creating features. The standard toolbar on the left has some more functionality, because here you can also create scalar entities
+and transformation parameters. In the toolbar on the left there is a button for each feature you can create. Clicking on opens the dialog, where you can put in
+your settings and parameters for the features you want to create.</p>
+
+<h4 id="measurement-config">Measurement config</h4>
+<p>For each feature you create, you need to specify a measurement configuration. It includes a name, number of measurements, that should be done and averaged,
+the reading type (e.g. polar, only distance, only angle,…), two face measurement and so on.
+You can specify it while creating the feature, or edit it later. To specify a complete measurement configuration the sensor must be set, to display the supported 
+reading types. If the measurement config is not complet, it is displayed red in the tableview.
+To specify the measurement config while creating a feature, click on the measurement config button in the create feature dialog or in the create feature toolbar.
+To edit the measurement config of an existing feature, click <strong>Station &gt; measurement configuration</strong> or on the measurement configuration in the buttion in
+the menu. To edit a measurement config of a feature, you first need to select the feature, by clicking once with the left mouse buttion on it in the tableview.
+It then is marked light blue.
+<br /><br />
+For our task you need to create 10 points and 2 spheres. The names of the spheres are “Kugel” and “KugelAmBuegel”. The count is 1 for each and they are not
+common and not nominal. After creating both of them, they appear in the tableview. Next step, create the ten points for the focal points of the drill-holes.
+Click on <strong>Create point</strong> type in the name “p1” count is 10. They are not common and not nominal. After clicking create, ten points will be created with names
+p1 to p10. The names are count up and mathed together by input name and the value of count.</p>
+<figure>
+	<a href="../images/usr/createFeatureToolbar.png"><img src="/documentation/images/usr/createFeatureToolbar.png" /></a> 
+	<p align="middle"><i>create feature toolbar</i></p>
+</figure>
+<figure>
+	<a href="../images/usr/createPointDialog.png"><img src="/documentation/images/usr/createPointDialog.png" /></a> 
+	<p align="middle"><i>create point dialog</i></p>
+</figure>
+<p><br /></p>
+
+<h3 id="add-functions">Add functions</h3>
+<p>To solve a feature it is neccessary to add functions to it. Every function has input parameters, that you have to assign to it (e.g. obervations or a plane and a 
+distance). For our task we first add a “Best Fit function” to the features we measure. For this, select a feature and click <strong>Function &gt; set function</strong> or use the
+button. Then choose your function by double clicking it. There are only functions displayed, that can be applied to the selected feature at this state.
+After double clicking the next view appears, where you can add or remove the input parameters that the function needs. Also you see all functions that are 
+applied to this feature in the order they are performed.
+in our case we first add the best fit function and then measure the feature, so all observations of the feature are used for the best fit immediately. 
+It is also possible to measure the feature first and then add the function. This way you have to assign the observations of the feature to the function via 
+the treeviews in the function menu.</p>
+<figure>
+	<a href="../images/usr/chooseFunction.png"><img src="/documentation/images/usr/chooseFunction.png" /></a> 
+	<p align="middle"><i>choose function</i></p>
+</figure>
+<figure>
+	<a href="../images/usr/assignInputParameter.png"><img src="/documentation/images/usr/assignInputParameter.png" /></a> 
+	<p align="middle"><i>add input parameter. In this case an observation to the best fit function</i></p>
+</figure>
+
+<p>You can remove functions by righ clicking them in the function menu and choosing <strong>delete function</strong>.</p>
+
+<h3 id="measuring-features">Measuring features</h3>
+<p>After the features are created, functions are applied and the sensor is set and connected, we can start measuring. For this select the feature you want 
+to measure and click on <strong>measure</strong> in the sensor control pad. You can find it by clicking <strong>View &gt; sensor control</strong> or by clicking on the button.</p>
+<figure>
+	<a href="../images/usr/measure.png"><img src="/documentation/images/usr/measure.png" /></a> 
+	<p align="middle"><i>measure the current selected feature (p1)</i></p>
+</figure>
+
+<p>Because we could not measure the focal point of the drillholes directly, we need to solve the problem by applying some functions.</p>
+<figure>
+	<p align="middle"><img src="/documentation/images/usr/offSetProblem.JPG" /> </p>
+	<p align="middle"><i>unknown offset problem</i></p>
+</figure>
+
+<p>To solve this problem, we measure the ground plane, and move it on its own normal vector with the value of the reflector radius. To do this use the function 
+“ShiftPlane”. 
+After this we project our drill-hole points in the plane and have the offset corrected values we want.</p>
+
+<h4 id="scalar-entity-distance">Scalar entity distance</h4>
+<p>To specify the distance value for moving the ground plane you need to crate a scalar entity distance by clicking on the button <strong>Create Scalar entity</strong>.
+Choose a name, count is 1 and the value is the radius of the reflector. After creating you can solve the unknown offset problem.</p>
+
+<h3 id="transformation-parameter">Transformation parameter</h3>
+<p>After measuring all neccessary features, we need to transform our measurements, because the nominal data for the feature is in the PART system whereas 
+the actual feature data is in the instrument coordinate system. In order to do this, we need to create a transformation parameter via the button 
+<strong>Create transformation parameter</strong>. In the dialog you have to give this parameter set a name and a start and destination coordinate system. After creating 
+the parameter set it is displayed in its own tableview. Here you can select it by clicking one on it with the left mouse button. You can also edit the parameters 
+by hand if you double click the transformation parameter set.</p>
+
+<h4 id="apply-a-function-to-the-transformation-parameter">Apply a function to the transformation parameter</h4>
+<p>After you created the transformation parameter you can set some values by hand (see paragraph above), or you can calculate parameters by applying a function 
+to the trafo parameter feature. The default plugin, that we used for this measurement task, contains a 7 parameter helmert transformation, that we used in this 
+case. So select the transformation parameter and go to the set function dialog, where you can apply the function to the feature.</p>
+
+<h4 id="apply-checkpoints-to-the-7-parameter-transformation">Apply checkpoints to the 7 parameter transformation</h4>
+<p>Now after selecting the function we need to apply the input parameter to the function. Here we need to apply the nominal (imported at the beginning) 
+and actual (measured) checkpoints, specified at the beginning of the guide (p1,p3,p5,p7). After this step apply the dialog and the transformation parameter will be
+calculated and applied on the feature.</p>
+<figure>
+	<a href="../images/usr/7parameterTransformation.png"><img src="/documentation/images/usr/7parameterTransformation.png" /></a> 
+	<p align="middle"><i>applying checkpoints (nominal and actual) to the function</i></p>
+</figure>
+
+<p>So now it is possible to transform between STATION01 and PART. You can do this, by switching the active coordinate system 
+in the combobox right above the feature tableview. This combobox includes all existing coordinate systems whether instrument systems or part systems.</p>
+
+<h3 id="save-and-load-project">Save and load project.</h3>
+<p>Now after the actual values can be transformed and compared with the nominal values of the features, it is possible to save all the work done in this 
+project. For this click <strong>File &gt; save as</strong> and specify a path and folder where OpenIndy should save the project.<br />
+OpenIndy saves the project in an openindyXML.xml file. Here all features, their relations, observations, functions, … are stored, so that it is possible to 
+restore the complete project on a later time. To load and restore a project click <strong>File &gt; open project</strong>.</p>
+<figure>
+	<a href="../images/usr/exampleProjectFile.png"><img src="/documentation/images/usr/exampleProjectFile.png" /></a> 
+	<p align="middle"><i>extract of a project xml file</i></p>
+</figure>
+
+    </div><!-- /.article-wrap -->
+    
+  </article>
+</div><!-- /#index -->
+
+<div class="footer-wrap">
+  <footer>
+    
+
+<span>
+<table>
+   <tr>
+      <td align="left">&copy; 2014 OpenIndy and <a href="http://sigma3D.de" target="_blank">sigma3D</a></td>
+      <td align="right"><a href="/posts/contact.html">Contact</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/posts/legal.html">Legal Disclosure</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/posts/privacy.html">Privacy Statement</a></td>
+   </tr>
+</table>
+</span>
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script>
+ 
+$(function(){
+ 
+    $(document).on( 'scroll', function(){
+ 
+        if ($(window).scrollTop() > 100) {
+            $('.scroll-top-wrapper').addClass('show');
+        } else {
+            $('.scroll-top-wrapper').removeClass('show');
+        }
+    });
+ 
+    $('.scroll-top-wrapper').on('click', scrollToTop);
+});
+ 
+function scrollToTop() {
+    verticalOffset = typeof(verticalOffset) != 'undefined' ? verticalOffset : 0;
+    element = $('body');
+    offset = element.offset();
+    offsetTop = offset.top;
+    $('html, body').animate({scrollTop: offsetTop}, 500, 'linear');
+}
+</script>
+
+
+
+<script>window.jQuery || document.write('<script src="http://0.0.0.0:4000//assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://0.0.0.0:4000//assets/js/scripts.min.js"></script>
+
+          
+
+</body>
+</html>

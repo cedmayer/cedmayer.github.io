@@ -1,0 +1,493 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<style>
+.scroll-top-wrapper {
+    position: fixed;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    text-align: center;
+    z-index: 99999999;
+    background-color: #5c950e;
+    color: #eeeeee;
+    width: 50px;
+    height: 48px;
+    line-height: 48px;
+    right: 30px;
+    bottom: 30px;
+    padding-top: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+
+}
+.scroll-top-wrapper:hover {
+    background-color: #435628;
+}
+.scroll-top-wrapper.show {
+    visibility:visible;
+    cursor:pointer;
+    opacity: 1.0;
+}
+.scroll-top-wrapper i.fa {
+    line-height: inherit;
+}
+ 
+</style>
+
+<style>
+.CSSTableGenerator {
+  margin:0px;padding:0px;
+  width:100%;
+  box-shadow: 10px 10px 5px #888888;
+  border:1px solid #000000;
+  
+  -moz-border-radius-bottomleft:1px;
+  -webkit-border-bottom-left-radius:1px;
+  border-bottom-left-radius:1px;
+  
+  -moz-border-radius-bottomright:1px;
+  -webkit-border-bottom-right-radius:1px;
+  border-bottom-right-radius:1px;
+  
+  -moz-border-radius-topright:1px;
+  -webkit-border-top-right-radius:1px;
+  border-top-right-radius:1px;
+  
+  -moz-border-radius-topleft:1px;
+  -webkit-border-top-left-radius:1px;
+  border-top-left-radius:1px;
+}.CSSTableGenerator table{
+    border-collapse: collapse;
+        border-spacing: 0;
+  width:100%;
+  height:100%;
+  margin:0px;padding:0px;
+}.CSSTableGenerator tr:last-child td:last-child {
+  -moz-border-radius-bottomright:1px;
+  -webkit-border-bottom-right-radius:1px;
+  border-bottom-right-radius:1px;
+}
+.CSSTableGenerator table tr:first-child td:first-child {
+  -moz-border-radius-topleft:1px;
+  -webkit-border-top-left-radius:1px;
+  border-top-left-radius:1px;
+}
+.CSSTableGenerator table tr:first-child td:last-child {
+  -moz-border-radius-topright:1px;
+  -webkit-border-top-right-radius:1px;
+  border-top-right-radius:1px;
+}.CSSTableGenerator tr:last-child td:first-child{
+  -moz-border-radius-bottomleft:1px;
+  -webkit-border-bottom-left-radius:1px;
+  border-bottom-left-radius:1px;
+}.CSSTableGenerator tr:hover td{
+  
+}
+.CSSTableGenerator tr:nth-child(odd){ background-color:#e5e5e5; }
+.CSSTableGenerator tr:nth-child(even)    { background-color:#ffffff; }.CSSTableGenerator td{
+  vertical-align:middle;
+  
+  
+  border:1px solid #000000;
+  border-width:0px 1px 1px 0px;
+  text-align:left;
+  padding:6px;
+  font-size:13px;
+  font-family:Serif;
+  font-weight:normal;
+  color:#2f2f2f;
+}.CSSTableGenerator tr:last-child td{
+  border-width:0px 1px 0px 0px;
+}.CSSTableGenerator tr td:last-child{
+  border-width:0px 0px 1px 0px;
+}.CSSTableGenerator tr:last-child td:last-child{
+  border-width:0px 0px 0px 0px;
+}
+.CSSTableGenerator tr:first-child td{
+    background:-o-linear-gradient(bottom, #ffffff 5%, #a5a5a5 100%);  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #a5a5a5) );
+  background:-moz-linear-gradient( center top, #ffffff 5%, #a5a5a5 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#a5a5a5");  background: -o-linear-gradient(top,#ffffff,a5a5a5);
+
+  background-color:#ffffff;
+  border:0px solid #000000;
+  text-align:center;
+  border-width:0px 0px 1px 1px;
+  font-size:14px;
+  font-family:Serif;
+  font-weight:bold;
+  color:#2f2f2f;
+}
+.CSSTableGenerator tr:first-child:hover td{
+  background:-o-linear-gradient(bottom, #ffffff 5%, #a5a5a5 100%);  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #a5a5a5) );
+  background:-moz-linear-gradient( center top, #ffffff 5%, #a5a5a5 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#a5a5a5");  background: -o-linear-gradient(top,#ffffff,a5a5a5);
+
+  background-color:#ffffff;
+}
+.CSSTableGenerator tr:first-child td:first-child{
+  border-width:0px 0px 1px 0px;
+}
+.CSSTableGenerator tr:first-child td:last-child{
+  border-width:0px 0px 1px 1px;
+}
+</style>
+
+
+<meta charset="utf-8">
+<title>Other Functionalities &#8211; OpenIndy</title>
+<meta name="description" content="User documentation for OpenIndy.">
+<meta name="keywords" content="">
+
+  
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="Other Functionalities">
+<meta name="twitter:description" content="User documentation for OpenIndy.">
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://0.0.0.0:4000//images/banner_oi.jpg">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Other Functionalities">
+<meta property="og:description" content="User documentation for OpenIndy.">
+<meta property="og:url" content="http://0.0.0.0:4000//documentation/docu-usr/functionalities.html">
+<meta property="og:site_name" content="OpenIndy">
+
+
+
+
+
+<link rel="canonical" href="http://0.0.0.0:4000//documentation/docu-usr/functionalities.html">
+<link href="http://0.0.0.0:4000//feed.xml" type="application/atom+xml" rel="alternate" title="OpenIndy Feed">
+
+
+<!--           <link rel="stylesheet" id="font-awesome-css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css" media="screen">
+ 
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://0.0.0.0:4000//assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+	<script src="http://0.0.0.0:4000//assets/js/vendor/html5shiv.min.js"></script>
+	<script src="http://0.0.0.0:4000//assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="http://0.0.0.0:4000//assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+<link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700%7CPT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://0.0.0.0:4000//favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://0.0.0.0:4000//favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://0.0.0.0:4000//images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://0.0.0.0:4000//images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://0.0.0.0:4000//images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://0.0.0.0:4000//images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+
+
+
+
+<body class="page">
+
+<div class="scroll-top-wrapper ">
+    <span class="scroll-top-inner">
+        <i class="fa fa-2x fa-arrow-circle-up"></i>
+    </span>
+</div>
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="http://0.0.0.0:4000/">OpenIndy</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" id="site-nav" class="nav">
+		    <ul>
+		        
+					    
+					        
+					    
+					    <li><a href="http://0.0.0.0:4000//posts/about.html" >About</a></li>
+					  
+					    
+					        
+					    
+					    <li><a href="http://0.0.0.0:4000//posts/" >Blog</a></li>
+					  
+					    
+					        
+					    
+					    <li><a href="http://0.0.0.0:4000//download/" >Downloads</a></li>
+					  
+					    
+					        
+					    
+					    <li><a href="http://0.0.0.0:4000//documentation/" >Documentation</a></li>
+					  
+					    
+					        
+					    
+					    <li><a href="http://0.0.0.0:4000//posts/contact.html" >Contact</a></li>
+					  
+					    
+					        
+					        
+					    <li><a href="http://sigma3d.de" target="_blank">sigma3D</a></li>
+					  
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+  <div class="image-wrap">
+  <img src=
+    
+      "http://0.0.0.0:4000//images/banner_oi.jpg"
+    
+  alt="Other Functionalities feature image">
+
+  </div><!-- /.image-wrap -->
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    
+  
+
+
+	<img src="http://0.0.0.0:4000//images/icons/icon-usr-author.png" class="bio-photo" alt="OpenIndy User Documentation bio photo">
+
+<h3>OpenIndy User Documentation</h3>
+<p>Open source software solution for industrial measurement (metrology, laser tracker, quality control)</p>
+
+
+<a href="http://facebook.com/openindy2014" class="author-social" target="_blank"><i class="fa fa-facebook-square"></i> Facebook</a>
+
+
+
+
+<a href="http://github.com/OpenIndy" class="author-social" target="_blank"><i class="fa fa-github"></i> Github</a>
+
+
+
+
+
+
+
+  </div>
+  <article class="page">
+    <h1>Other Functionalities</h1>
+    <div class="article-wrap">
+      <section id="table-of-contents" class="toc">
+  <header>
+    
+###Other Functionalities Overview
+  </header>
+<div id="drawer">
+<ul id="markdown-toc">
+  <li><a href="#watch-window">Watch window</a></li>
+  <li><a href="#edit-nominal-data">Edit nominal data</a></li>
+  <li><a href="#readings-observations-and-statistic">Readings, observations and statistic</a>    <ul>
+      <li><a href="#station">Station</a></li>
+    </ul>
+  </li>
+  <li><a href="#multiple-stations">Multiple stations</a></li>
+  <li><a href="#sensor-functionalities">Sensor functionalities</a>    <ul>
+      <li><a href="#connect">Connect</a></li>
+      <li><a href="#disconnect">Disconnect</a></li>
+      <li><a href="#initialize">Initialize</a></li>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#measure">Measure</a></li>
+      <li><a href="#toggle-sight-orientation">Toggle sight orientation</a></li>
+      <li><a href="#aim">Aim</a></li>
+      <li><a href="#move">Move</a></li>
+      <li><a href="#change-motor-state">Change motor state</a></li>
+      <li><a href="#compensation">Compensation</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</section>
+<!-- /#table-of-contents -->
+
+<hr />
+
+<p><a href="/documentation/docu-usr.html" class="btn">Overview</a>  <a href="/documentation/docu-usr/preperation.html" class="btn">Preperation</a>  <a href="/documentation/docu-usr/views.html" class="btn">Different Views</a>  <a href="/documentation/docu-usr/measurement.html" class="btn">Measurement</a>  <a href="/documentation/docu-usr/functionalities.html" class="btn btn-success">Other Functionalities</a>  </p>
+
+<p><br />
+Here is an abstract of useful functions, which you might find most useful.</p>
+
+<h3 id="watch-window">Watch window</h3>
+<p>The watch window is a live stream of the actual readings of the active instrument (e.g. vertical and horizontal angle and distance). It makes it possible to 
+watch the current position of the reflector and if it´s moving. With this functionality it is also possible to watch a position while some works at it and 
+corrects it to its nominal value. The watch window only displays the actual readings and does not store them.</p>
+<figure>
+	<p align="middle"><img src="/documentation/images/usr/watchwindow.png" /> </p>
+	<p align="middle"><i>the watch window</i></p>
+</figure>
+
+<p>The plugin developer decides the values that get displayed in the view. So it is dynamic and variable for different tasks.</p>
+
+<h3 id="edit-nominal-data">Edit nominal data</h3>
+<p>In the example measurement we import the nominal data from an ASCII file. It is also possible to create nominal features. For this just check the nominal 
+checkbox and specify the destination system to which this nominal feature belongs to. Features are linked to each other by their name in transformation. You 
+can have one actual feature with the same name but multiple nominal features with the same name, if they have other destination systems (e.g. PART, OBJECTSYSTEM,…). 
+While creating the nominal features by hand you can/ have to specify the values by hand for each feature typ.<br /> The values of nominal features can be 
+edited by a double click on the nominal feature in the tableview. Then just change the values and apply the dialog. It´s the same like the transformation 
+parameters.</p>
+
+<h3 id="readings-observations-and-statistic">Readings, observations and statistic</h3>
+<p>Double clicking on an actual feature opens an dialog that gives more information about this feature. In this dialog you can see the observation, that this 
+feature has with all its attributes like measured values, date, time station,… . Also you can see the observations that are created from the observations 
+with all their attributes. <br /> Their third and maybe leading tab is the statistic tab. Here you can find all the statistic of the feature and its functions. 
+All statistic is seperated for each function the feature has. You can switch the function via the combobox. The statistic of the functions is calculated with 
+variance propagation.</p>
+<figure>
+	<a href="../images/usr/readings.png"><img src="/documentation/images/usr/readings.png" /></a> 
+	<p align="middle"><i>readings of the point feature</i></p>
+</figure>
+<figure>
+	<a href="../images/usr/observations.png"><img src="/documentation/images/usr/observations.png" /></a> 
+	<p align="middle"><i>observations of the point feature</i></p>
+</figure>
+<figure>
+	<a href="../images/usr/statistic.png"><img src="/documentation/images/usr/statistic.png" /></a> 
+	<p align="middle"><i>statistic of the best fit function of the point feature</i></p>
+</figure>
+
+<h4 id="station">Station</h4>
+<p>Double clicking on a station opens the same dialog with one more tab. In this tab you can change the sensor configuration of the current active instrument. 
+So you can change the connection parameters, the accuracy and all the other instrument parameters. You can´t change the instrument in this dialog. To do this 
+you need to click <strong>Station &gt; set instrument</strong>.</p>
+
+<h3 id="multiple-stations">Multiple stations</h3>
+<p>It is possible to have more stations in OpenIndy, because this is neccessary to solve some measurement tasks. All stations are marked light grey in the 
+tableview. The current active station is marked in a darker grey. On default when you start OpenIndy STATION01 is activated. You can switch the active station 
+by marking the one you want to activate in the tableview with one left mouse button click. When it´s marked light blue (active feature) go to 
+<strong>Station &gt; activate station</strong>. The selected station will then be the active station and you can connect a sensor to it. </p>
+
+<h3 id="sensor-functionalities">Sensor functionalities</h3>
+<p>This section gives a brief description of all current implemented sensor functionalities (sensor + totalstation + lasertracker). The implementation itself 
+depends on the plugin developer and on the implemented sensor, so it can vary between different sensors.</p>
+
+<h4 id="connect">Connect</h4>
+<p>Connects OpenIndy and the sensor</p>
+
+<h4 id="disconnect">Disconnect</h4>
+<p>Disconnects OpenIndy and the sensor</p>
+
+<h4 id="initialize">Initialize</h4>
+<p>Initializes the sensor</p>
+
+<h4 id="home">Home</h4>
+<p>Sets the sensor to his home position (lasertracker)</p>
+
+<h4 id="measure">Measure</h4>
+<p>starts a measurement</p>
+
+<h4 id="toggle-sight-orientation">Toggle sight orientation</h4>
+<p>Changes the sensor from frontside to backside and the other way</p>
+
+<h4 id="aim">Aim</h4>
+<p>aims towards the active feature position. The feature needs to be solved for this functionality, that means it has some valid X Y and Z coordinates.</p>
+
+<h4 id="move">Move</h4>
+<p>The user can specify where the sensor should aim towards</p>
+
+<h4 id="change-motor-state">Change motor state</h4>
+<p>enables or disables the motor (lasertracker)</p>
+
+<h4 id="compensation">Compensation</h4>
+<p>starts the compensation (lasertracker)</p>
+
+    </div><!-- /.article-wrap -->
+    
+  </article>
+</div><!-- /#index -->
+
+<div class="footer-wrap">
+  <footer>
+    
+
+<span>
+<table>
+   <tr>
+      <td align="left">&copy; 2014 OpenIndy and <a href="http://sigma3D.de" target="_blank">sigma3D</a></td>
+      <td align="right"><a href="/posts/contact.html">Contact</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/posts/legal.html">Legal Disclosure</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/posts/privacy.html">Privacy Statement</a></td>
+   </tr>
+</table>
+</span>
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script>
+ 
+$(function(){
+ 
+    $(document).on( 'scroll', function(){
+ 
+        if ($(window).scrollTop() > 100) {
+            $('.scroll-top-wrapper').addClass('show');
+        } else {
+            $('.scroll-top-wrapper').removeClass('show');
+        }
+    });
+ 
+    $('.scroll-top-wrapper').on('click', scrollToTop);
+});
+ 
+function scrollToTop() {
+    verticalOffset = typeof(verticalOffset) != 'undefined' ? verticalOffset : 0;
+    element = $('body');
+    offset = element.offset();
+    offsetTop = offset.top;
+    $('html, body').animate({scrollTop: offsetTop}, 500, 'linear');
+}
+</script>
+
+
+
+<script>window.jQuery || document.write('<script src="http://0.0.0.0:4000//assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://0.0.0.0:4000//assets/js/scripts.min.js"></script>
+
+          
+
+</body>
+</html>

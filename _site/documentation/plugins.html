@@ -12,7 +12,7 @@
     overflow: hidden;
     text-align: center;
     z-index: 99999999;
-    background-color: #777777;
+    background-color: #5c950e;
     color: #eeeeee;
     width: 50px;
     height: 48px;
@@ -32,7 +32,7 @@
 
 }
 .scroll-top-wrapper:hover {
-    background-color: #888888;
+    background-color: #435628;
 }
 .scroll-top-wrapper.show {
     visibility:visible;
@@ -259,6 +259,11 @@
 					  
 					    
 					        
+					    
+					    <li><a href="http://0.0.0.0:4000//posts/contact.html" >Contact</a></li>
+					  
+					    
+					        
 					        
 					    <li><a href="http://sigma3d.de" target="_blank">sigma3D</a></li>
 					  
@@ -341,17 +346,17 @@ In the next chapters it is assumed that you know the terminology of OpenIndy (li
 <p>On the one hand you might fork this repository (OiPluginTemplate) and get a copy of it on your local machine. If you are new to GitHub you may want to follow the guidance at <a href="https://help.github.com/articles/fork-a-repo">https://help.github.com/articles/fork-a-repo</a>. 
 On the other hand you might also fork and clone the OpenIndy repository. That repository contains a folder <code>plugins</code> which may look like this:</p>
 
-<p><img src="/images/oiPluginFolders.png" alt="oiPluginFolders" /> </p>
+<p><img src="/documentation/images/dev/oiPluginFolders.png" alt="oiPluginFolders" /> </p>
 
 <p>To get your own plugin you have to copy the folder <code>OiPluginTemplate</code> and paste it again next to it. You may choose any name for your new folder.</p>
 
 <p>No matter which option you choose you get one Qt-project for your own plugin. Every Qt-project is represented by a <code>*.pro</code>-file. In your case it is the file <code>OiTemplatePlugin.pro</code>. If you choose the first option the folder structure of the Qt-project will look like this:</p>
 
-<p><img src="/images/pluginTemplateFolderStructure.png" alt="oiPluginFolders" /> </p>
+<p><img src="/documentation/images/dev/pluginTemplateFolderStructure.png" alt="oiPluginFolders" /> </p>
 
 <p>However if you choose the second option the folder structure will look as follows:</p>
 
-<p><img src="/images/OiPluginTemplateFolderStructure.png" alt="oiPluginFolders" /> </p>
+<p><img src="/documentation/images/dev/OiPluginTemplateFolderStructure.png" alt="oiPluginFolders" /> </p>
 
 <p>How to work on your own plugin and what you have to take in account is explained in the next chapters.</p>
 
@@ -643,7 +648,7 @@ The methods <code>getIntegerParameter</code>, <code>getDoubleParameter</code> an
 <p>You can define three different types of parameters: integer-values, double-values and string-values. Each parameter you define has a key and a default value. In contrast to integer- and double-parameters string-parameters are defined as lists. So you define multiple options and users can select one of those optionse or they can type in a custom string. Default value is always the first entry in the list, in this case that would be the string “option A”. We recommend you to use only one single string as a key and define the description of each parameter in the description of the whole function. In OpenIndy your parameters appear as follows:  </p>
 
 <p><br />
-<img src="/images/extraParameterExample.png" alt="extra Parameter Example" />
+<img src="/documentation/images/dev/extraParameterExample.png" alt="extra Parameter Example" />
 <br /><br /></p>
 
 <p>In the above illustration you can see a string-parameter with the key “invert” and the possible options “yes” and “no”.  </p>
@@ -684,8 +689,8 @@ Moreover there is the method <code>isValid</code> which returns true if all elem
 <table>
   <tbody>
     <tr>
-      <td> <img src="https://raw.github.com/OpenIndy/docs/master/images/pluginTemplateFolderStructure.png" /> </td>
-      <td> <img src="https://raw.github.com/OpenIndy/docs/master/images/OiPluginTemplateFolderStructure.png" /> </td>
+      <td> <img src="/documentation/images/dev/pluginTemplateFolderStructure.png" /> </td>
+      <td> <img src="/documentation/images/dev/OiPluginTemplateFolderStructure.png" /> </td>
     </tr>
   </tbody>
 </table>
@@ -1210,7 +1215,7 @@ Again please replace the <code>//TODO</code> by the following lines:</p>
 
 <p>If you have completed the step by step guide you can now load your own plugin as described above. Then you might create a point feature in OpenIndy and mark it as the active feature. Accordingly select “Function” &gt; “set function” which opens another dialog. Switch to the tab “new function”. There you can see the function “PointFit” that you created in your own plugin before.
 <br /><br />
-<img src="/images/functionPluginLoaderTutorial.png" alt="function Plugin Loader Tutorial" /></p>
+<img src="/documentation/images/dev/functionPluginLoaderTutorial.png" alt="function Plugin Loader Tutorial" /></p>
 
     </div><!-- /.article-wrap -->
     
@@ -1221,8 +1226,14 @@ Again please replace the <code>//TODO</code> by the following lines:</p>
   <footer>
     
 
-<span>&copy; 2014 OpenIndy and <a href="http://sigma3D.de" target="_blank">sigma3D</a> </span>
-
+<span>
+<table>
+   <tr>
+      <td align="left">&copy; 2014 OpenIndy and <a href="http://sigma3D.de" target="_blank">sigma3D</a></td>
+      <td align="right"><a href="/posts/contact.html">Contact</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/posts/legal.html">Legal Disclosure</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/posts/privacy.html">Privacy Statement</a></td>
+   </tr>
+</table>
+</span>
   </footer>
 </div><!-- /.footer-wrap -->
 
