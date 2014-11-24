@@ -12,7 +12,7 @@
     overflow: hidden;
     text-align: center;
     z-index: 99999999;
-    background-color: #5c950e;
+    background-color: #254b13;
     color: #eeeeee;
     width: 50px;
     height: 48px;
@@ -32,7 +32,7 @@
 
 }
 .scroll-top-wrapper:hover {
-    background-color: #435628;
+    background-color: #5c950e;
 }
 .scroll-top-wrapper.show {
     visibility:visible;
@@ -321,10 +321,8 @@
 <ul id="markdown-toc">
   <li><a href="#watch-window">Watch window</a></li>
   <li><a href="#edit-nominal-data">Edit nominal data</a></li>
-  <li><a href="#readings-observations-and-statistic">Readings, observations and statistic</a>    <ul>
-      <li><a href="#station">Station</a></li>
-    </ul>
-  </li>
+  <li><a href="#readings-observations-and-statistic">Readings, observations and statistic</a></li>
+  <li><a href="#station">Station</a></li>
   <li><a href="#multiple-stations">Multiple stations</a></li>
   <li><a href="#sensor-functionalities">Sensor functionalities</a>    <ul>
       <li><a href="#connect">Connect</a></li>
@@ -339,6 +337,7 @@
       <li><a href="#compensation">Compensation</a></li>
     </ul>
   </li>
+  <li><a href="#change-the-software-settings">Change the software settings</a></li>
 </ul>
 
   </div>
@@ -352,10 +351,14 @@
 <p><br />
 Here is an abstract of useful functions, which you might find most useful.</p>
 
+<p>FRAGE: Was bedeutet rote Farbe in watch window (Innerhalb eingestellter zu Soll-Wert?)</p>
+
 <h3 id="watch-window">Watch window</h3>
-<p>The watch window is a live stream of the actual readings of the active instrument (e.g. vertical and horizontal angle and distance). It makes it possible to 
-watch the current position of the reflector and if it´s moving. With this functionality it is also possible to watch a position while some works at it and 
-corrects it to its nominal value. The watch window only displays the actual readings and does not store them.</p>
+
+<p>The watch window <img src="/documentation/images/icons/watchwindow.png" alt="watch window" style="width: 25px" /> can be found in the menu <strong>View &gt; watch window</strong> and is a live stream of the actual readings of the active instrument (e.g. vertical and horizontal angle and distance). It makes it possible to 
+watch the current position of the reflector and if it´s moving. With this functionality it is also possible to watch a position while someone works at it and 
+corrects it to its nominal value. You always have the option to change the layout settings, the reading type and the displayed values shown in the watch window. The tolerance for the values can be set, too. At the very moment, the sensors value is below this tolerance, the equivalent attribute is highlighted green and not red anymore.
+The watch window only displays the actual readings and does not store them. By pressing F3 on the keyboard, you can execute and save a measurement.</p>
 <figure>
 	<p align="middle"><img src="/documentation/images/usr/watchwindow.png" /> </p>
 	<p align="middle"><i>the watch window</i></p>
@@ -364,19 +367,18 @@ corrects it to its nominal value. The watch window only displays the actual read
 <p>The plugin developer decides the values that get displayed in the view. So it is dynamic and variable for different tasks.</p>
 
 <h3 id="edit-nominal-data">Edit nominal data</h3>
-<p>In the example measurement we import the nominal data from an ASCII file. It is also possible to create nominal features. For this just check the nominal 
-checkbox and specify the destination system to which this nominal feature belongs to. Features are linked to each other by their name in transformation. You 
-can have one actual feature with the same name but multiple nominal features with the same name, if they have other destination systems (e.g. PART, OBJECTSYSTEM,…). 
-While creating the nominal features by hand you can/ have to specify the values by hand for each feature typ.<br /> The values of nominal features can be 
-edited by a double click on the nominal feature in the tableview. Then just change the values and apply the dialog. It´s the same like the transformation 
-parameters.</p>
+<p>In the example measurement we imported the nominal data from an ASCII file. It is also possible to create nominal features. To do this, just check the “is nominal” 
+option in the create dialog of a feature and specify the destination system to which this nominal feature belongs to. Features are linked to each other by their name in the transformation. You 
+can’t have more than one actual feature with a identical name but multiple nominal features with the same name, if they have other destination systems (e.g. PART, OBJECTSYSTEM,…). 
+While creating the nominal features by hand you have to specify the values by hand for each feature typ.<br /> The values of nominal features can be 
+edited by a right clicking on the nominal feature in the tableview and choosing the menu “show properties”. Then just change the values and apply the dialog. </p>
 
 <h3 id="readings-observations-and-statistic">Readings, observations and statistic</h3>
-<p>Double clicking on an actual feature opens an dialog that gives more information about this feature. In this dialog you can see the observation, that this 
-feature has with all its attributes like measured values, date, time station,… . Also you can see the observations that are created from the observations 
-with all their attributes. <br /> Their third and maybe leading tab is the statistic tab. Here you can find all the statistic of the feature and its functions. 
-All statistic is seperated for each function the feature has. You can switch the function via the combobox. The statistic of the functions is calculated with 
-variance propagation.</p>
+<p>If you do a right click on an actual feature and choose the “show properties” dialog, you get more information about this feature. In this dialog you can see the observation, which this feature has with all its attributes like measured values, date, time station, and so on. Also you can see the readings that are created from the observations 
+with all their attributes. <br /> The last tab is the statistic tab. Here you can find all the statistic of the feature and its functions. 
+All statistic is seperated for each function of the feature, which you can switch on the combobox. The statistic of the functions is calculated with 
+variance propagation and the resulting arrays can be viewed.</p>
+
 <figure>
 	<a href="../images/usr/readings.png"><img src="/documentation/images/usr/readings.png" /></a> 
 	<p align="middle"><i>readings of the point feature</i></p>
@@ -390,16 +392,15 @@ variance propagation.</p>
 	<p align="middle"><i>statistic of the best fit function of the point feature</i></p>
 </figure>
 
-<h4 id="station">Station</h4>
-<p>Double clicking on a station opens the same dialog with one more tab. In this tab you can change the sensor configuration of the current active instrument. 
-So you can change the connection parameters, the accuracy and all the other instrument parameters. You can´t change the instrument in this dialog. To do this 
-you need to click <strong>Station &gt; set instrument</strong>.</p>
+<h3 id="station">Station</h3>
+<p>On a station you can also open the “show properties” dialog. There you can see the sensor configuration of the current active instrumentas.
+So you can change the connection parameters, the accuracy and all the other instrument parameters as well as the connection type. You can´t change the instrument in this dialog. To do this you need to click <strong>Station &gt; set instrument</strong>.</p>
 
 <h3 id="multiple-stations">Multiple stations</h3>
 <p>It is possible to have more stations in OpenIndy, because this is neccessary to solve some measurement tasks. All stations are marked light grey in the 
 tableview. The current active station is marked in a darker grey. On default when you start OpenIndy STATION01 is activated. You can switch the active station 
 by marking the one you want to activate in the tableview with one left mouse button click. When it´s marked light blue (active feature) go to 
-<strong>Station &gt; activate station</strong>. The selected station will then be the active station and you can connect a sensor to it. </p>
+<strong>Station &gt; activate station</strong>. The selected station will then be the active station and you can connect a sensor to it.</p>
 
 <h3 id="sensor-functionalities">Sensor functionalities</h3>
 <p>This section gives a brief description of all current implemented sensor functionalities (sensor + totalstation + lasertracker). The implementation itself 
@@ -424,16 +425,19 @@ depends on the plugin developer and on the implemented sensor, so it can vary be
 <p>Changes the sensor from frontside to backside and the other way</p>
 
 <h4 id="aim">Aim</h4>
-<p>aims towards the active feature position. The feature needs to be solved for this functionality, that means it has some valid X Y and Z coordinates.</p>
+<p>Aims towards the active feature position. The feature needs to be solved for this functionality, that means it has some valid X Y and Z coordinates.</p>
 
 <h4 id="move">Move</h4>
 <p>The user can specify where the sensor should aim towards</p>
 
 <h4 id="change-motor-state">Change motor state</h4>
-<p>enables or disables the motor (lasertracker)</p>
+<p>Enables or disables the motor (lasertracker)</p>
 
 <h4 id="compensation">Compensation</h4>
-<p>starts the compensation (lasertracker)</p>
+<p>Starts the compensation (lasertracker)</p>
+
+<h3 id="change-the-software-settings">Change the software settings</h3>
+<p>In the menu <strong>Settings &gt; view settings</strong> you can change the used units, the displayed attributes of the table view and you see the plugins information like descriptions of the usable functions and sensors of the loaded plugins.</p>
 
     </div><!-- /.article-wrap -->
     
@@ -443,6 +447,8 @@ depends on the plugin developer and on the implemented sensor, so it can vary be
 <div class="footer-wrap">
   <footer>
     
+
+<hr />
 
 <span>
 <table>

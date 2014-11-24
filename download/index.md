@@ -6,10 +6,10 @@ comments: true
 image:
   feature: banner_oi.jpg
 ---
-<b>Version 0.1 Posted on November 4th, 2014</b>
+<b>Version 0.1 Posted on December XXth, 2014</b>
 <br>On this section you can download the latest executable version of OpenIndy.
 <br><br>
-<a markdown="0" href="" class="btn btn-success">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Download Version 0.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+<a markdown="0" href="" class="btn btn-success">Download Version 0.1</a>
 <h1>Sourcecode</h1>
 To join our community and support us in the ongoing development, you can also fork the repository of the project on [GitHub](https://github.com/OpenIndy/OpenIndy).
 <br><br>
@@ -17,7 +17,7 @@ To join our community and support us in the ongoing development, you can also fo
 <h1>Other Downloads</h1>
 The development framework of your choice should be QT Creator which is designed to streamline the creation of applications and user interfaces to target multiple platforms with one code base.
 <br><br>
-<a markdown="0" href="http://qt-project.org/downloads" class="btn btn-info">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Download Qt Creator&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+<a markdown="0" href="http://qt-project.org/downloads" class="btn btn-info">Download Qt Creator</a>
 <br><br>
 
 Build Guide

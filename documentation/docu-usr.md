@@ -17,7 +17,7 @@ image:
 {:.no_toc}
 This user documentation shows the functionalities of OpenIndy and the way it works.
 To show this, we have one special measurement task and will describe all steps to solve it.
-It is described in detail in the "measurement" section
+It is described in detail in the [measurement](/documentation/docu-usr/measurement.html) section
 <br><br>
 The guide is structured in the following sections:
 
@@ -36,8 +36,7 @@ All neccessary steps for solving the task are described in detail in this sectio
 
 ###[Other Functionalities](/documentation/docu-usr/functionalities.html)
 
-Some functionalities you do not need for solving this special task, but maybe for others, are described in the "other functionalities" section.
-
+Some functionalities you do not need for solving the example task, but maybe for others, are described in the "other functionalities" section.
 
 
 

@@ -27,7 +27,7 @@ The graphical user interface of OpenIndy is made according to the principle of "
 
 ###Short Introducing of the graphical user interface (GUI)
 
-The most frequently used functions are displayed as icons on a toolbar, allowing quick and easy access to the measurement information.
+The most frequently used functions are displayed as icons on a feature toolbar, allowing quick and easy access to the measurement information.
 The forms-based graphical interaction helps you defining your measurement quickly and easily. 
 Each form tab is labeled with its content, preventing you from getting lost in the defining process.
 
@@ -35,7 +35,18 @@ Each form tab is labeled with its content, preventing you from getting lost in t
 
 ### Tableview
 
-the tableview is a tabular representation of the features and their attributes. Each row represents one feature (e.g. one point) and the columns represent the metadata, attributes and values, number of observations for this geometry, measurement configuration and the functions of this feature.
+The tableview is a tabular representation of the features and their attributes. Each row represents one feature (e.g. one point) and the columns represent the metadata, attributes and values, number of observations for this geometry, measurement configuration and the functions of this feature.
+The status of each row is represented in different colors:<br>
+light gray = the colored feature type is a station<br>
+dark gray = currently activated station<br>
+light blue = active feature(s)<br>
+white = measurement feature<br>
+brown = nominal feature<br>
+red = measurement config is not completely set
+yellow columns = feature/attribute isn't solved yet<br>
+
+
+
 <figure>
 	<a href="/documentation/images/dev/tableview.png"><img src="/documentation/images/dev/tableview.png"></a>
 	<p align="middle"><i>The table view</i></p>

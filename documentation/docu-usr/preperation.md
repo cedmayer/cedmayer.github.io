@@ -28,7 +28,7 @@ The first step is to prepare the OpenIndy software:
 ###Database
 
 As one of the first steps you have to put the oisystemdb.sqlite to the OpenIndy executable (on Windows in the same folder with OpenIndy.exe).
-This is neccessary the plugins we need to solve the measurement tasks. This databse handles all dependencies in the plugin and handles the communication between the OpenIndy main program and the plugin, where all the functions and sensors are implemented.
+This is neccessary for the plugins we need to solve the measurement tasks. This databse handles all dependencies in the plugin and the communication between the OpenIndy main program and the plugin, where all the functions and sensors are implemented.
 
 ###Library for linear algebra and dependencies
 
@@ -40,8 +40,8 @@ You can find the dlls and libs in the "lib" folder of OpenIndy in a 32bit and 64
 
 Now, after all libraries and dependencies are copied to the right place, start OpenIndy.
 As the last step of preperation you need to load the plugin in OpenIndy, so you can use all implemented functions and sensors. After this step you can start with your task.
-For loading the plugin go to the menu "Plugin" and click "load plugin". After this a new window opens, where you have to select the location of your plugin. After accepting the folder dialog, OpenIndy shows you the metadata of the selected plugin and checks if it is valid. Press Ok and then ok in the window to load it. OpenIndy will then automatically copy the plugin and all its dependencies to the plugin directory, so that it can work with it.
+To load the plugin click on the menu **Plugin > load plugin**. After this a new window opens, where you have to select the location of your plugin. The path for the default plugin is ..\OpenIndy\plugins\OiDefaultPlugin\bin . After accepting the folder dialog, OpenIndy shows you the metadata of the selected plugin and checks if it is valid. Press Ok and then ok in the window to load it. OpenIndy will then automatically copy the plugin and all its dependencies to the plugin directory, so that it can work with it.
 <figure >
 	<a href="../images/usr/loadPlugin.png"><img src="/documentation/images/usr/loadPlugin.png"></a> 
-	<p align="middle"><i>The load plugin dialog</i></p>
+	<p align="middle"><i>The "load plugin" dialog</i></p>
 </figure>
