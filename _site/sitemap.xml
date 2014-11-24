@@ -3,7 +3,7 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000//news/welcome/</loc>
+    <loc>https://cedmayer.github.io/news/welcome/</loc>
     
     <lastmod>2014-10-21T23:49:39+02:00</lastmod>
     
@@ -12,120 +12,120 @@
   
   
   <url>
-    <loc>http://0.0.0.0:4000//posts/about.html</loc>
-    <lastmod>2014-11-24T20:52:32+01:00</lastmod>
+    <loc>https://cedmayer.github.io/posts/about.html</loc>
+    <lastmod>2014-11-24T20:56:27+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:4000//about/</loc>
-    <lastmod>2014-11-24T20:52:32+01:00</lastmod>
+    <loc>https://cedmayer.github.io/about/</loc>
+    <lastmod>2014-11-24T20:56:27+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:4000//posts/contact.html</loc>
-    <lastmod>2014-11-24T20:52:32+01:00</lastmod>
+    <loc>https://cedmayer.github.io/posts/contact.html</loc>
+    <lastmod>2014-11-24T20:56:27+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:4000//documentation/docu-dev.html</loc>
-    <lastmod>2014-11-24T20:52:32+01:00</lastmod>
+    <loc>https://cedmayer.github.io/documentation/docu-dev.html</loc>
+    <lastmod>2014-11-24T20:56:27+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:4000//documentation/docu-usr.html</loc>
-    <lastmod>2014-11-24T20:52:32+01:00</lastmod>
+    <loc>https://cedmayer.github.io/documentation/docu-usr.html</loc>
+    <lastmod>2014-11-24T20:56:27+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:4000//documentation/docu-usr/functionalities.html</loc>
-    <lastmod>2014-11-24T20:52:32+01:00</lastmod>
+    <loc>https://cedmayer.github.io/documentation/docu-usr/functionalities.html</loc>
+    <lastmod>2014-11-24T20:56:27+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:4000//</loc>
-    <lastmod>2014-11-24T20:52:32+01:00</lastmod>
+    <loc>https://cedmayer.github.io/</loc>
+    <lastmod>2014-11-24T20:56:27+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:4000//</loc>
-    <lastmod>2014-11-24T20:52:32+01:00</lastmod>
+    <loc>https://cedmayer.github.io/</loc>
+    <lastmod>2014-11-24T20:56:27+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:4000//download/</loc>
-    <lastmod>2014-11-24T20:52:32+01:00</lastmod>
+    <loc>https://cedmayer.github.io/download/</loc>
+    <lastmod>2014-11-24T20:56:27+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:4000//documentation/</loc>
-    <lastmod>2014-11-24T20:52:32+01:00</lastmod>
+    <loc>https://cedmayer.github.io/documentation/</loc>
+    <lastmod>2014-11-24T20:56:27+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:4000//posts/</loc>
-    <lastmod>2014-11-24T20:52:32+01:00</lastmod>
+    <loc>https://cedmayer.github.io/posts/</loc>
+    <lastmod>2014-11-24T20:56:27+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:4000//posts/legal.html</loc>
-    <lastmod>2014-11-24T20:52:32+01:00</lastmod>
+    <loc>https://cedmayer.github.io/posts/legal.html</loc>
+    <lastmod>2014-11-24T20:56:27+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:4000//documentation/docu-usr/measurement.html</loc>
-    <lastmod>2014-11-24T20:52:32+01:00</lastmod>
+    <loc>https://cedmayer.github.io/documentation/docu-usr/measurement.html</loc>
+    <lastmod>2014-11-24T20:56:27+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:4000//documentation/plugins.html</loc>
-    <lastmod>2014-11-24T20:52:32+01:00</lastmod>
+    <loc>https://cedmayer.github.io/documentation/plugins.html</loc>
+    <lastmod>2014-11-24T20:56:27+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:4000//documentation/docu-usr/preperation.html</loc>
-    <lastmod>2014-11-24T20:52:32+01:00</lastmod>
+    <loc>https://cedmayer.github.io/documentation/docu-usr/preperation.html</loc>
+    <lastmod>2014-11-24T20:56:27+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:4000//posts/privacy.html</loc>
-    <lastmod>2014-11-24T20:52:32+01:00</lastmod>
+    <loc>https://cedmayer.github.io/posts/privacy.html</loc>
+    <lastmod>2014-11-24T20:56:27+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:4000//documentation/docu-usr/views.html</loc>
-    <lastmod>2014-11-24T20:52:32+01:00</lastmod>
+    <loc>https://cedmayer.github.io/documentation/docu-usr/views.html</loc>
+    <lastmod>2014-11-24T20:56:27+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

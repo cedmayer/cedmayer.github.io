@@ -1,4 +1,3 @@
-cedmayer.github.io
 ==================
 Documentation - Building the Website
 _____________________________________
@@ -8,7 +7,7 @@ _____________________________________
 
 - Create repository for site
 Head over to GitHub and create a new repository named username.github.io, where username is your username (or organization name) on GitHub.
-Go to the folder where you want to store your project, and clone the new repository:
+Change Directory to the folder where you want to store your project, and clone the new repository:
 $ git clone https://github.com/username/username.github.io
 
 
@@ -136,9 +135,9 @@ cd to folder username.github.io,
 - via octopress:
 To create a new page use the following command.
 
-$ octopress new page new-page/
+$ octopress new page name_of_page folder_of_page/
 
-This will create a page at `/new-page/index.md`
+This will create a page at `/folder_of_page/name_of_page.md`
 
 
 
@@ -185,6 +184,7 @@ If you want to group them into subfolders like `/posts`, `/portfolio`, etc. use 
 $ octopress new post "New Post Title" --dir posts
 
 By specifying the DIR it will create a new post in that folder (_posts/newDIR) and populate the `categories:` YAML with the same value.
+Change the "categories" syntax on the front matter (for example to "news")
 
 
 - Post Index Page
@@ -216,9 +216,9 @@ Add the following Code, where you want to show a list of posts with a preview:
 
         <div class="post-content-truncate">
             {% if post.content contains "<!-- more -->" %}
-                {{ post.content | split:"<!-- more -->" | first % }} <p>.....</p>
+                {{ post.content | split:"<!-- more -->" | first % }} <nobr>...</nobr>
             {% else %}
-                {{ post.content | strip_html | truncatewords:100 }} <p>.....</p>
+                {{ post.content | strip_html | truncatewords:100 }} <nobr>...</nobr>
             {% endif %}
         </div>
         <p><a href="{{ post.url }}">Read more...</a><br><br><p>
@@ -258,6 +258,8 @@ To assign Billy Rick as an author for the post, add the following YAML front mat
 - ScrollToTop of site arrow
 
 http://www.webtipblog.com/adding-scroll-top-button-website/
+
+Style Config can be changed in _includes/_head.html 
 
 - Tables
 http://www.csstablegenerator.com/
@@ -311,7 +313,7 @@ layout: default
 title: test
 tags: [test, theme, about]
 image:
-  feature: banner_oi.jpg
+  feature: banner_oi_proto.jpg
 ---
 "image:feature" is important for the layout style to show a banner for example
 
@@ -463,6 +465,28 @@ A link that opens in a new tab:
 Simple Image with a description:
 
 ![Description](/images/bild.png)
+
+Changed width (e.g. for icons)
+![measurement config](/documentation/images/icons/measurementconfig.png){: style="width: 25px"}
+
+
+
+Image with link to bigger image and capition middle
+
+<figure >
+  <a href="../images/usr/watchwindow.png"><img src="/documentation/images/usr/watchwindow.png"></a> 
+  <p align="middle"><i>the watch window</i></p>
+</figure>
+
+Image and caption middle without Link to bigger image:
+
+<figure >
+  <p align="middle"><img src="/documentation/images/usr/watchwindow.png"></a> </p>
+  <p align="middle"><i>the watch window</i></p>
+</figure>
+
+
+
 
 One image with a caption (as a link to another page)
 

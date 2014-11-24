@@ -2,13 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 <title type="text">OpenIndy</title>
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="http://0.0.0.0:4000//feed.xml" />
-<link rel="alternate" type="text/html" href="http://0.0.0.0:4000/" />
-<updated>2014-11-24T20:52:32+01:00</updated>
-<id>http://0.0.0.0:4000//</id>
+<link rel="self" type="application/atom+xml" href="https://cedmayer.github.io/feed.xml" />
+<link rel="alternate" type="text/html" href="https://cedmayer.github.io" />
+<updated>2014-11-24T20:56:27+01:00</updated>
+<id>https://cedmayer.github.io/</id>
 <author>
   <name>OpenIndy</name>
-  <uri>http://0.0.0.0:4000//</uri>
+  <uri>https://cedmayer.github.io/</uri>
   
 </author>
 
@@ -17,13 +17,13 @@
 
 <entry>
   <title type="html"><![CDATA[A short overview of OpenIndy]]></title>
-  <link rel="alternate" type="text/html" href="http://0.0.0.0:4000//news/welcome/" />
-  <id>http://0.0.0.0:4000//news/welcome</id>
+  <link rel="alternate" type="text/html" href="https://cedmayer.github.io/news/welcome/" />
+  <id>https://cedmayer.github.io/news/welcome</id>
   <published>2014-10-21T23:49:39+02:00</published>
   <updated>2014-10-21T23:49:39+02:00</updated>
   <author>
     <name>OpenIndy</name>
-    <uri>http://0.0.0.0:4000/</uri>
+    <uri>https://cedmayer.github.io</uri>
     
   </author>
   <content type="html">&lt;p&gt;&lt;em&gt;OpenIndy is …&lt;/em&gt;&lt;/p&gt;
@@ -56,7 +56,7 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://0.0.0.0:4000//news/welcome/&quot;&gt;A short overview of OpenIndy&lt;/a&gt; was originally published by OpenIndy at &lt;a href=&quot;http://0.0.0.0:4000/&quot;&gt;OpenIndy&lt;/a&gt; on October 21, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;https://cedmayer.github.io/news/welcome/&quot;&gt;A short overview of OpenIndy&lt;/a&gt; was originally published by OpenIndy at &lt;a href=&quot;https://cedmayer.github.io&quot;&gt;OpenIndy&lt;/a&gt; on October 21, 2014.&lt;/p&gt;</content>
 </entry>
 
 </feed>
