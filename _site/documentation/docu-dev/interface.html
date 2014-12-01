@@ -1,0 +1,823 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<style>
+.scroll-top-wrapper {
+    position: fixed;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    text-align: center;
+    z-index: 99999999;
+    background-color: #254b13;
+    color: #eeeeee;
+    width: 50px;
+    height: 48px;
+    line-height: 48px;
+    right: 30px;
+    bottom: 30px;
+    padding-top: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+
+}
+.scroll-top-wrapper:hover {
+    background-color: #5c950e;
+}
+.scroll-top-wrapper.show {
+    visibility:visible;
+    cursor:pointer;
+    opacity: 1.0;
+}
+.scroll-top-wrapper i.fa {
+    line-height: inherit;
+}
+ 
+</style>
+
+<style>
+.CSSTableGenerator {
+  margin:0px;padding:0px;
+  width:100%;
+  box-shadow: 10px 10px 5px #888888;
+  border:1px solid #000000;
+  
+  -moz-border-radius-bottomleft:1px;
+  -webkit-border-bottom-left-radius:1px;
+  border-bottom-left-radius:1px;
+  
+  -moz-border-radius-bottomright:1px;
+  -webkit-border-bottom-right-radius:1px;
+  border-bottom-right-radius:1px;
+  
+  -moz-border-radius-topright:1px;
+  -webkit-border-top-right-radius:1px;
+  border-top-right-radius:1px;
+  
+  -moz-border-radius-topleft:1px;
+  -webkit-border-top-left-radius:1px;
+  border-top-left-radius:1px;
+}.CSSTableGenerator table{
+    border-collapse: collapse;
+        border-spacing: 0;
+  width:100%;
+  height:100%;
+  margin:0px;padding:0px;
+}.CSSTableGenerator tr:last-child td:last-child {
+  -moz-border-radius-bottomright:1px;
+  -webkit-border-bottom-right-radius:1px;
+  border-bottom-right-radius:1px;
+}
+.CSSTableGenerator table tr:first-child td:first-child {
+  -moz-border-radius-topleft:1px;
+  -webkit-border-top-left-radius:1px;
+  border-top-left-radius:1px;
+}
+.CSSTableGenerator table tr:first-child td:last-child {
+  -moz-border-radius-topright:1px;
+  -webkit-border-top-right-radius:1px;
+  border-top-right-radius:1px;
+}.CSSTableGenerator tr:last-child td:first-child{
+  -moz-border-radius-bottomleft:1px;
+  -webkit-border-bottom-left-radius:1px;
+  border-bottom-left-radius:1px;
+}.CSSTableGenerator tr:hover td{
+  
+}
+.CSSTableGenerator tr:nth-child(odd){ background-color:#e5e5e5; }
+.CSSTableGenerator tr:nth-child(even)    { background-color:#ffffff; }.CSSTableGenerator td{
+  vertical-align:middle;
+  
+  
+  border:1px solid #000000;
+  border-width:0px 1px 1px 0px;
+  text-align:left;
+  padding:6px;
+  font-size:13px;
+  font-family:Serif;
+  font-weight:normal;
+  color:#2f2f2f;
+}.CSSTableGenerator tr:last-child td{
+  border-width:0px 1px 0px 0px;
+}.CSSTableGenerator tr td:last-child{
+  border-width:0px 0px 1px 0px;
+}.CSSTableGenerator tr:last-child td:last-child{
+  border-width:0px 0px 0px 0px;
+}
+.CSSTableGenerator tr:first-child td{
+    background:-o-linear-gradient(bottom, #ffffff 5%, #a5a5a5 100%);  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #a5a5a5) );
+  background:-moz-linear-gradient( center top, #ffffff 5%, #a5a5a5 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#a5a5a5");  background: -o-linear-gradient(top,#ffffff,a5a5a5);
+
+  background-color:#ffffff;
+  border:0px solid #000000;
+  text-align:center;
+  border-width:0px 0px 1px 1px;
+  font-size:14px;
+  font-family:Serif;
+  font-weight:bold;
+  color:#2f2f2f;
+}
+.CSSTableGenerator tr:first-child:hover td{
+  background:-o-linear-gradient(bottom, #ffffff 5%, #a5a5a5 100%);  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #a5a5a5) );
+  background:-moz-linear-gradient( center top, #ffffff 5%, #a5a5a5 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#a5a5a5");  background: -o-linear-gradient(top,#ffffff,a5a5a5);
+
+  background-color:#ffffff;
+}
+.CSSTableGenerator tr:first-child td:first-child{
+  border-width:0px 0px 1px 0px;
+}
+.CSSTableGenerator tr:first-child td:last-child{
+  border-width:0px 0px 1px 1px;
+}
+</style>
+
+
+<meta charset="utf-8">
+<title>OpenIndy Server Interface &#8211; OpenIndy</title>
+<meta name="description" content="Developer documentation for OpenIndy - OI Server Interface">
+<meta name="keywords" content="">
+
+  
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="OpenIndy Server Interface">
+<meta name="twitter:description" content="Developer documentation for OpenIndy - OI Server Interface">
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://0.0.0.0:4000//images/banner/b_tracker2.jpg">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenIndy Server Interface">
+<meta property="og:description" content="Developer documentation for OpenIndy - OI Server Interface">
+<meta property="og:url" content="http://0.0.0.0:4000//documentation/docu-dev/interface.html">
+<meta property="og:site_name" content="OpenIndy">
+
+
+
+
+
+<link rel="canonical" href="http://0.0.0.0:4000//documentation/docu-dev/interface.html">
+<link href="http://0.0.0.0:4000//feed.xml" type="application/atom+xml" rel="alternate" title="OpenIndy Feed">
+
+
+<!--           <link rel="stylesheet" id="font-awesome-css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css" media="screen">
+ 
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://0.0.0.0:4000//assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+	<script src="http://0.0.0.0:4000//assets/js/vendor/html5shiv.min.js"></script>
+	<script src="http://0.0.0.0:4000//assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="http://0.0.0.0:4000//assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+<link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700%7CPT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://0.0.0.0:4000//favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://0.0.0.0:4000//favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://0.0.0.0:4000//images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://0.0.0.0:4000//images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://0.0.0.0:4000//images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://0.0.0.0:4000//images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+
+
+
+
+<body class="page">
+
+<div class="scroll-top-wrapper ">
+    <span class="scroll-top-inner">
+        <i class="fa fa-2x fa-arrow-circle-up"></i>
+    </span>
+</div>
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="http://0.0.0.0:4000/">OpenIndy</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" id="site-nav" class="nav">
+		    <ul>
+		        
+					    
+					        
+					    
+					    <li><a href="http://0.0.0.0:4000//posts/about.html" >About</a></li>
+					  
+					    
+					        
+					    
+					    <li><a href="http://0.0.0.0:4000//posts/" >Blog</a></li>
+					  
+					    
+					        
+					    
+					    <li><a href="http://0.0.0.0:4000//download/" >Downloads</a></li>
+					  
+					    
+					        
+					    
+					    <li><a href="http://0.0.0.0:4000//documentation/" >Documentation</a></li>
+					  
+					    
+					        
+					    
+					    <li><a href="http://0.0.0.0:4000//posts/contact.html" >Contact</a></li>
+					  
+					    
+					        
+					        
+					    <li><a href="http://sigma3d.de" target="_blank">sigma3D</a></li>
+					  
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+  <div class="image-wrap">
+  <img src=
+    
+      "http://0.0.0.0:4000//images/banner/b_tracker2.jpg"
+    
+  alt="OpenIndy Server Interface feature image">
+
+  </div><!-- /.image-wrap -->
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    
+  
+
+
+	<img src="http://0.0.0.0:4000//images/icons/icon-dev-author.png" class="bio-photo" alt="OpenIndy Dev Documentation bio photo">
+
+<h3>OpenIndy Dev Documentation</h3>
+<p>Open source software solution for industrial measurement (metrology, laser tracker, quality control)</p>
+
+
+<a href="http://facebook.com/openindy2014" class="author-social" target="_blank"><i class="fa fa-facebook-square"></i> Facebook</a>
+
+
+
+
+<a href="http://github.com/OpenIndy" class="author-social" target="_blank"><i class="fa fa-github"></i> Github</a>
+
+
+
+
+
+
+
+  </div>
+  <article class="page">
+    <h1>OpenIndy Server Interface</h1>
+    <div class="article-wrap">
+      <section id="table-of-contents" class="toc">
+  <header>
+    <h3>Server Interface Overview</h3>
+  </header>
+<div id="drawer">
+<ul id="markdown-toc">
+  <li><a href="#openindy-xml-schema">OpenIndy XML schema</a></li>
+  <li><a href="#request-types">Request types</a></li>
+  <li><a href="#requestresponse-format">Request/Response format</a>    <ul>
+      <li><a href="#measure">Measure</a></li>
+    </ul>
+  </li>
+  <li><a href="#error-codes">Error codes</a></li>
+  <li><a href="#data-import-oidataexchanger">Data import (oiDataExchanger)</a></li>
+</ul>
+
+  </div>
+</section>
+<!-- /#table-of-contents -->
+
+<hr />
+
+<p><a href="/documentation/docu-dev.html" class="btn">Overview</a>  <a href="/documentation/docu-dev/concept.html" class="btn">Concept and Architecture</a>  <a href="/documentation/docu-dev/plugins.html" class="btn">Plugins</a>  <a href="/documentation/docu-dev/interface.html" class="btn btn-success">Server Interface</a>  <a href="/documentation/docu-dev/gui.html" class="btn">Model View Control</a></p>
+
+<h2 id="openindy-xml-schema">OpenIndy XML schema</h2>
+
+<p>While OpenIndy is running it is possible for a client to connect to OpenIndy via a TCP connection. A client which knows the IP and the port OpenIndy listens to it can send XML based requests to OpenIndy. Then OpenIndy itself will work off the requested tasks and will send a XML based response message back to the client. There are various possible request types and their corresponding XML formats which are presented here.</p>
+
+<h2 id="request-types">Request types</h2>
+<p>For a list of possible request types look at the following table.</p>
+
+<div class="CSSTableGenerator">
+<table>
+    <tr>
+      <td style="text-align: left">request type</td>
+      <td style="text-align: left">ID</td>
+      <td style="text-align: left">description</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetProject</td>
+      <td style="text-align: left">0</td>
+      <td style="text-align: left">Get the whole OpenIndy project</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SetProject</td>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">Restore the given OpenIndy project</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetActiveFeature</td>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">Get the currently selected feature</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SetActiveFeature</td>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">Set the active feature</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetActiveStation</td>
+      <td style="text-align: left">4</td>
+      <td style="text-align: left">Get the active station</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SetActiveStation</td>
+      <td style="text-align: left">5</td>
+      <td style="text-align: left">Set the active station</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetActiveCoordinateSystem</td>
+      <td style="text-align: left">6</td>
+      <td style="text-align: left">Get the currently selected display coordinate system</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SetActiveCoordinateSystem</td>
+      <td style="text-align: left">7</td>
+      <td style="text-align: left">Set the display coordinate system</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Aim</td>
+      <td style="text-align: left">8</td>
+      <td style="text-align: left">Aim the active feature with the active sensor</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Move</td>
+      <td style="text-align: left">9</td>
+      <td style="text-align: left">Move the active sensor by the given amount</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Measure</td>
+      <td style="text-align: left">10</td>
+      <td style="text-align: left">Measure the active feature with the active sensor</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">StartWatchWindow</td>
+      <td style="text-align: left">11</td>
+      <td style="text-align: left">Start a watch window stream</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">StopWatchWindow</td>
+      <td style="text-align: left">12</td>
+      <td style="text-align: left">Stop the watch window stream</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">StartStakeOut</td>
+      <td style="text-align: left">13</td>
+      <td style="text-align: left">Start the stake out mode</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">StopStakeOut</td>
+      <td style="text-align: left">14</td>
+      <td style="text-align: left">Stop the stake out mode</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetNextGeometry</td>
+      <td style="text-align: left">15</td>
+      <td style="text-align: left">In stake out mode get the next geometry to measure</td>
+    </tr>
+</table>
+</div>
+
+<h2 id="requestresponse-format">Request/Response format</h2>
+<p>All request and response messages are XML based. They all have the following format:</p>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;OiRequest</span> <span class="na">id=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/OiRequest&gt;</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;OiResponse</span> <span class="na">ref=</span><span class="s">&quot;&quot;</span> <span class="na">errorCode=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/OiResponse&gt;</span></code></pre></div>
+
+<p>Each request comes with an id that defines the request type (see the table above). The attribute “ref” of the response tag equals the id of the corresponding request. If the “errorCode” is “0” then no error occured. The XML formats for the request and response messages to the tasks of the table above are shown below.</p>
+
+<h3 class="no_toc" id="getproject">GetProject</h3>
+
+<h4 class="no_toc" id="request">Request</h4>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;OiRequest</span> <span class="na">id=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span></code></pre></div>
+
+<h4 class="no_toc" id="response">Response</h4>
+
+<p>The OpenIndy XML schema is descriped <a href="https://github.com/OpenIndy/OpenIndy/blob/master/schema/openIndySchema.xsd">here</a></p>
+
+<h3 class="no_toc" id="getactivefeature">GetActiveFeature</h3>
+
+<h4 class="no_toc" id="request-1">Request</h4>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;OiRequest</span> <span class="na">id=</span><span class="s">&quot;2&quot;</span><span class="nt">/&gt;</span></code></pre></div>
+
+<h4 class="no_toc" id="response-1">Response</h4>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;OiResponse</span> <span class="na">ref=</span><span class="s">&quot;2&quot;</span> <span class="na">errorCode=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;activeFeature</span> <span class="na">ref=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/OiResponse&gt;</span></code></pre></div>
+
+<p>The attribute “ref” of the “activeFeature” tag represents the id of the active feature.</p>
+
+<h3 class="no_toc" id="setactivefeature">SetActiveFeature</h3>
+
+<h4 class="no_toc" id="request-2">Request</h4>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;OiRequest</span> <span class="na">id=</span><span class="s">&quot;3&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;activeFeature</span> <span class="na">ref=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/OiRequest&gt;</span></code></pre></div>
+
+<p>The attribute “ref” of the “activeFeature” tag represents the id of the feature that shall be activated.</p>
+
+<h4 class="no_toc" id="response-2">Response</h4>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;OiResponse</span> <span class="na">ref=</span><span class="s">&quot;3&quot;</span> <span class="na">errorCode=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;activeFeature</span> <span class="na">ref=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/OiResponse&gt;</span></code></pre></div>
+
+<p>The attribute “ref” of the “activeFeature” tag represents the id of the active feature.</p>
+
+<h3 class="no_toc" id="getactivestation">GetActiveStation</h3>
+
+<h4 class="no_toc" id="request-3">Request</h4>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;OiRequest</span> <span class="na">id=</span><span class="s">&quot;4&quot;</span><span class="nt">/&gt;</span></code></pre></div>
+
+<h4 class="no_toc" id="response-3">Response</h4>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;OiResponse</span> <span class="na">ref=</span><span class="s">&quot;4&quot;</span> <span class="na">errorCode=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;activeStation</span> <span class="na">ref=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/OiResponse&gt;</span></code></pre></div>
+
+<p>The attribute “ref” of the “activeStation” tag represents the id of the active station.</p>
+
+<h3 class="no_toc" id="setactivestation">SetActiveStation</h3>
+
+<h4 class="no_toc" id="request-4">Request</h4>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;OiRequest</span> <span class="na">id=</span><span class="s">&quot;5&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;activeStation</span> <span class="na">ref=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/OiRequest&gt;</span></code></pre></div>
+
+<p>The attribute “ref” of the “activeStation” tag represents the id of the station that shall be activated.</p>
+
+<h4 class="no_toc" id="response-4">Response</h4>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;OiResponse</span> <span class="na">ref=</span><span class="s">&quot;5&quot;</span> <span class="na">errorCode=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;activeStation</span> <span class="na">ref=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/OiResponse&gt;</span></code></pre></div>
+
+<p>The attribute “ref” of the “activeStation” tag represents the id of the active station.</p>
+
+<h3 class="no_toc" id="getactivecoordinatesystem">GetActiveCoordinateSystem</h3>
+
+<h4 class="no_toc" id="request-5">Request</h4>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;OiRequest</span> <span class="na">id=</span><span class="s">&quot;6&quot;</span><span class="nt">/&gt;</span></code></pre></div>
+
+<h4 class="no_toc" id="response-5">Response</h4>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;OiResponse</span> <span class="na">ref=</span><span class="s">&quot;6&quot;</span> <span class="na">errorCode=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;activeCoordinateSystem</span> <span class="na">ref=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/OiResponse&gt;</span></code></pre></div>
+
+<p>The attribute “ref” of the “activeCoordinateSystem” tag represents the id of the active coordinate system.</p>
+
+<h3 class="no_toc" id="setactivecoordinatesystem">SetActiveCoordinateSystem</h3>
+
+<h4 class="no_toc" id="request-6">Request</h4>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;OiRequest</span> <span class="na">id=</span><span class="s">&quot;7&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;activeCoordinateSystem</span> <span class="na">ref=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/OiRequest&gt;</span></code></pre></div>
+
+<p>The attribute “ref” of the “activeCoordinateSystem” tag represents the id of the coordinate system that shall be activated.</p>
+
+<h4 class="no_toc" id="response-6">Response</h4>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;OiResponse</span> <span class="na">ref=</span><span class="s">&quot;7&quot;</span> <span class="na">errorCode=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;activeCoordinateSystem</span> <span class="na">ref=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/OiResponse&gt;</span></code></pre></div>
+
+<p>The attribute “ref” of the “activeCoordinateSystem” tag represents the id of the active coordinate system.</p>
+
+<h3 id="measure">Measure</h3>
+
+<h4 class="no_toc" id="request-7">Request</h4>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;OiRequest</span> <span class="na">id=</span><span class="s">&quot;10&quot;</span><span class="nt">/&gt;</span></code></pre></div>
+
+<p>Cann be called to measure the active feature. Previously you have to set the active feature to the geometry you want to be measured.</p>
+
+<h4 class="no_toc" id="response-7">Response</h4>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;OiResponse</span> <span class="na">ref=</span><span class="s">&quot;10&quot;</span> <span class="na">errorCode=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span></code></pre></div>
+
+<h3 class="no_toc" id="startwatchwindow">StartWatchWindow</h3>
+
+<h4 class="no_toc" id="request-8">Request</h4>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;OiRequest</span> <span class="na">id=</span><span class="s">&quot;11&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;readingType</span> <span class="na">type=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span> <span class="c">&lt;!-- value between 0 and 5 --&gt;</span>
+<span class="nt">&lt;/OiRequest&gt;</span></code></pre></div>
+
+<p>The attribute “type” of the “readingType” tag represents the type of reading (cartesian, polar etc.) that shall be returned. See the table below for a list of possible values for the attribute “type”.</p>
+
+<div class="CSSTableGenerator">
+<table>
+    <tr>
+      <td style="text-align: left">reading type</td>
+      <td style="text-align: left">description</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">0</td>
+      <td style="text-align: left">Returns a distance value.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">Returns cartesian coordinates (x, y, z).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">Returns polar coordinates (azimuth, zenith, distance).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">Returns azimuth and zenith.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4</td>
+      <td style="text-align: left">Returns a temperature.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">5</td>
+      <td style="text-align: left">Returns a level measurement (RX, RY, RZ).</td>
+    </tr>
+</table>
+</div>
+
+<h4 class="no_toc" id="response-8">Response</h4>
+
+<p>The response message to a “StartWatchWindow” task is shown below.</p>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;OiResponse</span> <span class="na">ref=</span><span class="s">&quot;11&quot;</span> <span class="na">errorCode=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span></code></pre></div>
+
+<p>Until you call the “StopWatchWindow” task in regular intervals OpenIndy sends a message of the below format. Depending on the reading type that was requested one of the shown sub tags (“cartesian”, “polar”, etc.) will be included.</p>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;OiResponse</span> <span class="na">ref=</span><span class="s">&quot;11&quot;</span> <span class="na">errorCode=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;cartesian</span> <span class="na">x=</span><span class="s">&quot;&quot;</span> <span class="na">y=</span><span class="s">&quot;&quot;</span> <span class="na">z=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;polar</span> <span class="na">azimuth=</span><span class="s">&quot;&quot;</span> <span class="na">zenith=</span><span class="s">&quot;&quot;</span> <span class="na">d=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;distance</span> <span class="na">d=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;direction</span> <span class="na">r=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;temperature</span> <span class="na">t=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;level</span> <span class="na">RX=</span><span class="s">&quot;&quot;</span> <span class="na">RY=</span><span class="s">&quot;&quot;</span> <span class="na">RZ=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/OiResponse&gt;</span></code></pre></div>
+
+<h3 class="no_toc" id="stopwatchwindow">StopWatchWindow</h3>
+
+<h4 class="no_toc" id="request-9">Request</h4>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;OiRequest</span> <span class="na">id=</span><span class="s">&quot;12&quot;</span><span class="nt">/&gt;</span></code></pre></div>
+
+<h4 class="no_toc" id="response-9">Response</h4>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;OiResponse</span> <span class="na">ref=</span><span class="s">&quot;12&quot;</span> <span class="na">errorCode=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span></code></pre></div>
+
+<h3 class="no_toc" id="startstakeout">StartStakeOut</h3>
+
+<h4 class="no_toc" id="request-10">Request</h4>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;OiRequest</span> <span class="na">id=</span><span class="s">&quot;13&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;mode</span> <span class="na">value=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;allGeometries</span> <span class="na">value=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;groups&gt;</span>
+        <span class="nt">&lt;group</span> <span class="na">name=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/groups&gt;</span>
+    <span class="nt">&lt;geometries&gt;</span>
+        <span class="nt">&lt;geometry</span> <span class="na">ref=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/geometries&gt;</span>
+<span class="nt">&lt;/OiRequest&gt;</span></code></pre></div>
+
+<p>Starts a stake out task. Possible values for the attribute “value” of the tag “mode” are “sequence” and nearest”, where only “nearest” is implemented in OpenIndy at the moment. Set the attribute “value” of the “allGeometries” tag to “1” if you want to include all geometries in the stake out, or “0” if only geometries of special groups or selected geometries shall be included. The tags “groups” and “geometries” are both optional. If only geometries of special feature groups shall be included in the stake out then you have to add their name.</p>
+
+<h4 class="no_toc" id="response-10">Response</h4>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;OiResponse</span> <span class="na">ref=</span><span class="s">&quot;13&quot;</span> <span class="na">errorCode=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;stakeOutId</span> <span class="na">id=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/OiResponse&gt;</span></code></pre></div>
+
+<p>The response to a “StartStakeOut” task is a unique id that identifies your stake out.</p>
+
+<h3 class="no_toc" id="stopstakeout">StopStakeOut</h3>
+
+<h4 class="no_toc" id="request-11">Request</h4>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;OiRequest</span> <span class="na">id=</span><span class="s">&quot;14&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;stakeOutId</span> <span class="na">id=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/OiRequest&gt;</span></code></pre></div>
+
+<p>To stop a stake out you have to supply the corresponding stake out id.</p>
+
+<h4 class="no_toc" id="response-11">Response</h4>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;OiResponse</span> <span class="na">ref=</span><span class="s">&quot;14&quot;</span> <span class="na">errorCode=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span></code></pre></div>
+
+<h3 class="no_toc" id="getnextgeometry">GetNextGeometry</h3>
+
+<h4 class="no_toc" id="request-12">Request</h4>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;OiRequest</span> <span class="na">id=</span><span class="s">&quot;15&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;stakeOutId</span> <span class="na">id=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/OiRequest&gt;</span></code></pre></div>
+
+<p>This task delivers the next geometry (which is the spatially closest one to the previous geometry)</p>
+
+<h4 class="no_toc" id="response-12">Response</h4>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;OiResponse</span> <span class="na">ref=</span><span class="s">&quot;15&quot;</span> <span class="na">errorCode=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;geometry</span> <span class="na">ref=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/OiResponse&gt;</span></code></pre></div>
+
+<p>The value “ref” of the “geometry” tag represents the id of the next geometry.</p>
+
+<h2 id="error-codes">Error codes</h2>
+
+<div class="CSSTableGenerator">
+<table>
+    <tr>
+      <td style="text-align: left">error code</td>
+      <td style="text-align: left">description</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">0</td>
+      <td style="text-align: left">No error occured.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">No, or wrong, xml format.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">The request id does not exist.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">There is no active feature. (e.g. measure)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4</td>
+      <td style="text-align: left">There is no active station.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">5</td>
+      <td style="text-align: left">There is no active coordinate system.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">6</td>
+      <td style="text-align: left">The requested feature id does not exist.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">7</td>
+      <td style="text-align: left">No transformation parameters are available. (e.g. aim)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">8</td>
+      <td style="text-align: left">The task is already in process. (e.g. watch window)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">9</td>
+      <td style="text-align: left">There is no task that could be stopped. (e.g. watch window)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">10</td>
+      <td style="text-align: left">No sensor is available. (e.g. watch window)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">11</td>
+      <td style="text-align: left">The task id does not exist. (e.g. stake out)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">12</td>
+      <td style="text-align: left">Stake out is finished.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">13</td>
+      <td style="text-align: left">You cannot measure a nominal geometry.</td>
+    </tr>
+</table>
+</div>
+<p><br /></p>
+
+<hr />
+
+<h2 id="data-import-oidataexchanger">Data import (oiDataExchanger)</h2>
+
+<p>data import </p>
+
+    </div><!-- /.article-wrap -->
+    
+  </article>
+</div><!-- /#index -->
+
+<div class="footer-wrap">
+  <footer>
+    
+
+<hr />
+
+<span>
+<table>
+   <tr>
+      <td align="left">&copy; 2014 OpenIndy and <a href="http://sigma3D.de" target="_blank">sigma3D</a></td>
+      <td align="right"><a href="/posts/contact.html">Contact</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/posts/legal.html">Legal Disclosure</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/posts/privacy.html">Privacy Statement</a></td>
+   </tr>
+</table>
+</span>
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script>
+ 
+$(function(){
+ 
+    $(document).on( 'scroll', function(){
+ 
+        if ($(window).scrollTop() > 100) {
+            $('.scroll-top-wrapper').addClass('show');
+        } else {
+            $('.scroll-top-wrapper').removeClass('show');
+        }
+    });
+ 
+    $('.scroll-top-wrapper').on('click', scrollToTop);
+});
+ 
+function scrollToTop() {
+    verticalOffset = typeof(verticalOffset) != 'undefined' ? verticalOffset : 0;
+    element = $('body');
+    offset = element.offset();
+    offsetTop = offset.top;
+    $('html, body').animate({scrollTop: offsetTop}, 500, 'linear');
+}
+</script>
+
+
+
+<script>window.jQuery || document.write('<script src="http://0.0.0.0:4000//assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://0.0.0.0:4000//assets/js/scripts.min.js"></script>
+
+          
+
+</body>
+</html>

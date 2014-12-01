@@ -1,17 +1,17 @@
 ---
 layout: page
-title: Welcome to the OiPluginTemplate Tutorial 
+title: Plugins / OiPluginTemplate 
 modified: 2014-07-31T13:23:02.362000-04:00
 excerpt: "This tutorial supports you to learn how to write and run your own plugins using this project as a template."
 author: dev
 image:
-  feature: banner_oi.jpg
+  feature: banner/b_tracker2.jpg
 ---
 
 
 <section id="table-of-contents" class="toc">
   <header>
-    <h3>Tutorial Overview</h3>
+    <h3>Plugins / OiPluginTemplate Overview</h3>
   </header>
 <div id="drawer" markdown="1">
 * bla
@@ -20,10 +20,21 @@ image:
 </div>
 </section><!-- /#table-of-contents -->
 
-OiPluginTemplate is a predefined Qt project which we recommend you to use if you want to write a plugin for OpenIndy. If you do not know OpenIndy yet, you may want to inform yourself [here](/documentation/docu-dev.html).
-In the next chapters it is assumed that you know the terminology of OpenIndy (like element, feature, function, sensor etc.). Read the following steps to learn how to write and run your own plugins using this project as a template.
+---
+
+
+<a href="/documentation/docu-dev.html" class="btn">Overview</a>&nbsp;&nbsp;<a href="/documentation/docu-dev/concept.html" class="btn">Concept and Architecture</a>&nbsp;&nbsp;<a href="/documentation/docu-dev/plugins.html" class="btn btn-success">Plugins</a>&nbsp;&nbsp;<a href="/documentation/docu-dev/interface.html" class="btn">Server Interface</a>&nbsp;&nbsp;<a href="/documentation/docu-dev/gui.html" class="btn">Model View Control</a>
+
+## Plugin loader
+
+plugin loader
 
 ---
+
+##OiPluginTemplate Tutorial
+
+OiPluginTemplate is a predefined Qt project which we recommend you to use if you want to write a plugin for OpenIndy. In the next chapters it is assumed that you know the terminology of OpenIndy (like element, feature, function, sensor etc.). If you do not know the concept of OpenIndy yet, you may want to inform yourself [here](/documentation/docu-dev/concept.html#concept). Read the following steps to learn how to write and run your own plugins using this project as a template.
+
 
 ##Get started
 

@@ -1,10 +1,10 @@
 ---
 layout: page
 title: Measurement
-excerpt: "User documentation for OpenIndy."
+excerpt: "User documentation for OpenIndy - The Measurement"
 author: usr
 image:
-  feature: banner_oi.jpg
+  feature: banner/b_smr.jpg
 ---
 
 <section id="table-of-contents" class="toc">

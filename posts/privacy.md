@@ -2,7 +2,7 @@
 layout: page
 title: Privacy Statement
 image:
-  feature: banner_oi.jpg
+  feature: banner/b_tachy.jpg
 ---
 
 <h3>General</h3>Your personal data (e.g. title, name, house address, e-mail address, phone number, bank details, credit card number) are processed by us only in accordance with the provisions of German data privacy laws. The following provisions describe the type, scope and purpose of collecting, processing and utilizing personal data. This data privacy policy applies only to our web pages. If links on our pages route you to other pages, please inquire there about how your data are handled in such cases.<br/>

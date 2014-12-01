@@ -2,7 +2,7 @@
 layout: page
 title: Contact us
 image:
-  feature: banner_oi.jpg
+  feature: banner/b_tracker.jpg
 ---
 
 Don't hesitate to contact us personally via e-mail or by phone if you have any questions releated to OpenIndy - 

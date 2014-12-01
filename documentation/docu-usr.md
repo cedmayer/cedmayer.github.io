@@ -4,7 +4,7 @@ title: OpenIndy User Documentation
 excerpt: "User documentation for OpenIndy."
 author: usr
 image:
-  feature: banner_oi.jpg
+  feature: banner/b_smr.jpg
 ---
 
 
@@ -17,7 +17,7 @@ image:
 {:.no_toc}
 This user documentation shows the functionalities of OpenIndy and the way it works.
 To show this, we have one special measurement task and will describe all steps to solve it.
-It is described in detail in the [measurement](/documentation/docu-usr/measurement.html) section
+It is described in detail in the [measurement](/documentation/docu-usr/measurement.html) section.
 <br><br>
 The guide is structured in the following sections:
 
@@ -28,7 +28,6 @@ This section describes all steps you have to do for preparing your OpenIndy soft
 ###[Different Views](/documentation/docu-usr/views.html)
 
 All the different views with its functionality on the data are described in this section.
-views
 
 ###[Measurement](/documentation/docu-usr/measurement.html)
 

@@ -1,10 +1,10 @@
 ---
 layout: page
 title: Different Views
-excerpt: "User documentation for OpenIndy."
+excerpt: "User documentation for OpenIndy - Different Views"
 author: usr
 image:
-  feature: banner_oi.jpg
+  feature: banner/b_smr.jpg
 ---
 
 <section id="table-of-contents" class="toc">
@@ -30,7 +30,6 @@ The graphical user interface of OpenIndy is made according to the principle of "
 The most frequently used functions are displayed as icons on a feature toolbar, allowing quick and easy access to the measurement information.
 The forms-based graphical interaction helps you defining your measurement quickly and easily. 
 Each form tab is labeled with its content, preventing you from getting lost in the defining process.
-
 
 
 ### Tableview

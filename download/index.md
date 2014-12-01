@@ -4,7 +4,7 @@ title: Latest Version
 tags: [download, OpenIndy, QT, GitHub]
 comments: true
 image:
-  feature: banner_oi.jpg
+  feature: banner/b_nacht.jpg
 ---
 <b>Version 0.1 Posted on December XXth, 2014</b>
 <br>On this section you can download the latest executable version of OpenIndy.

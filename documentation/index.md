@@ -4,7 +4,7 @@ title: Welcome to the OpenIndy Documentation
 modified: 2014-07-31T13:23:02.362000-04:00
 excerpt: "This Documentation will guide and help you to understand OpenIndy."
 image:
-  feature: banner_oi.jpg
+  feature: banner/b_tachy.jpg
 ---
 
 ---

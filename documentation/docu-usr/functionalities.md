@@ -1,16 +1,15 @@
 ---
 layout: page
 title: Other Functionalities
-excerpt: "User documentation for OpenIndy."
+excerpt: "User documentation for OpenIndy - Other Functionalities"
 author: usr
 image:
-  feature: banner_oi.jpg
+  feature: banner/b_smr.jpg
 ---
 
 <section id="table-of-contents" class="toc">
   <header>
-    
-###Other Functionalities Overview
+        <h3>Other Functionalities Overview</h3>
   </header>
 <div id="drawer" markdown="1">
 * bla
@@ -25,8 +24,6 @@ image:
 
 <br>
 Here is an abstract of useful functions, which you might find most useful.
-
-FRAGE: Was bedeutet rote Farbe in watch window (Innerhalb eingestellter zu Soll-Wert?)
 
 
 ###Watch window

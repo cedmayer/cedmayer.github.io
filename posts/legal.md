@@ -2,7 +2,7 @@
 layout: page
 title: Legal Disclosure
 image:
-  feature: banner_oi.jpg
+  feature: banner/b_krypton.jpg
 ---
 
 <h3>Limitation of liability for internal content</h3>
